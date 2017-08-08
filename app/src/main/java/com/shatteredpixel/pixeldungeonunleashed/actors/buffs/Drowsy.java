@@ -57,15 +57,15 @@ public class Drowsy extends Buff {
 
 	@Override
 	public String toString() {
-		return "Drowsy";
+		return "催眠";
 	}
 
 	@Override
 	public String desc() {
-		return "A magical force is making it difficult to stay awake.\n" +
+		return "这神奇的力量使人难以保持清醒。\n" +
 				"\n" +
-				"The hero can resist drowsiness by taking damage or by being at full health.\n" +
+				"英雄如果受到伤害或完全健康则会抵抗睡意。\n" +
 				"\n" +
-				"After " + dispTurns(cooldown()+1) + ", the target will fall into a deep magical sleep.";
+				"在 " + dispTurns(cooldown()+1) + ",之后，目标将会进入深度魔法睡眠。";
 	}
 }

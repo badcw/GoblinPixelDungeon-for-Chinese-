@@ -77,7 +77,7 @@ public class AboutScene extends PixelScene {
 		new Flare( 7, 64 ).color( 0xFFFF66, true ).show( unlsh, 0 ).angularSpeed = +20;
 
         // Display our Title "Unleashed Pixel Dungeon"
-		BitmapTextMultiline shpxtitle = createMultiline( TTL_TITLE, 8, true );
+		BitmapTextMultiline shpxtitle = createMultiline( TTL_TITLE, 8 );
 		shpxtitle.maxWidth = (int) Math.min( colWidth, 120 );
 		shpxtitle.measure();
 		shpxtitle.hardlight( Window.SHPX_COLOR ); // our standard green color - change to red?
@@ -86,7 +86,7 @@ public class AboutScene extends PixelScene {
 		shpxtitle.y = align( unlsh.y + unlsh.height + 5 ); // place below our Icon
 
         // Display our Description Text
-		BitmapTextMultiline shpxtext = createMultiline( TXT_UNLSH, 8, true );
+		BitmapTextMultiline shpxtext = createMultiline( TXT_UNLSH, 8 );
 		shpxtext.maxWidth = shpxtitle.maxWidth;
 		shpxtext.measure();
 		add( shpxtext );
@@ -94,7 +94,7 @@ public class AboutScene extends PixelScene {
 		shpxtext.y = align( shpxtitle.y + shpxtitle.height() + 12 ); // place below our title
 
         // Display our Unleashed Link
-		BitmapTextMultiline shpxlink = createMultiline( LNK_UNLSH, 8, true );
+		BitmapTextMultiline shpxlink = createMultiline( LNK_UNLSH, 8 );
 		shpxlink.maxWidth = shpxtitle.maxWidth;
 		shpxlink.measure();
 		shpxlink.hardlight( Window.SHPX_COLOR );
@@ -124,7 +124,7 @@ public class AboutScene extends PixelScene {
 		new Flare( 7, 64 ).color( 0x112233, true ).show( wata, 0 ).angularSpeed = +20;
 
         // Display the title "Original Pixel Dungeon"
-		BitmapTextMultiline wataTitle = createMultiline( TTL_WATA, 8, true );
+		BitmapTextMultiline wataTitle = createMultiline( TTL_WATA, 8 );
 		wataTitle.maxWidth = (int) Math.min( colWidth, 120 );
 		wataTitle.measure();
 		wataTitle.hardlight(Window.TITLE_COLOR);
@@ -133,7 +133,7 @@ public class AboutScene extends PixelScene {
 		wataTitle.y = align( wata.y + wata.height + 11 );
 
         // Display the Wata Text
-		BitmapTextMultiline wataText = createMultiline( TXT_WATA, 8, true );
+		BitmapTextMultiline wataText = createMultiline( TXT_WATA, 8 );
 		wataText.maxWidth = wataTitle.maxWidth;
 		wataText.measure();
 		add( wataText );
@@ -141,7 +141,7 @@ public class AboutScene extends PixelScene {
 		wataText.y = align( wataTitle.y + wataTitle.height() + 12 );
 
         // Create the Pixel Dungeon Link
-		BitmapTextMultiline wataLink = createMultiline( LNK_WATA, 8, true );
+		BitmapTextMultiline wataLink = createMultiline( LNK_WATA, 8 );
 		wataLink.maxWidth = wataTitle.maxWidth;
 		wataLink.measure();
 		wataLink.hardlight(Window.TITLE_COLOR);

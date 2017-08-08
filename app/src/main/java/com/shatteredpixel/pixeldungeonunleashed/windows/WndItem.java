@@ -30,6 +30,8 @@ import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
 import com.shatteredpixel.pixeldungeonunleashed.ui.ItemSlot;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndItem extends Window {
 
@@ -54,20 +56,18 @@ public class WndItem extends Window {
 			titlebar.color( ItemSlot.DEGRADED );
 		}
 		
-		BitmapTextMultiline info = PixelScene.createMultiline( item.info(), 6, false );
-		info.maxWidth = WIDTH;
-		info.measure();
-		info.x = titlebar.left();
-		info.y = titlebar.bottom() + GAP;
+		RenderedTextMultiline info = PixelScene.renderMultiline( item.info(), 6 );
+		info.maxWidth(WIDTH);
+		info.setPos(titlebar.left(), titlebar.bottom() + GAP);
 		add( info );
 	
-		float y = info.y + info.height() + GAP;
+		float y = info.top() + info.height() + GAP;
 		float x = 0;
 		
 		if (Dungeon.hero.isAlive() && owner != null) {
 			for (final String action:item.actions( Dungeon.hero )) {
 				
-				RedButton btn = new RedButton( action ) {
+				NewRedButton btn = new NewRedButton( action ) {
 					@Override
 					protected void onClick() {
 						item.execute( Dungeon.hero, action );

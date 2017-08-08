@@ -31,16 +31,16 @@ public class MessageSpot extends Blob {
                     // this message blob has been seen by the player already
                     break;
                 case FIRST_EXIT:
-                    GameScene.show(new WndMessage("You have found the stairs down!  After you are done exploring this level" +
-                        "you can use these stairs to continue your adventure."));
+                    GameScene.show(new WndMessage("在你探索完这层之前，你已经找到了下楼的楼梯！" +
+                        "你可以用这些楼梯继续你的冒险。"));
                     break;
                 case FIRST_TRAP:
                     if (first_trap == 0) {
                         Dungeon.level.discover(pos);
-                        GameScene.show(new WndMessage("Here is a trap, most traps start off hidden until you discover them.  Traps " +
-                                "will do something bad to you when you step on them.  But like all obstacles in this game there is " +
-                                "usually a smart way around them, such as floating over them or setting them off by throwing an item into " +
-                                "the trap."));
+                        GameScene.show(new WndMessage("这是一个陷阱。大多数陷阱都是隐藏的，直到你发现它们。当 " +
+                                " 你踩到陷阱时，它们会对你做一些不好的事。但就像这个游戏中的所有障碍一样，通常有" +
+                                "一个巧妙的方法来绕过他们, 例如漂浮在陷阱上面或者把物品扔到 " +
+                                "陷阱里 。"));
                         first_trap = 1;
                     }
                     break;

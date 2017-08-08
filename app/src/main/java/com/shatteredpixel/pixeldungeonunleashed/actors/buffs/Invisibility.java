@@ -75,17 +75,17 @@ public class Invisibility extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Invisible";
+		return "隐形";
 	}
 
 	@Override
 	public String desc() {
-		return "You are completely blended into the surrounding terrain, making you impossible to see.\n" +
+		return "你已经完全地融入了周围的地形，使你不可能被其它生物看到。\n" +
 				"\n" +
-				"While you are invisible enemies are unable to attack or follow you. " +
-				"Physical attacks and magical effects (such as scrolls and wands) will immediately cancel invisibility.\n" +
+				"当你隐形时，敌人无法攻击或跟随你。" +
+				"物理攻击和使用魔法（如卷轴和法杖）会使你立即退出隐形状态。\n" +
 				"\n" +
-				"This invisibility will last for " + dispTurns() + ".";
+				"隐形还将持续" + dispTurns() + "。";
 	}
 
 	public static void dispel() {

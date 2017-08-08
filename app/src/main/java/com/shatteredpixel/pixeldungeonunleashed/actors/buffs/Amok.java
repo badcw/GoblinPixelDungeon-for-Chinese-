@@ -46,15 +46,15 @@ public class Amok extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Amok";
+		return "狂乱";
 	}
 
 	@Override
 	public String desc() {
-		return "Amok causes a state of great rage and confusion in its target.\n" +
+		return "狂乱会引起目标剧烈的愤怒和混乱。\n" +
 				"\n" +
-				"When a creature is amoked, they will attack whatever is near them, whether they be friend or foe.\n" +
+				"当一个生物狂乱时，他们会攻击任何靠近他们的人，不管是朋友还是敌人。\n" +
 				"\n" +
-				"The amok will last for " + dispTurns() + ".";
+				"狂乱将还持续 " + dispTurns() + ".";
 	}
 }

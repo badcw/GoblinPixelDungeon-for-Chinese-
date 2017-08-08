@@ -56,15 +56,15 @@ public class Fury extends Buff {
 	
 	@Override
 	public String toString() {
-		return "Furious";
+		return "狂怒";
 	}
 
 	@Override
 	public String desc() {
-		return "You are angry, enemies won't like you when you're angry.\n" +
+		return "你生气了，你生气的时候敌人是不会喜欢你的。\n" +
 				"\n" +
-				"A great rage burns within you, increasing the damage you deal with physical attacks by 50%. \n" +
+				"狂怒会使你体内燃烧，增加50%物理攻击伤害。 \n" +
 				"\n" +
-				"This rage will last as long as you are injured below 40% health.\n";
+				"只要你生命值在40%以下，这种狂怒效果就会一直持续下去。\n";
 	}
 }

@@ -40,11 +40,11 @@ public class MagicalSleep extends Buff {
 
 			if (target instanceof Hero)
 				if (target.HP == target.HT) {
-					GLog.i("You are too healthy, and resist the urge to sleep.");
+					GLog.i("你太健康了，抵制了想要睡眠的冲动。");
 					detach();
 					return true;
 				} else {
-					GLog.i("You fall into a deep magical sleep.");
+					GLog.i("你陷入了深深的魔法睡眠。");
 				}
 			else if (target instanceof Mob)
 				((Mob)target).state = ((Mob)target).SLEEPING;
@@ -63,7 +63,7 @@ public class MagicalSleep extends Buff {
 			target.HP = Math.min(target.HP+1, target.HT);
 			((Hero) target).resting = true;
 			if (target.HP == target.HT) {
-				GLog.p("You wake up feeling refreshed and healthy.");
+				GLog.p("你醒来时感觉神清气爽，身体健康。");
 				detach();
 			}
 		}
@@ -86,15 +86,15 @@ public class MagicalSleep extends Buff {
 
 	@Override
 	public String toString() {
-		return "Magical Sleep";
+		return "魔法睡眠";
 	}
 
 	@Override
 	public String desc() {
-		return "This character has fallen into a deep magical sleep which they will not wake from naturally.\n" +
+		return "这个生物进入了深深的魔法睡眠，他们不会自然醒来。\n" +
 				"\n" +
-				"Magical sleep is similar to regular sleep, except that only damage will cause the target to wake up. \n" +
+				"魔法睡眠和普通睡眠很相似，除了只有受到伤害才会使目标醒来。 \n" +
 				"\n" +
-				"For the hero, magical sleep has some restorative properties, allowing them to rapidly heal while resting.";
+				"对于英雄来说，魔法睡眠具有恢复性，能让他们在睡眠中迅速康复。";
 	}
 }

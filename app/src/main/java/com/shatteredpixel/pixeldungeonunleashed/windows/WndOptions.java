@@ -27,35 +27,35 @@ import com.watabou.noosa.BitmapTextMultiline;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndOptions extends Window {
 
-	private static final int WIDTH			= 120;
+	private static final int WIDTH = 120;
+	
 	private static final int MARGIN 		= 2;
 	private static final int BUTTON_HEIGHT	= 20;
 	
 	public WndOptions( String title, String message, String... options ) {
 		super();
 		
-		BitmapTextMultiline tfTitle = PixelScene.createMultiline( title, 9, true );
+		RenderedTextMultiline tfTitle = PixelScene.renderMultiline( title, 9 );
 		tfTitle.hardlight( TITLE_COLOR );
-		tfTitle.x = tfTitle.y = MARGIN;
-		tfTitle.maxWidth = WIDTH - MARGIN * 2;
-		tfTitle.measure();
+		tfTitle.setPos(MARGIN, MARGIN);
+		tfTitle.maxWidth(width - MARGIN * 2);
 		add( tfTitle );
-		
-		BitmapTextMultiline tfMesage = PixelScene.createMultiline( message, 8, false );
-		tfMesage.maxWidth = WIDTH - MARGIN * 2;
-		tfMesage.measure();
-		tfMesage.x = MARGIN;
-		tfMesage.y = tfTitle.y + tfTitle.height() + MARGIN;
+
+		RenderedTextMultiline tfMesage = PixelScene.renderMultiline( 6 );
+		tfMesage.text(message, width - MARGIN * 2);
+		tfMesage.setPos( MARGIN, tfTitle.top() + tfTitle.height() + MARGIN );
 		add( tfMesage );
 		
-		float pos = tfMesage.y + tfMesage.height() + MARGIN;
+		float pos = tfMesage.bottom() + MARGIN;
 		
 		for (int i=0; i < options.length; i++) {
 			final int index = i;
-			RedButton btn = new RedButton( options[i] ) {
+			NewRedButton btn = new NewRedButton( options[i] ) {
 				@Override
 				protected void onClick() {
 					hide();

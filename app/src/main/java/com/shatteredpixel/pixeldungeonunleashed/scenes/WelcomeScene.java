@@ -89,18 +89,18 @@ public class WelcomeScene extends PixelScene {
 
 		if (gameversion == 0) {
 
-			text = createMultiline(TXT_Welcome, 9, false);
-			title = createMultiline(TTL_Welcome, 14, true);
+			text = createMultiline(TXT_Welcome, 9);
+			title = createMultiline(TTL_Welcome, 14);
 
 		} else if (gameversion <= Game.versionCode) {
 
-			text = createMultiline(TXT_Update, 6, false );
-			title = createMultiline(TTL_Update, 9, true );
+			text = createMultiline(TXT_Update, 6);
+			title = createMultiline(TTL_Update, 9);
 
 		} else {
 
-			text = createMultiline( TXT_Future, 9, false );
-			title = createMultiline( TTL_Future, 14, true );
+			text = createMultiline( TXT_Future, 9 );
+			title = createMultiline( TTL_Future, 14);
 
 		}
 

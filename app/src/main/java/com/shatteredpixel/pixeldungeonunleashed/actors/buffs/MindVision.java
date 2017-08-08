@@ -43,7 +43,7 @@ public class MindVision extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Mind vision";
+		return "灵视";
 	}
 
 	@Override
@@ -54,12 +54,12 @@ public class MindVision extends FlavourBuff {
 
 	@Override
 	public String desc() {
-		return "Somehow you are able to see all creatures on this floor through your mind. It's a weird feeling.\n" +
+		return "不知怎的，你可以通过你的大脑看到这层的所有生物在这一层的位置。这是一种奇怪的感觉。\n" +
 				"\n" +
-				"All characters on this floor are visible to you as long as you have mind vision. " +
-				"Seeing a creature through mind vision counts as it being seen or nearby for " +
-				"the purposes of many magical effects.\n" +
+				"只要你有灵视的效果，这层的所有生物你都能看见。 " +
+				"通过灵视看到的一个生物，因为许多魔法效果而被看见" +
+				"从而变成附近。\n" +
 				"\n" +
-				"The mind vision will last for " + dispTurns() + ".";
+				"灵视还将持续" + dispTurns() + "。";
 	}
 }

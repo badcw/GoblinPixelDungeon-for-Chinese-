@@ -27,6 +27,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -38,6 +39,10 @@ import com.watabou.noosa.audio.Sample;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.GameScene;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.TitleScene;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Languages;
+import com.watabou.noosa.RenderedText;
+
+import java.util.Locale;
 
 public class GoblinsPixelDungeon extends Game {
 	
@@ -112,6 +117,12 @@ public class GoblinsPixelDungeon extends Game {
 				Assets.SND_BEE,
 				Assets.SND_DEGRADE,
 				Assets.SND_MIMIC );
+				
+		if (classicFont()) {
+			RenderedText.setFont("pixelfont.ttf");
+		} else {
+			RenderedText.setFont( null );
+		}						
 	}
 
 	@Override
@@ -128,6 +139,15 @@ public class GoblinsPixelDungeon extends Game {
 		PixelScene.noFade = true;
 		switchScene( c );
 	}
+
+	public static void switchNoFadeNew(Class<? extends PixelScene> c){
+		switchNoFadeNew(c, null);
+	}
+	
+	public static void switchNoFadeNew(Class<? extends PixelScene> c, SceneChangeCallback callback) {
+		PixelScene.noFade = true;
+		switchSceneNew( c, callback );
+	}		
 
 	/*
 	 * ---> Prefernces
@@ -182,8 +202,7 @@ public class GoblinsPixelDungeon extends Game {
 	public static void updateImmersiveMode() {
 		if (android.os.Build.VERSION.SDK_INT >= 19) {
 			try {
-				if (instance != null) {
-					instance.getWindow().getDecorView().setSystemUiVisibility(
+				instance.getWindow().getDecorView().setSystemUiVisibility(
 						immersed() ? View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 							| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 							| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -191,8 +210,7 @@ public class GoblinsPixelDungeon extends Game {
 							| View.SYSTEM_UI_FLAG_FULLSCREEN
 							| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
 						: 0);
-				}
-			} catch (Exception e) {
+				} catch (Exception e) {
 				reportException( e );
 			}
 		}
@@ -244,6 +262,36 @@ public class GoblinsPixelDungeon extends Game {
 		return Preferences.INSTANCE.getBoolean( Preferences.KEY_BRIGHTNESS, false );
 	}
 
+	public static void language(Languages lang) {
+		Preferences.INSTANCE.put( Preferences.KEY_LANG, lang.code());
+	}
+
+	public static Languages language() {
+		String code = Preferences.INSTANCE.getString(Preferences.KEY_LANG, null);
+		if (code == null){
+			Languages lang = Languages.matchLocale(Locale.getDefault());
+			if (lang.status() == Languages.Status.REVIEWED)
+				return lang;
+			else
+				return Languages.ENGLISH;
+		}
+		else return Languages.matchCode(code);
+	}
+
+	public static void classicFont(boolean classic){
+		Preferences.INSTANCE.put(Preferences.KEY_CLASSICFONT, classic);
+		if (classic) {
+			RenderedText.setFont("pixelfont.ttf");
+		} else {
+			RenderedText.setFont( null );
+		}
+	}
+
+	public static boolean classicFont(){
+		return Preferences.INSTANCE.getBoolean(Preferences.KEY_CLASSICFONT,
+				(language() != Languages.CHINESE ));
+	}		
+	
 	public static void lastClass( int value ) {
 		Preferences.INSTANCE.put( Preferences.KEY_LAST_CLASS, value );
 	}

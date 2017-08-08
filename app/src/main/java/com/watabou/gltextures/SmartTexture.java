@@ -38,16 +38,17 @@ public class SmartTexture extends Texture {
 	public Atlas atlas;
 	
 	public SmartTexture( Bitmap bitmap ) {
-		this( bitmap, NEAREST, CLAMP );
+		this( bitmap, NEAREST, CLAMP, false);
 	}
 
-	public SmartTexture( Bitmap bitmap, int filtering, int wrapping ) {
+	public SmartTexture( Bitmap bitmap, int filtering, int wrapping, boolean premultiplied) {
 		
 		super();
 		
 		bitmap( bitmap );
 		filter( filtering, filtering );
 		wrap( wrapping, wrapping );
+		this.premultiplied = premultiplied;
 		
 	}
 	

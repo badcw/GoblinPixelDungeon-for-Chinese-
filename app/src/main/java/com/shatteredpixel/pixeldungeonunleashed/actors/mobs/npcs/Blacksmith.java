@@ -51,30 +51,30 @@ import com.watabou.utils.Random;
 public class Blacksmith extends NPC {
 
 	private static final String TXT_GOLD_1 =
-		"Hey goblin! Wanna be useful, eh? Take dis pickaxe and mine me some _dark gold ore_, _15 pieces_ should be enough. " +
-		"What do you mean, how am I gonna pay? You greedy...\n" +
-		"Ok, ok, I don't have money to pay, but I can do some smithin' for you. Consider yourself lucky, " +
-		"I'm the only blacksmith around.";
+		"嘿，哥布林！你能帮我做些事吗?我会给你报酬。用这把稿子去挖_暗金矿_，我想_15块_应该就足够了。 " +
+		"你是什么意思，我该怎么付钱？你太贪婪了...\n" +
+		"好吧，好吧，我没钱付给你, 但是我可以帮你锻造装备。我觉得我很幸运， " +
+		"毕竟我是附近唯一的铁匠。";
 	private static final String TXT_BLOOD_1 =
-		"Hey goblin! Wanna be useful, eh? Take dis pickaxe and _kill a bat_ wit' it, I need its blood on the head. " +
-		"What do you mean, how am I gonna pay? You greedy...\n" +
-		"Ok, ok, I don't have money to pay, but I can do some smithin' for you. Consider yourself lucky, " +
-		"I'm the only blacksmith around.";
+		"嘿，哥布林! 你能帮我做些事吗?我会给你报酬。 用这把稿子去_杀一只蝙蝠_,我需要它头上的血。 " +
+		"你是什么意思，我该怎么付钱？你太贪婪了...\n" +
+		"好吧，好吧，我没钱付给你, 但是我可以帮你锻造装备。我觉得我很幸运， " +
+		"毕竟我是附近唯一的铁匠。";
 	private static final String TXT2 =
-		"Are you kiddin' me? Where is my pickaxe?!";
+		"你是在跟我开玩笑吧？我的稿子在哪里?!";
 	private static final String TXT3 =
-		"Dark gold ore. 15 pieces. Seriously, is it dat hard?";
+		"挖15块暗金矿，真的很难吗？";
 	private static final String TXT4 =
-		"I said I need bat blood on the pickaxe. Chop chop!";
+		"我说我需要蝙蝠血粘在稿子上。快去！";
 	private static final String TXT_COMPLETED =
-		"Oh, you have returned... Better late dan never.";
+		"哦，你终于回来了...好迟啊。";
 	private static final String TXT_GET_LOST =
-		"I'm busy. Get lost!";
+		"我很忙，请你离开吧。";
 	
-	private static final String TXT_LOOKS_BETTER	= "your %s certainly looks better now";
+	private static final String TXT_LOOKS_BETTER	= "你的 %s 现在看起来更好了。";
 	
 	{
-		name = "troll blacksmith";
+		name = "巨魔铁匠";
 		spriteClass = BlacksmithSprite.class;
 	}
 	
@@ -170,7 +170,7 @@ public class Blacksmith extends NPC {
 	public static String verify( Item item1, Item item2 ) {
 		
 		if (item1 == item2) {
-			return "Select 2 different items, not the same item twice!";
+			return "选择2个不同的物品，而不是同一个物品两次！";
 		}
 /*
 		// Removed to make forging more interesting to upgrade any good item with something else.
@@ -179,19 +179,19 @@ public class Blacksmith extends NPC {
 		}
 */
 		if (item1.level+item2.level > item1.levelCap) {
-            return "Dat item would be too powerful!";
+            return "这个物品将会太强大了！";
         }
 
 		if (item1.cursed || item2.cursed) {
-			return "I ain't workin' on cursed items!";
+			return "我不接收被诅咒的物品！";
 		}
 		
 		if (item1.level < 0 || item2.level < 0) {
-			return "This is junk, quality is too poor!";
+			return "这简直就是垃圾，质量太差了！";
 		}
 		
 		if (!item1.isUpgradable() || !item2.isUpgradable()) {
-			return "I can't reforge these items!";
+			return "我不能再重新锻造这些物品！";
 		}
 		
 		return null;
@@ -251,8 +251,8 @@ public class Blacksmith extends NPC {
 	@Override
 	public String description() {
 		return
-			"This troll blacksmith looks like all trolls look: he is tall and lean, and his skin resembles stone " +
-			"in both color and texture. The troll blacksmith is tinkering with unproportionally small tools.";
+			"这个巨魔铁匠比其它所有巨魔看起来：更高大且精瘦，他的皮肤像石头" +
+			"的颜色和纹理。巨魔铁匠正在不按比例地混合锻造物品。";
 	}
 
 	public static class Quest {

@@ -30,7 +30,7 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 
 public class Combo extends Buff {
 	
-	private static String TXT_COMBO = "%d hit combo!";
+	private static String TXT_COMBO = "%d 连击!";
 	
 	public int count = 0;
 	
@@ -41,7 +41,7 @@ public class Combo extends Buff {
 	
 	@Override
 	public String toString() {
-		return "Combo";
+		return "连击";
 	}
 	
 	public int hit( Char enemy, int damage ) {
@@ -72,13 +72,13 @@ public class Combo extends Buff {
 
 	@Override
 	public String desc() {
-		return "Through building momentum, the gladiator deals bonus damage.\n" +
+		return "通过连击，角斗士将对敌人造成额外伤害。\n" +
 				"\n" +
-				"Your combo will keep building with quick attacks that do not miss. " +
-				"The higher your combo gets, the faster your attacks will need to be. " +
-				"failing to land a hit quickly enough will reset the combo.\n" +
+				"连击将会保持于连续攻击中，闪避则会消除这个效果。 " +
+				"你的连击次数越高，攻击速度就越快。 " +
+				"如果没能很快命中目标，就会重置连击。\n" +
 				"\n" +
-				(count <= 2 ? "Your combo has not built up enough to give you bonus damage yet." :
-				"Your combo is currently giving you " + ((count - 2) * 20f) + " % bonus damage.");
+				(count <= 2 ? "你的连击还没有造成足够多的额外伤害。" :
+				"连击给你 " + ((count - 2) * 20f) + " % 额外伤害。");
 	}
 }

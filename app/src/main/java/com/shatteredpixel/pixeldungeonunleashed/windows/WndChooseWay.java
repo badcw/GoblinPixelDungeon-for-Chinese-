@@ -31,6 +31,8 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSprite;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
 
 public class WndChooseWay extends Window {
 	
@@ -51,40 +53,22 @@ public class WndChooseWay extends Window {
 		titlebar.setRect( 0, 0, WIDTH, 0 );
 		add( titlebar );
 		
-		Highlighter hl = new Highlighter( way1.desc() + "\n\n" + way2.desc() + "\n\n" + TXT_MESSAGE );
+		RenderedTextMultiline hl = PixelScene.renderMultiline( 6 );
+		hl.text( way1.desc() + "\n\n" + way2.desc() + "\n\n" + TXT_MESSAGE, WIDTH );
+		hl.setPos( titlebar.left(), titlebar.bottom() + GAP );
+		add( hl );
 		
-		BitmapTextMultiline normal = PixelScene.createMultiline( hl.text, 6, false );
-		normal.maxWidth = WIDTH;
-		normal.measure();
-		normal.x = titlebar.left();
-		normal.y = titlebar.bottom() + GAP;
-		add( normal );
-		
-		if (hl.isHighlighted()) {
-			normal.mask = hl.inverted();
-			
-			BitmapTextMultiline highlighted = PixelScene.createMultiline( hl.text, 6, false );
-			highlighted.maxWidth = normal.maxWidth;
-			highlighted.measure();
-			highlighted.x = normal.x;
-			highlighted.y = normal.y;
-			add( highlighted );
-	
-			highlighted.mask = hl.mask;
-			highlighted.hardlight( TITLE_COLOR );
-		}
-		
-		RedButton btnWay1 = new RedButton( Utils.capitalize( way1.title() ) ) {
+		NewRedButton btnWay1 = new NewRedButton( Utils.capitalize( way1.title() ) ) {
 			@Override
 			protected void onClick() {
 				hide();
 				tome.choose( way1 );
 			}
 		};
-		btnWay1.setRect( 0, normal.y + normal.height() + GAP, (WIDTH - GAP) / 2, BTN_HEIGHT );
+		btnWay1.setRect( 0, hl.bottom() + GAP, (WIDTH - GAP) / 2, BTN_HEIGHT );
 		add( btnWay1 );
 		
-		RedButton btnWay2 = new RedButton( Utils.capitalize( way2.title() ) ) {
+		NewRedButton btnWay2 = new NewRedButton( Utils.capitalize( way2.title() ) ) {
 			@Override
 			protected void onClick() {
 				hide();
@@ -94,7 +78,7 @@ public class WndChooseWay extends Window {
 		btnWay2.setRect( btnWay1.right() + GAP, btnWay1.top(), btnWay1.width(), BTN_HEIGHT );
 		add( btnWay2 );
 		
-		RedButton btnCancel = new RedButton( TXT_CANCEL ) {
+		NewRedButton btnCancel = new NewRedButton( TXT_CANCEL ) {
 			@Override
 			protected void onClick() {
 				hide();

@@ -39,7 +39,7 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 
 public class Frost extends FlavourBuff {
 
-	private static final String TXT_FREEZES = "%s freezes!";
+	private static final String TXT_FREEZES = "%s 被冻住了!";
 
 	private static final float DURATION	= 5f;
 
@@ -122,17 +122,17 @@ public class Frost extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Frozen";
+		return "冰冻";
 	}
 
 	@Override
 	public String desc() {
-		return "Not to be confused with freezing solid, this more benign freezing simply encases the target in ice.\n" +
+		return "不要与冰冻的固体混淆，这更温和的冰冻只是包裹了目标的表面。\n" +
 				"\n" +
-				"Freezing acts similarly to paralysis, making it impossible for the target to act. " +
-				"Unlike paralysis, freezing is immediately cancelled if the target takes damage, as the ice will shatter.\n" +
+				"冰冻同样起到瘫痪的作用，使目标无法移动。 " +
+				"但又有点不像瘫痪，如果目标受到伤害，冰冻会立即取消，因为冰会破碎。\n" +
 				"\n" +
-				"The freeze will last for " + dispTurns() + ", or until the target takes damage.\n";
+				"冰冻还将持续" + dispTurns() + ",直到目标受到伤害 。\n";
 	}
 
 	public static float duration( Char ch ) {

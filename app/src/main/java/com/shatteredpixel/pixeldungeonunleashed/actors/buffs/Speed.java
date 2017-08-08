@@ -36,16 +36,16 @@ public class Speed extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Hasted";
+		return "加速";
 	}
 
 	@Override
 	public String desc() {
-		return "Haste magic affects the target's rate of time, to them everything is moving super-slow.\n" +
+		return "加速魔法会影响目标的时间效率，对他们来说，一切都移动得非常慢。\n" +
 				"\n" +
-				"A hasted character performs all actions quicker than they would normally take.\n" +
+				"被加速的目标执行所有动作会比通常更快。\n" +
 				"\n" +
-				"This haste will last for " + dispTurns() + ".";
+				"加速还将持续" + dispTurns() + "。";
 	}
 
 	//public static float duration( Char ch ) {

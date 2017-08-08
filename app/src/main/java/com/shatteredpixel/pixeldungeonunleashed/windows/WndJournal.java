@@ -28,6 +28,7 @@ import java.util.Collections;
 import com.shatteredpixel.pixeldungeonunleashed.GoblinsPixelDungeon;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Image;
+import com.watabou.noosa.RenderedText;
 import com.watabou.noosa.ui.Component;
 import com.shatteredpixel.pixeldungeonunleashed.Dungeon;
 import com.shatteredpixel.pixeldungeonunleashed.Journal;
@@ -46,7 +47,7 @@ public class WndJournal extends Window {
 	
 	private static final String TXT_TITLE	= "Journal";
 	
-	private BitmapText txtTitle;
+	private RenderedText txtTitle;
 	private ScrollPane list;
 	
 	public WndJournal() {
@@ -54,11 +55,11 @@ public class WndJournal extends Window {
 		super();
 		resize( WIDTH, GoblinsPixelDungeon.landscape() ? HEIGHT_L : HEIGHT_P );
 
-		txtTitle = PixelScene.createText( TXT_TITLE, 9, true );
-		txtTitle.hardlight( Window.TITLE_COLOR );
-		txtTitle.measure();
-		txtTitle.x = PixelScene.align( PixelScene.uiCamera, (WIDTH - txtTitle.width()) / 2 );
-		add( txtTitle );
+		txtTitle = PixelScene.renderText(TXT_TITLE, 9);
+		txtTitle.hardlight(Window.TITLE_COLOR);
+		txtTitle.x = PixelScene.align(PixelScene.uiCamera,
+				(WIDTH - txtTitle.width()) / 2);
+		add(txtTitle);
 		
 		Component content = new Component();
 		
@@ -83,7 +84,7 @@ public class WndJournal extends Window {
 	
 	private static class ListItem extends Component {
 		
-		private BitmapText feature;
+		private RenderedText feature;
 		private BitmapText depth;
 		
 		private Image icon;
@@ -92,7 +93,6 @@ public class WndJournal extends Window {
 			super();
 			
 			feature.text( f.desc );
-			feature.measure();
 			
 			depth.text( Integer.toString( d ) );
 			depth.measure();
@@ -105,7 +105,7 @@ public class WndJournal extends Window {
 		
 		@Override
 		protected void createChildren() {
-			feature = PixelScene.createText( 9, true );
+			feature = PixelScene.renderText(9);
 			add( feature );
 			
 			depth = new BitmapText( PixelScene.font1x );

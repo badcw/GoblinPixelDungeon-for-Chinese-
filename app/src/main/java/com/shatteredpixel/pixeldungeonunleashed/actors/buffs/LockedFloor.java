@@ -46,19 +46,19 @@ public class LockedFloor extends Buff {
 
 	@Override
 	public String toString() {
-		return "Floor is Locked";
+		return "背水一战";
 	}
 
 	@Override
 	public String desc() {
-		return "The current floor is locked, and you are unable to leave it!\n" +
+		return "现在楼层被锁上了，你不能离开它！\n" +
 				"\n" +
-				"While a floor is locked, you will not gain hunger, or take damage from starving, " +
-				"but your current hunger state is still in effect. For example, if you are starving you won't take " +
-				"damage, but will still not regenerate health.\n" +
+				"当你背水一战时，你不会变得更饿，也不会受到由饥饿引起的伤害，" +
+				"但是你目前的饥饿状态仍然有效。例如，如果你饿了，你不会受到由饥饿引起的" +
+				"伤害，也仍然不会恢复健康。\n" +
 				"\n" +
-				"Additionally, if you are revived by an unblessed ankh while the floor is locked, then it will reset.\n" +
+				"另外，如果你使用未祝福的十字架复活时处于背水一战的话，那么该楼层将重置。\n" +
 				"\n" +
-				"Kill this floor's boss to break the lock.\n";
+				"只有击杀这层的boss才能解除背水一战。\n";
 	}
 }

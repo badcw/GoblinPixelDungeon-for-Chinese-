@@ -100,17 +100,17 @@ public class Shadows extends Invisibility {
 	
 	@Override
 	public String toString() {
-		return "Shadowmelded";
+		return "暗影融合";
 	}
 
 	@Override
 	public String desc() {
-		return "You are blended into the shadows around you, granting you invisibility and slowing your metabolism.\n" +
+		return "你融入了周围的阴影，使你隐形，减缓你的新陈代谢。\n" +
 				"\n" +
-				"While you are invisible enemies are unable to attack or follow you. " +
-				"Most physical attacks and magical effects (such as scrolls and wands) will immediately cancel invisibility. " +
-				"Additionally, while shadowmelded, your rate of hunger is slowed.\n" +
+				"当你隐形时，敌人无法攻击或跟随你。" +
+				"物理攻击和使用魔法（如卷轴和法杖）将立即取消隐形。 " +
+				"此外，在暗影融合的状态下，你饥饿的速度将会减缓。\n" +
 				"\n" +
-				"You will remain shadowmelded until you leave the shadows or an enemy comes into contact with you.";
+				"暗影融合状态将会一直保存，除非你离开阴影或敌人与你接触。";
 	}
 }

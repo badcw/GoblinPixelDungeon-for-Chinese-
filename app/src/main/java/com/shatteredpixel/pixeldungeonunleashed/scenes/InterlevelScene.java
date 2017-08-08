@@ -38,6 +38,10 @@ import com.watabou.noosa.Camera;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.audio.Music;
 import com.watabou.noosa.audio.Sample;
+import com.watabou.noosa.RenderedText;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
+
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -77,7 +81,7 @@ public class InterlevelScene extends PixelScene {
 	private Phase phase;
 	private float timeLeft;
 	
-	private BitmapText message;
+	private RenderedText message;
 	
 	private Thread thread;
 	private Exception error = null;
@@ -111,11 +115,11 @@ public class InterlevelScene extends PixelScene {
 			break;
 		}
 		
-		message = PixelScene.createText( text, 9, true );
-		message.measure();
+		message = PixelScene.renderText( text, 9 );
 		message.x = (Camera.main.width - message.width()) / 2;
 		message.y = (Camera.main.height - message.height()) / 2;
-		add( message );
+		align(message);
+		add(message);
 		
 		phase = Phase.FADE_IN;
 		timeLeft = TIME_TO_FADE;

@@ -27,7 +27,6 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.opengl.GLES20;
 
-import com.shatteredpixel.pixeldungeonunleashed.GoblinsPixelDungeon;
 import com.watabou.input.Touchscreen;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.BitmapText.Font;
@@ -35,12 +34,16 @@ import com.watabou.noosa.BitmapTextMultiline;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.ColorBlock;
 import com.watabou.noosa.Game;
+import com.watabou.noosa.RenderedText;
+import com.watabou.noosa.ui.Component;
 import com.watabou.noosa.Scene;
 import com.watabou.noosa.Visual;
+import com.watabou.utils.BitmapCache;
 import com.shatteredpixel.pixeldungeonunleashed.Assets;
 import com.shatteredpixel.pixeldungeonunleashed.Badges;
 import com.shatteredpixel.pixeldungeonunleashed.effects.BadgeBanner;
-import com.watabou.utils.BitmapCache;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
+import com.shatteredpixel.pixeldungeonunleashed.GoblinsPixelDungeon;
 
 public class PixelScene extends Scene {
 
@@ -63,7 +66,8 @@ public class PixelScene extends Scene {
 	public static BitmapText.Font font2x;
 	public static BitmapText.Font font25x;
 	public static BitmapText.Font font3x;
-	public static BitmapText.Font fontcomic;
+	//public static BitmapText.Font fontcomic;
+    public static BitmapText.Font pixelFont;	
 	
 	@Override
 	public void create() {
@@ -80,8 +84,9 @@ public class PixelScene extends Scene {
 			minWidth = MIN_WIDTH_P;
 			minHeight = MIN_HEIGHT_P;
 		}
-
+		
 		defaultZoom = (int)Math.ceil( Game.density * 2.5 );
+		defaultZoom--;
 		while ((
 			Game.width / defaultZoom < minWidth ||
 			Game.height / defaultZoom < minHeight
@@ -98,9 +103,8 @@ public class PixelScene extends Scene {
 
 		minZoom = 1;
 		maxZoom = defaultZoom * 2;
-			
 		
-		Camera.reset( new PixelCamera( defaultZoom ) );
+		Camera.reset(new PixelCamera(defaultZoom));
 		
 		float uiZoom = defaultZoom;
 		uiCamera = Camera.createFullscreen( uiZoom );
@@ -137,11 +141,6 @@ public class PixelScene extends Scene {
 					BitmapCache.get( Assets.FONTS3X ), 22, 0x00000000, BitmapText.Font.LATIN_FULL );
 			font3x.baseLine = 17;
 			font3x.tracking = -2;
-
-			fontcomic = Font.colorMarked(
-					BitmapCache.get( Assets.FONTCOMIC ), 22, 0x00000000, BitmapText.Font.LATIN_FULL );
-			fontcomic.baseLine = 20;
-			fontcomic.tracking = -3;
 		}
 	}
 	
@@ -156,43 +155,6 @@ public class PixelScene extends Scene {
 	
 	public static void chooseFont( float size ) {
 		chooseFont( size, defaultZoom );
-	}
-
-	public static void chooseComicFont( float size, float zoom ) {
-
-		float pt = size * zoom;
-
-		if (pt >= 19) {
-
-			scale = pt / 24;
-			if (1.5 <= scale && scale < 2) {
-				font = fontcomic;
-				scale = (pt / 26);
-			} else {
-				font = fontcomic;
-				// modified scale to fit the custom font3x.png...
-				//scale = (int)scale;
-			}
-
-		} else if (pt >= 14) {
-
-			scale = pt / 28;
-			if (1.8 <= scale && scale < 2) {
-				font = fontcomic;
-				scale = (pt / 30);
-			} else {
-				font = fontcomic;
-				//scale = (int)scale;
-			}
-
-		} else {
-
-			font = font1x;
-			scale = Math.max( 1, (int)(pt / 7) );
-
-		}
-
-		scale /= zoom;
 	}
 
     public static void chooseFont( float size, float zoom ) {
@@ -245,41 +207,35 @@ public class PixelScene extends Scene {
 
         } else {
 
-            font = font1x;
-            scale = Math.max( 1, (int)(pt / 7) );
+			font = pixelFont;
+			scale = 1f;
 
         }
 
         scale /= zoom;
     }
 	
-	public static BitmapText createText( float size, boolean comic ) {
-		return createText( null, size, comic );
+	public static BitmapText createText( float size ) {
+		return createText( null, size );
 	}
 	
-	public static BitmapText createText( String text, float size, boolean comic ) {
-		if (comic) {
-			chooseComicFont( size, defaultZoom);
-		} else {
-			chooseFont(size);
-		}
+	public static BitmapText createText( String text, float size ) {
+
+		chooseFont(size);
+		
 		BitmapText result = new BitmapText( text, font );
 		result.scale.set( scale );
 
 		return result;
 	}
 	
-	public static BitmapTextMultiline createMultiline( float size, boolean comic ) {
-		return createMultiline( null, size, comic );
+	public static BitmapTextMultiline createMultiline( float size ) {
+		return createMultiline( null, size );
 	}
 	
-	public static BitmapTextMultiline createMultiline( String text, float size, boolean comic ) {
+	public static BitmapTextMultiline createMultiline( String text, float size ) {
 
-		if (comic) {
-			chooseComicFont( size, defaultZoom);
-		} else {
-			chooseFont(size);
-		}
+		chooseFont(size);
 		
 		BitmapTextMultiline result = new BitmapTextMultiline( text, font );
 		result.scale.set( scale );
@@ -287,21 +243,43 @@ public class PixelScene extends Scene {
 		return result;
 	}
 	
-	public static float align( Camera camera, float pos ) {
-		return ((int)(pos * camera.zoom)) / camera.zoom;
+	public static RenderedText renderText(int size ) {
+		return renderText("", size);
 	}
 
-	// This one should be used for UI elements
+	public static RenderedText renderText( String text, int size ) {
+		RenderedText result = new RenderedText( text, size*(int)defaultZoom);
+		result.scale.set(1/(float)defaultZoom);
+		return result;
+	}
+
+	public static RenderedTextMultiline renderMultiline( int size ){
+		return renderMultiline("", size);
+	}
+
+	public static RenderedTextMultiline renderMultiline( String text, int size ){
+		RenderedTextMultiline result = new RenderedTextMultiline( text, size*(int)defaultZoom);
+		result.zoom(1/(float)defaultZoom);
+		return result;
+	}	
+	
 	public static float align( float pos ) {
-		return ((int)(pos * defaultZoom)) / defaultZoom;
+		return Math.round(pos * defaultZoom) / (float)defaultZoom;
+	}
+
+	public static float align( Camera camera, float pos ) {
+		return Math.round(pos * camera.zoom) / camera.zoom;
 	}
 	
 	public static void align( Visual v ) {
-		Camera c = v.camera();
-		v.x = align( c, v.x );
-		v.y = align( c, v.y );
+		v.x = align( v.x );
+		v.y = align( v.y );
 	}
 
+	public static void align( Component c ){
+		c.setPos(align(c.left()), align(c.top()));
+	}
+	
 	public static boolean noFade = false;
 	protected void fadeIn() {
 		if (noFade) {
@@ -362,7 +340,10 @@ public class PixelScene extends Scene {
 				super.draw();
 				GLES20.glBlendFunc( GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA );
 			} else {
-				super.draw();
+				try {
+					super.draw();
+				} catch (Exception e) {
+				}
 			}
 		}
 	}
@@ -391,3 +372,4 @@ public class PixelScene extends Scene {
 		}
 	}
 }
+

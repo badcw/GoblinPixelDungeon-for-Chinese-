@@ -31,6 +31,7 @@ import com.shatteredpixel.pixeldungeonunleashed.actors.hero.HeroClass;
 import com.shatteredpixel.pixeldungeonunleashed.actors.hero.HeroSubClass;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndClass extends WndTabbed {
 
@@ -119,7 +120,7 @@ public class WndClass extends WndTabbed {
 					pos += GAP;
 				}
 
-				BitmapText dot = PixelScene.createText( DOT, 6, false );
+				BitmapText dot = PixelScene.createText( DOT, 6 );
 				dot.x = MARGIN;
 				dot.y = pos;
 				if (dotWidth == 0) {
@@ -128,11 +129,9 @@ public class WndClass extends WndTabbed {
 				}
 				add( dot );
 
-				BitmapTextMultiline item = PixelScene.createMultiline( items[i], 6, false );
-				item.x = dot.x + dotWidth;
-				item.y = pos;
-				item.maxWidth = (int)(WIDTH - MARGIN * 2 - dotWidth);
-				item.measure();
+				RenderedTextMultiline item = PixelScene.renderMultiline( items[i], 6 );
+				item.maxWidth((int)(WIDTH - MARGIN * 2 - dotWidth));
+				item.setPos(dot.x + dotWidth, pos);
 				add( item );
 
 				pos += item.height();
@@ -151,56 +150,34 @@ public class WndClass extends WndTabbed {
 
 		private static final int MARGIN	= 4;
 
-		private BitmapTextMultiline normal;
-		private BitmapTextMultiline highlighted;
-
 		public float height;
 		public float width;
 
 		public MasteryTab() {
 			super();
 
-			String text = null;
+			String message = null;
 			switch (cl) {
 				case COMPLAINS:
-					text = HeroSubClass.GLADIATOR.desc() + "\n\n" + HeroSubClass.BERSERKER.desc();
+					message = HeroSubClass.GLADIATOR.desc() + "\n\n" + HeroSubClass.BERSERKER.desc();
 					break;
 				case CHIEF:
-					text = HeroSubClass.BATTLEMAGE.desc() + "\n\n" + HeroSubClass.WARLOCK.desc();
+					message = HeroSubClass.BATTLEMAGE.desc() + "\n\n" + HeroSubClass.WARLOCK.desc();
 					break;
 				case FUMBLES:
-					text = HeroSubClass.FREERUNNER.desc() + "\n\n" + HeroSubClass.ASSASSIN.desc();
+					message = HeroSubClass.FREERUNNER.desc() + "\n\n" + HeroSubClass.ASSASSIN.desc();
 					break;
 				case THACO:
-					text = HeroSubClass.SNIPER.desc() + "\n\n" + HeroSubClass.WARDEN.desc();
+					message = HeroSubClass.SNIPER.desc() + "\n\n" + HeroSubClass.WARDEN.desc();
 					break;
 			}
+			RenderedTextMultiline text = PixelScene.renderMultiline( 6 );
+			text.text( message, WIDTH - MARGIN * 2 );
+			text.setPos( MARGIN, MARGIN );
+			add( text );
 
-			Highlighter hl = new Highlighter( text );
-
-			normal = PixelScene.createMultiline( hl.text, 6, false );
-			normal.maxWidth = WIDTH - MARGIN * 2;
-			normal.measure();
-			normal.x = MARGIN;
-			normal.y = MARGIN;
-			add( normal );
-
-			if (hl.isHighlighted()) {
-				normal.mask = hl.inverted();
-
-				highlighted = PixelScene.createMultiline( hl.text, 6, false );
-				highlighted.maxWidth = normal.maxWidth;
-				highlighted.measure();
-				highlighted.x = normal.x;
-				highlighted.y = normal.y;
-				add( highlighted );
-
-				highlighted.mask = hl.mask;
-				highlighted.hardlight( TITLE_COLOR );
-			}
-
-			height = normal.y + normal.height() + MARGIN;
-			width = normal.x + normal.width() + MARGIN;
+			height = text.bottom() + MARGIN;
+			width = text.right() + MARGIN;
 		}
 	}
 }

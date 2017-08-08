@@ -37,6 +37,7 @@ import com.shatteredpixel.pixeldungeonunleashed.scenes.RankingsScene;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.TitleScene;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Icons;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 
 @SuppressLint("DefaultLocale")
@@ -61,7 +62,7 @@ public class WndGame extends Window {
 		
 		super();
 		
-		addButton( new RedButton( TXT_SETTINGS ) {
+		addButton( new NewRedButton( TXT_SETTINGS ) {
 			@Override
 			protected void onClick() {
 				hide();
@@ -71,7 +72,7 @@ public class WndGame extends Window {
 
 		// Challenges window
 		if (Dungeon.challenges > 0) {
-			addButton( new RedButton( TXT_CHALLEGES ) {
+			addButton( new NewRedButton( TXT_CHALLEGES ) {
 				@Override
 				protected void onClick() {
 					hide();
@@ -83,8 +84,8 @@ public class WndGame extends Window {
 		// Restart
 		if (!Dungeon.hero.isAlive()) {
 			
-			RedButton btnStart;
-			addButton( btnStart = new RedButton( TXT_START ) {
+			NewRedButton btnStart;
+			addButton( btnStart = new NewRedButton( TXT_START ) {
 				@Override
 				protected void onClick() {
 					Dungeon.hero = null;
@@ -96,7 +97,7 @@ public class WndGame extends Window {
 			} );
 			btnStart.icon( Icons.get( Dungeon.hero.heroClass ) );
 			
-			addButton( new RedButton( TXT_RANKINGS ) {
+			addButton( new NewRedButton( TXT_RANKINGS ) {
 				@Override
 				protected void onClick() {
 					InterlevelScene.mode = InterlevelScene.Mode.DESCEND;
@@ -107,7 +108,7 @@ public class WndGame extends Window {
 
 		addButton(
 				// Main menu
-				new RedButton(TXT_MENU) {
+				new NewRedButton(TXT_MENU) {
 					@Override
 					protected void onClick() {
 						try {
@@ -123,7 +124,7 @@ public class WndGame extends Window {
 
 				// Load/Save menu
 		addButton(
-				new RedButton( TXT_LOADSAVE + " " + LoadSaveScene.capitalizeWord(Dungeon.hero.heroClass.title()) ) {
+				new NewRedButton( TXT_LOADSAVE + " " + LoadSaveScene.capitalizeWord(Dungeon.hero.heroClass.title()) ) {
 					@Override
 					protected void onClick() {
 						try {
@@ -139,7 +140,7 @@ public class WndGame extends Window {
 
 		// Quit
 		addButton(
-				new RedButton( TXT_EXIT ) {
+				new NewRedButton( TXT_EXIT ) {
 					@Override
 					protected void onClick() {
 						Game.instance.finish();
@@ -148,7 +149,7 @@ public class WndGame extends Window {
 		);
 
 		// Cancel
-		addButton( new RedButton( TXT_RETURN ) {
+		addButton( new NewRedButton( TXT_RETURN ) {
 			@Override
 			protected void onClick() {
 				hide();
@@ -158,13 +159,13 @@ public class WndGame extends Window {
 		resize( WIDTH, pos );
 	}
 	
-	private void addButton( RedButton btn ) {
+	private void addButton( NewRedButton btn ) {
 		add( btn );
 		btn.setRect( 0, pos > 0 ? pos += GAP : 0, WIDTH, BTN_HEIGHT );
 		pos += BTN_HEIGHT;
 	}
 
-	private void addButtons( RedButton btn1, RedButton btn2 ) {
+	private void addButtons( NewRedButton btn1, RedButton btn2 ) {
 		add( btn1 );
 		btn1.setRect( 0, pos > 0 ? pos += GAP : 0, (WIDTH - GAP) / 2, BTN_HEIGHT );
 		add( btn2 );

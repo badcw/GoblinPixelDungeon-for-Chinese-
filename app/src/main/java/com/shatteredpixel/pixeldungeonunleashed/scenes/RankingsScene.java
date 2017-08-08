@@ -81,7 +81,7 @@ public class RankingsScene extends PixelScene {
 		
 		Rankings.INSTANCE.load();
 
-		BitmapText title = PixelScene.createText(TXT_TITLE, 9, true);
+		BitmapText title = PixelScene.createText(TXT_TITLE, 9 );
 		title.hardlight(Window.SHPX_COLOR);
 		title.measure();
 		title.x = align((w - title.width()) / 2);
@@ -113,17 +113,17 @@ public class RankingsScene extends PixelScene {
 			}
 			
 			if (Rankings.INSTANCE.totalNumber >= Rankings.TABLE_SIZE) {
-				BitmapText label = PixelScene.createText( TXT_TOTAL, 8, true );
+				BitmapText label = PixelScene.createText( TXT_TOTAL, 8 );
 				label.hardlight( 0xCCCCCC );
 				label.measure();
 				add( label );
 
-				BitmapText won = PixelScene.createText( Integer.toString( Rankings.INSTANCE.wonNumber ), 8, true );
+				BitmapText won = PixelScene.createText( Integer.toString( Rankings.INSTANCE.wonNumber ), 8 );
 				won.hardlight( Window.SHPX_COLOR );
 				won.measure();
 				add( won );
 
-				BitmapText total = PixelScene.createText( "/" + Rankings.INSTANCE.totalNumber, 8, true );
+				BitmapText total = PixelScene.createText( "/" + Rankings.INSTANCE.totalNumber, 8 );
 				total.hardlight( 0xCCCCCC );
 				total.measure();
 				total.x = align( (w - total.width()) / 2 );
@@ -140,7 +140,7 @@ public class RankingsScene extends PixelScene {
 			
 		} else {
 
-			BitmapText noRec = PixelScene.createText(TXT_NO_GAMES, 8, true);
+			BitmapText noRec = PixelScene.createText(TXT_NO_GAMES, 8);
 			noRec.hardlight( 0xCCCCCC );
 			noRec.measure();
 			noRec.x = align((w - noRec.width()) / 2);
@@ -247,7 +247,7 @@ public class RankingsScene extends PixelScene {
 				position = new BitmapText(PixelScene.font1x);
 				position.alpha(0.8f);
 
-				desc = createMultiline(7, false);
+				desc = createMultiline(7);
 
 				depth = new BitmapText(PixelScene.font1x);
 				depth.alpha(0.8f);

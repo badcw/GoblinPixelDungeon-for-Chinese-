@@ -26,6 +26,7 @@ package com.shatteredpixel.pixeldungeonunleashed.windows;
 import java.util.ArrayList;
 
 import com.watabou.noosa.BitmapText;
+import com.watabou.noosa.RenderedText;
 import com.shatteredpixel.pixeldungeonunleashed.Challenges;
 import com.shatteredpixel.pixeldungeonunleashed.GoblinsPixelDungeon;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
@@ -50,9 +51,8 @@ public class WndChallenges extends Window {
 
 		this.editable = editable;
 
-		BitmapText title = PixelScene.createText( TITLE, 9, true );
+		RenderedText title = PixelScene.renderText( TITLE, 9 );
 		title.hardlight( TITLE_COLOR );
-		title.measure();
 		title.x = PixelScene.align( camera, (WIDTH - title.width()) / 2 );
 		title.y = PixelScene.align( camera, (TTL_HEIGHT - title.height()) / 2 );
 		add( title );

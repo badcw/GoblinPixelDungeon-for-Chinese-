@@ -70,7 +70,7 @@ public class GooWarn extends Blob {
 
 	@Override
 	public String tileDesc() {
-		return "Specs of dark energy are swarming here!";
+		return "一大团黑暗的能量聚集在这里！";
 	}
 }
 

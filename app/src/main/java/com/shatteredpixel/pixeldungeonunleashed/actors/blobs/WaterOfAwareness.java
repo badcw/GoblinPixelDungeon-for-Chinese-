@@ -45,9 +45,9 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 public class WaterOfAwareness extends WellWater {
 
 	private static final String TXT_PROCCED =
-		"As you take a sip, you feel the knowledge pours into your mind. " +
-		"Now you know everything about your equipped items. Also you sense " +
-		"all items on the level and know all its secrets.";
+		" 当你微微啜饮一口时，你感觉到知识涌入了你的大脑。" +
+		"你现在鉴定了你的装备。你也感觉到  " +
+		"了这层所有的物品的位置，知道了所有的秘密。";
 	
 	@Override
 	protected boolean affectHero( Hero hero ) {
@@ -107,7 +107,7 @@ public class WaterOfAwareness extends WellWater {
 	@Override
 	public String tileDesc() {
 		return
-			"Power of knowledge radiates from the water of this well. " +
-			"Take a sip from it to reveal all secrets of equipped items.";
+			"知识的力量从这口井里散发出来。 " +
+			"从井中微微啜饮一口，以揭示装备的所有秘密。";
 	}
 }

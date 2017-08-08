@@ -60,7 +60,7 @@ import com.watabou.utils.Bundle;
 
 public enum HeroClass {
 
-	COMPLAINS( "complains" ), CHIEF( "chief" ), FUMBLES( "fumbles" ), THACO( "thaco" );
+	COMPLAINS( "战士" ), CHIEF( "法师" ), FUMBLES( "刺客" ), THACO( "女猎" );
 	
 	private String title;
 	
@@ -69,39 +69,39 @@ public enum HeroClass {
 	}
 	
 	public static final String[] WAR_PERKS = {
-		"Complains starts with 11 points of Strength.",
-		"... starts with a short sword +1. This sword can be later \"reforged\" to upgrade another melee weapon.",
-		"... is less proficient with missile weapons.",
-		"Any piece of food restores some health when eaten.",
-		"Complains is less proficient with magic, and reading scrolls can cause psychic feedback."
+		"战士初始拥有11点力量。",
+		"... 开始拥有一把 +1短剑，这把短剑可以重铸用来升级其它武器。",
+		"... 不擅长远程武器。",
+		"食用食物可以回复一些生命值。",
+		"战士不擅长魔法, 阅读卷轴可能会减少生命值。"
 	};
 	
 	public static final String[] MAG_PERKS = {
-		"Chief starts with a unique Staff, which can be imbued with the properties of a wand.",
-		"Chief's staff can be used as a melee weapon or a more powerful wand.",
-		"Chief partially identifies wands after using them.",
-		"When eaten, any piece of food restores 1 charge for all wands in the inventory.",
-		"Scrolls of Upgrade and Identify are identified from the beginning.",
-		"Wands charge faster for him."
+		"法师初始拥有一根独特的法杖, 可以灌注其它法杖并获得其特性。",
+		"法师可以将这根法杖作为近战武器使用。",
+		"法师在使用法杖之后，会鉴定他们的部分属性。",
+		"食用任何食物时都会使背包里的所有法杖回复1点充能。",
+		"升级和鉴定卷轴在开局时就已鉴定。",
+		"法杖充能速度更快。"
 	};
 	// switch go without food longer and thac0s more health from dew.
 	public static final String[] ROG_PERKS = {
-		"Fumbles starts with the unique Moustache of Idiocy and a magic dagger.",
-		"... identifies a type of a ring on equipping it.",
-		"... is proficient with light armor, dodging better with excess strength.",
-		"... detects hidden doors and traps better by the art of splying.",
-		"... gains more health from dewdrops.",
-		"Scrolls of Magic Mapping and Potions of Toxic Gas are identified from the beginning."
+		"盗贼初始拥有一件独一无二的白痴胡子和一把+1魔法匕首。",
+		"... 穿戴戒指会鉴定其类型。",
+		"... 更适合穿轻甲。在装备力量需求低的护甲时，多余的力量需求会转化为闪避能力。",
+		"... 更擅长发现隐藏门和陷阱。",
+		"... 饮用露珠能恢复更多健康。",
+		"魔法地图卷轴和毒气药剂在开局时就已鉴定。"
 	};
 	
 	public static final String[] HUN_PERKS = {
-		"Thac0 starts with 18 points of Health and his unique upgradeable swordcane.",
-		"... is proficient with missile weapons, getting bonus damage from excess strength.",
-		"... is able to recover a single used missile weapon from each enemy.",
-		"... can go without food longer.",
-		"... senses neighbouring monsters even if they are hidden behind obstacles.",
-		"Potions of Mind Vision are identified from the beginning.",
-		"Thac0 gets slightly better loot drops from mobs"
+		"女猎初始拥有18点生命值，并拥有一把独一无二的可升级的回旋镖。",
+		"... 更擅长投掷武器。在使用力量需求低的投掷武器时，多余的力量需求会转化为额外伤害。",
+		"... 可以从敌人身上回收一枚对其使用过的投掷武器。",
+		"... 更耐饿。",
+		"... 可以知道躲藏在障碍物后的敌人的位置。",
+		"灵视药剂在开局时就已鉴定。",
+		"怪物的物品掉落率变得更大。"
 	};
 
 	public void initHero( Hero hero ) {

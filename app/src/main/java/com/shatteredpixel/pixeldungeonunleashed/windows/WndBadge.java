@@ -44,7 +44,7 @@ public class WndBadge extends Window {
 		icon.scale.set( 2 );
 		add( icon );
 		
-		BitmapTextMultiline info = PixelScene.createMultiline( badge.description, 8, false );
+		BitmapTextMultiline info = PixelScene.createMultiline( badge.description, 8 );
 		info.maxWidth = WIDTH - MARGIN * 2;
 		info.measure();
 		

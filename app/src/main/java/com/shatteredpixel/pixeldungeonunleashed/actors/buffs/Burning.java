@@ -48,8 +48,8 @@ import com.watabou.utils.Random;
 
 public class Burning extends Buff implements Hero.Doom {
 
-	private static final String TXT_BURNS_UP		= "%s burns up!";
-	private static final String TXT_BURNED_TO_DEATH	= "You burned to death...";
+	private static final String TXT_BURNS_UP		= "%s 被烧毁了!";
+	private static final String TXT_BURNED_TO_DEATH	= "你死于火焰...";
 	
 	private static final float DURATION = 8f;
 	
@@ -155,7 +155,7 @@ public class Burning extends Buff implements Hero.Doom {
 
 	@Override
 	public String toString() {
-		return "Burning";
+		return "燃烧";
 	}
 
 	public static float duration( Char ch ) {
@@ -165,11 +165,11 @@ public class Burning extends Buff implements Hero.Doom {
 
 	@Override
 	public String desc() {
-		return "Few things are more distressing than being engulfed in flames.\n\n" +
-				"Fire will deal damage every turn until it is put out by water, expires, or it is resisted. " +
-				"Fire can be extinquished by stepping into water, or from the splash of a shattering potion. \n\n" +
-				"Additionally, the fire may ignite flammable terrain or items that it comes into contact with.\n\n" +
-				"The burning will last for " + dispTurns(left) + ", or until it is resisted or extinquished.";
+		return "没有什么比被火焰吞没更痛苦的了。\n\n" +
+				"燃烧将会每回合对你造成伤害，直到被水扑灭，或者自行消散。 " +
+				"火会在你进入水中时熄灭，打碎药水产生的水花也具有同样的效果。\n\n" +
+				"此外，火焰还会点燃所有接触到的可燃地形和可燃物。\n\n" +
+				"燃烧还将持续 " + dispTurns(left) + ", 除非被水扑灭，或者自行消散。";
 	}
 
 	@Override

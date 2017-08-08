@@ -35,6 +35,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSprite;
 import com.shatteredpixel.pixeldungeonunleashed.ui.ItemSlot;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndInfoItem extends Window {
 	
@@ -216,13 +217,11 @@ public class WndInfoItem extends Window {
 		titlebar.setRect( 0, 0, WIDTH, 0 );
 		add( titlebar );
 		
-		BitmapTextMultiline txtInfo = PixelScene.createMultiline( info, 6, false );
-		txtInfo.maxWidth = WIDTH;
-		txtInfo.measure();
-		txtInfo.x = titlebar.left();
-		txtInfo.y = titlebar.bottom() + GAP;
+		RenderedTextMultiline txtInfo = PixelScene.renderMultiline( info, 6 );
+		txtInfo.maxWidth(WIDTH);
+		txtInfo.setPos(titlebar.left(), titlebar.bottom() + GAP);
 		add( txtInfo );
 		
-		resize( WIDTH, (int)(txtInfo.y + txtInfo.height()) );
+		resize( WIDTH, (int)(txtInfo.top() + txtInfo.height()) );
 	}
 }

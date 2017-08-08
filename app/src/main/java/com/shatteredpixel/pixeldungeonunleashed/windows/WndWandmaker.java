@@ -35,6 +35,8 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndWandmaker extends Window {
 	
@@ -58,27 +60,27 @@ public class WndWandmaker extends Window {
 		titlebar.setRect(0, 0, WIDTH, 0);
 		add( titlebar );
 		
-		BitmapTextMultiline message = PixelScene.createMultiline( TXT_MESSAGE, 6, false );
-		message.maxWidth = WIDTH;
-		message.measure();
-		message.y = titlebar.bottom() + GAP;
-		add( message );
+		RenderedTextMultiline message = PixelScene
+				.renderMultiline(TXT_MESSAGE, 6);
+		message.maxWidth(WIDTH);
+		message.setPos(0,titlebar.bottom() + GAP);
+		add(message);
 
 		// something went wrong during initialization, one more try to select our wands
 		if (Wandmaker.Quest.wand1 == null || Wandmaker.Quest.wand2 == null) {
 			Wandmaker.Quest.selectWands();
 		}
 
-		RedButton btnWand1 = new RedButton( Wandmaker.Quest.wand1.name() ) {
+		NewRedButton btnWand1 = new NewRedButton( Wandmaker.Quest.wand1.name() ) {
 			@Override
 			protected void onClick() {
 				selectReward( wandmaker, item, Wandmaker.Quest.wand1 );
 			}
 		};
-		btnWand1.setRect(0, message.y + message.height() + GAP, WIDTH, BTN_HEIGHT);
+		btnWand1.setRect(0, message.top() + message.height() + GAP, WIDTH, BTN_HEIGHT);
 		add( btnWand1 );
 		
-		RedButton btnWand2 = new RedButton( Wandmaker.Quest.wand2.name() ) {
+		NewRedButton btnWand2 = new NewRedButton( Wandmaker.Quest.wand2.name() ) {
 			@Override
 			protected void onClick() {
 				selectReward( wandmaker, item, Wandmaker.Quest.wand2 );

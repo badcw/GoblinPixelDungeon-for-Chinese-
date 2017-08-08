@@ -63,17 +63,17 @@ public class Levitation extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Levitating";
+		return "浮空";
 	}
 
 	@Override
 	public String desc() {
-		return "A magical force is levitating you over the ground, making you feel weightless.\n" +
+		return "一种神奇的力量把你举到空中，让你感觉到了失重。\n" +
 				"\n " +
-				"While levitating you ignore all ground-based effects. Traps won't trigger, water won't put out fire, " +
-				"plants won't be trampled, roots will miss you, and you will hover right over pits. " +
-				"Be careful, as all these things can come into effect the second the levitation ends!\n" +
+				"当你浮空时，你会忽略所有的地面效果。陷阱不会被触发，水不会熄灭火， " +
+				"植物不会被践踏，树根会放开你，你会在虚空上面盘旋。 " +
+				"小心，所有这些东西都会生效，就算浮空效果结束！\n" +
 				"\n" +
-				"You are levitating for " + dispTurns() + ".";
+				"浮空还将持续" + dispTurns() + "。";
 	}
 }

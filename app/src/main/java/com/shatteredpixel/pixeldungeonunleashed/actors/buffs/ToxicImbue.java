@@ -74,17 +74,17 @@ public class ToxicImbue extends Buff {
 
 	@Override
 	public String toString() {
-		return "Imbued with Toxicity";
+		return "剧毒之力";
 	}
 
 	@Override
 	public String desc() {
-		return "You are imbued with poisonous energy!\n" +
+		return "你获得了剧毒的力量！\n" +
 				"\n" +
-				"As you move around toxic gas will constantly billow forth from you, damaging your enemies. " +
-				"You are immune to toxic gas and poison for the duration of the effect.\n" +
+				"当你拥有这个效果并且四处走动时，剧毒会源源不断地从你身上冒出，来伤害你的敌人。 " +
+				"在你拥有剧毒之力期间，你对所有有毒气体和毒素免疫。\n" +
 				"\n" +
-				"You are imbued for " + dispTurns(left) + ".";
+				"剧毒之力还将持续 " + dispTurns(left) + "。";
 	}
 
 	{

@@ -40,6 +40,8 @@ enum Preferences {
 	public static final String KEY_LAST_CLASS	= "last_class";
 	public static final String KEY_CHALLENGES	= "challenges";
 	public static final String KEY_QUICKSLOTS	= "quickslots";
+	public static final String KEY_LANG         = "language";
+	public static final String KEY_CLASSICFONT	= "classic_font";		
 	public static final String KEY_INTRO		= "intro";
 	public static final String KEY_BRIGHTNESS	= "brightness";
 	public static final String KEY_VERSION      = "version";

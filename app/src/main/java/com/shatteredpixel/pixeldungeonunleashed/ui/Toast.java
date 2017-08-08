@@ -60,7 +60,7 @@ public class Toast extends Component {
 		};
 		add( close );
 		
-		text = PixelScene.createText( 8, false );
+		text = PixelScene.createText( 8 );
 		add( text );
 	}
 	

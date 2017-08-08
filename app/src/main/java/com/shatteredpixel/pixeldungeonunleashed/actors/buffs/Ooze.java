@@ -32,7 +32,7 @@ import com.watabou.utils.Random;
 
 public class Ooze extends Buff {
 	
-	private static final String TXT_HERO_KILLED = "%s killed you...";
+	private static final String TXT_HERO_KILLED = "%s 杀死了你";
 
 	{
 		type = buffType.NEGATIVE;
@@ -45,16 +45,16 @@ public class Ooze extends Buff {
 	
 	@Override
 	public String toString() {
-		return "Caustic ooze";
+		return "腐蚀淤泥";
 	}
 
 	@Override
 	public String desc() {
-		return "This sticky acid clings to flesh, slowly melting it away.\n" +
+		return "这种带有腐蚀性的淤泥粘在你的肉上，想要慢慢地把你融化掉。\n" +
 				"\n" +
-				"Ooze will deal consistent damage until it is washed off in water.\n" +
+				"腐蚀淤泥会让你受到持续伤害，直到它被洗掉为止。\n" +
 				"\n" +
-				"Ooze does not expire on its own and must be removed with water.";
+				"腐蚀淤泥不会自行消失，只能用水去除。";
 	}
 
 	@Override

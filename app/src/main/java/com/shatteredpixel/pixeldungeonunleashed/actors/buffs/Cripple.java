@@ -40,15 +40,15 @@ public class Cripple extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Crippled";
+		return "残废";
 	}
 
 	@Override
 	public String desc() {
-		return "You're pretty sure legs aren't meant to bend that way.\n" +
+		return "你很确定腿不应该那样弯曲。\n" +
 				"\n" +
-				"Crippled halves movement speed, making moving a tile usually take two turns instead of one.\n" +
+				"残废减少一半移动速度，使移动需要一个回合变成两个回合而不是一个。\n" +
 				"\n" +
-				"This cripple will last for " + dispTurns() + ".";
+				"残废还将持续 " + dispTurns() + "。";
 	}
 }

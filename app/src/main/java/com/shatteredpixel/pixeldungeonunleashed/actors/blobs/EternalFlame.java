@@ -81,6 +81,6 @@ public class EternalFlame extends Blob {
 
     @Override
     public String tileDesc() {
-        return "A magical fire is burning here, it does not appear to be going out.";
+        return "这里有一团魔法的火焰正在在燃烧，它似乎不会向外传播。";
     }
 }

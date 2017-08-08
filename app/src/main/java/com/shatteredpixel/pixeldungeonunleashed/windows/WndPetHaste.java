@@ -26,6 +26,8 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.noosa.BitmapTextMultiline;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 
 public class WndPetHaste extends Window {
@@ -54,14 +56,13 @@ public class WndPetHaste extends Window {
 		titlebar.setRect(0, 0, WIDTH, 0);
 		add(titlebar);
 
-		BitmapTextMultiline message = PixelScene
-				.createMultiline(TXT_MESSAGE, 6, false);
-		message.maxWidth = WIDTH;
-		message.measure();
-		message.y = titlebar.bottom() + GAP;
+		RenderedTextMultiline message = PixelScene
+				.renderMultiline(TXT_MESSAGE, 6);
+		message.maxWidth(WIDTH);
+		message.setPos(0,titlebar.bottom() + GAP);
 		add(message);
 
-		RedButton btnBattle = new RedButton(TXT_YES) {
+		NewRedButton btnBattle = new NewRedButton(TXT_YES) {
 			@Override
 			protected void onClick() {
 				Dungeon.petHasteLevel=ring.level;
@@ -69,11 +70,11 @@ public class WndPetHaste extends Window {
 				hide();
 			}
 		};
-		btnBattle.setRect(0, message.y + message.height() + GAP, WIDTH,
+		btnBattle.setRect(0, message.top() + message.height() + GAP, WIDTH,
 				BTN_HEIGHT);
 		add(btnBattle);
 
-		RedButton btnNonBattle = new RedButton(TXT_NO+" "+ring.level+" "+pet.speed()) {
+		NewRedButton btnNonBattle = new NewRedButton(TXT_NO+" "+ring.level+" "+pet.speed()) {
 			@Override
 			protected void onClick() {
 				hide();

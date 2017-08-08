@@ -143,25 +143,25 @@ public class Hero extends Char {
 		actPriority = 0; //acts at priority 0, baseline for the rest of behaviour.
 	}
 	
-	private static final String TXT_LEAVE = "One does not simply leave Pixel Dungeon.";
+	private static final String TXT_LEAVE = "不能这么轻易地离开像素地牢。";
 	
 	public static final int MAX_LEVEL = 35;
-	private static final String TXT_LEVEL_UP = "level up!";
+	private static final String TXT_LEVEL_UP = "你升级了！";
 	private static final String TXT_NEW_LEVEL =
-		"Welcome to level %d! Now you are healthier and more focused. " +
-		"It's easier for you to hit enemies and dodge their attacks.";
+		"你升到了 %d 级!现在你变得更加健康，专注。 " +
+		"并且使你更容易击中敌人，躲避他们的攻击。";
 	private static final String TXT_LEVEL_CAP =
-		"You can't gain any more levels, but your experiences still give you a burst of energy!";
+		"你不能再继续升级了，但你的经验仍然会给你一股能量！";
 	
-	public static final String TXT_YOU_NOW_HAVE	= "You now have %s";
+	public static final String TXT_YOU_NOW_HAVE	= "你得到了 %s。";
 	
-	private static final String TXT_SOMETHING_ELSE	= "There is something else here";
-	private static final String TXT_LOCKED_CHEST	= "This chest is locked and you don't have matching key";
-	private static final String TXT_LOCKED_DOOR		= "You don't have a matching key";
-	private static final String TXT_NOTICED_SMTH	= "You noticed something";
+	private static final String TXT_SOMETHING_ELSE	= "这里还有别的东西。";
+	private static final String TXT_LOCKED_CHEST	= "这个箱子是锁着的，你没有与它匹配的钥匙。";
+	private static final String TXT_LOCKED_DOOR		= "你没有匹配的钥匙。";
+	private static final String TXT_NOTICED_SMTH	= "你注意到了些什么。";
 	
 	private static final String TXT_WAIT	= "...";
-	private static final String TXT_SEARCH	= "search";
+	private static final String TXT_SEARCH	= "搜索";
 	
 	public static final int STARTING_STR = 10;
 	
@@ -217,7 +217,7 @@ public class Hero extends Char {
 	
 	public Hero() {
 		super();
-		name = "you";
+		name = "你";
 
 		switch (Dungeon.difficultyLevel) {
 			case Dungeon.DIFF_TUTOR:
@@ -342,7 +342,7 @@ public class Hero extends Char {
 	}
 
 	public String givenName(){
-		return name.equals("you") ? className() : name;
+		return name.equals("你") ? className() : name;
 	}
 	
 	public void live() {
@@ -813,14 +813,14 @@ public class Hero extends Char {
 						if (Dungeon.difficultyLevel == Dungeon.DIFF_TUTOR) {
 							if ((!Dungeon.tutorial_food_found) && (item instanceof Food)) {
 								Dungeon.tutorial_food_found = true;
-								GameScene.show(new WndMessage("You just picked up some food.  Food is an important resource in this game; " +
-									"Although wasted When you are full, food can save you when you are starving.  Other things " +
-									"can also affect your hunger, like leveling up (at easier difficulties), drinking " +
-									"some potions, and even some items.  Eat food when you are hungry."));
+								GameScene.show(new WndMessage("你刚刚捡起了一些食物。食物在这个游戏中是一个重要的资源; " +
+									"虽然在你健康时，食用它会被浪费掉；但是当你饥饿时，食用它可能会拯救你的生命。做其它的事 " +
+									"也会影响你的饥饿值, 比如提高难度 (困难与噩梦模式), 饮用 " +
+									"药剂,甚至使用物品。 总的来说，饿了就应该吃东西。"));
 							} else if ((!Dungeon.tutorial_key_found) && (item instanceof Key)) {
 								Dungeon.tutorial_key_found = true;
-								GameScene.show(new WndMessage("You just picked up a key; Somewhere on this level is a locked door that this " +
-									"key will open.  There is usually something interesting or valuable inside of a locked room."));
+								GameScene.show(new WndMessage("你刚刚捡起了一把钥匙。在这一层的某个地方有一扇锁着的门，用这把" +
+									"钥匙可以打开。在锁着的房间里通常有一些有趣的或着有价值的东西。 "));
 							}
 						}
 					}
@@ -1089,7 +1089,7 @@ public class Hero extends Char {
 					petfollow=true;
 				} else if (pet!=null) {
 					petfollow=false;
-                    GLog.w("Your " + pet.name + " is too far away to follow you to the next level.");
+                    GLog.w("你的 " + pet.name + " 离你太远了，以至于无法跟随你进入下一层。");
 				}
 
 				Buff buff = buff(TimekeepersHourglass.timeFreeze.class);
@@ -1203,7 +1203,7 @@ public class Hero extends Char {
 
 		if (this.buff(Drowsy.class) != null){
 			Buff.detach(this, Drowsy.class);
-			GLog.w("The pain helps you resist the urge to sleep.");
+			GLog.w("疼痛抑制了你想要睡眠的冲动。");
 		}
 
         ShieldOfWonders sow = Dungeon.hero.belongings.getItem(ShieldOfWonders.class);
@@ -1214,7 +1214,7 @@ public class Hero extends Char {
                 case 0:
                     break;
                 case 1:
-					Dungeon.hero.sprite.showStatus(CharSprite.PURPLE, "blocked" );
+					Dungeon.hero.sprite.showStatus(CharSprite.PURPLE, "锁着的" );
 					sow.causeEffect(this, (Char)src);
                     break;
             }
@@ -1381,7 +1381,7 @@ public class Hero extends Char {
 			if (Dungeon.difficultyLevel == Dungeon.DIFF_ENDLESS) {
 				curAction = new HeroAction.Move( cell );
 				lastAction = null;
-				WndStory.showChapter("The magic of this place compels you to go forever downwards.");
+				WndStory.showChapter("这个地方的魔法迫使你只能永远走下去。");
 
 			} else {
 				curAction = new HeroAction.Ascend(cell);
@@ -1524,39 +1524,39 @@ public class Hero extends Char {
 
 		if (sprite != null) {
 			if (buff instanceof Burning) {
-				GLog.w( "You catch fire!" );
+				GLog.w( "你着火了!" );
 				interrupt();
 			} else if (buff instanceof Paralysis) {
-				GLog.w( "You are paralysed!" );
+				GLog.w( "你被麻痹了!" );
 				interrupt();
 			} else if (buff instanceof Poison) {
-				GLog.w( "You are poisoned!" );
+				GLog.w( "你中毒了!" );
 				interrupt();
 			} else if (buff instanceof Ooze) {
-				GLog.w( "Caustic ooze eats your flesh. Wash it away!" );
+				GLog.w( "腐蚀淤泥粘在你的肉上。洗掉它！" );
 			} else if (buff instanceof Roots) {
-				GLog.w( "You can't move!" );
+				GLog.w( "你不能动了!" );
 			} else if (buff instanceof Weakness) {
-				GLog.w( "You feel weakened!" );
+				GLog.w( "你虚弱了!" );
 			} else if (buff instanceof Blindness) {
-				GLog.w( "You are blinded!" );
+				GLog.w( "你失明来!" );
 			} else if (buff instanceof Fury) {
-				GLog.w( "You become furious!" );
+				GLog.w( "你变得狂怒了!" );
 			} else if (buff instanceof Charm) {
-				GLog.w( "You are charmed!" );
+				GLog.w( "你被魅惑了!" );
 			}  else if (buff instanceof Cripple) {
-				GLog.w( "You are crippled!" );
+				GLog.w( "你残废了!" );
 			} else if (buff instanceof Bleeding) {
-				GLog.w( "You are bleeding!" );
+				GLog.w( "你流血了!" );
 			} else if (buff instanceof RingOfMight.Might){
 				if (((RingOfMight.Might)buff).level > 0) {
 					HT += ((RingOfMight.Might) buff).level * 5;
 				}
 			} else if (buff instanceof Vertigo) {
-				GLog.w("Everything is spinning around you!");
+				GLog.w("一切都在你周围旋转!");
 				interrupt();
             } else if (buff instanceof Euphoria) {
-                GLog.w("Whoooheee! Look! Aww...sooo cute!");
+                GLog.w("唔嘿！看！啊…好可爱!");
                 interrupt();
 			}
 
@@ -1857,7 +1857,7 @@ public class Hero extends Char {
 				}
 			}
 			if (foresight != null && foresight.isCursed()){
-				GLog.n("You can't concentrate, searching takes a while.");
+				GLog.n("你不能很好地集中精力，因此搜索需要一段时间。");
 				spendAndNext(myTimeToSearch * 3);
 			} else {
 				spendAndNext(myTimeToSearch);

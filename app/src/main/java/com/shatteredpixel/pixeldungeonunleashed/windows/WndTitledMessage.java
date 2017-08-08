@@ -29,6 +29,7 @@ import com.watabou.noosa.Image;
 import com.watabou.noosa.ui.Component;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndTitledMessage extends Window {
 
@@ -54,28 +55,10 @@ public class WndTitledMessage extends Window {
 		titlebar.setRect( 0, 0, width, 0 );
 		add( titlebar );
 		
-		Highlighter hl = new Highlighter( message );
-		
-		normal = PixelScene.createMultiline( hl.text, 6, false );
-		normal.maxWidth = width;
-		normal.measure();
-		normal.x = titlebar.left();
-		normal.y = titlebar.bottom() + GAP;
-		add( normal );
-		
-		if (hl.isHighlighted()) {
-			normal.mask = hl.inverted();
-			
-			highlighted = PixelScene.createMultiline( hl.text, 6, false );
-			highlighted.maxWidth = normal.maxWidth;
-			highlighted.measure();
-			highlighted.x = normal.x;
-			highlighted.y = normal.y;
-			add( highlighted );
-	
-			highlighted.mask = hl.mask;
-			highlighted.hardlight( TITLE_COLOR );
-		}
+		RenderedTextMultiline text = PixelScene.renderMultiline( 6 );
+		text.text( message, width );
+		text.setPos( titlebar.left(), titlebar.bottom() + GAP );
+		add( text );
 		
 		resize( width, (int)(normal.y + normal.height()) );
 	}

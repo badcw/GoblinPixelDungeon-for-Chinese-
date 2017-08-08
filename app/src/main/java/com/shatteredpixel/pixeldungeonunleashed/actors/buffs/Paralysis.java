@@ -65,17 +65,17 @@ public class Paralysis extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Paralysed";
+		return "麻痹";
 	}
 
 	@Override
 	public String desc() {
-		return "Oftentimes the worst thing to do is nothing at all.\n" +
+		return "通常来说，最糟糕的事情就是什么都不能做。\n" +
 				"\n" +
-				"Paralysis completely halts all actions, forcing the target to wait until the effect wears off. " +
-				"The pain from taking damage  can also cause characters to snap out of paralysis.\n" +
+				" 麻痹能完全停止目标的所有行动，迫使目标等到效果消失。" +
+				"如果目标受到攻击，那么目标则会迅速摆脱麻痹效果。\n" +
 				"\n" +
-				"This paralysis will last for " + dispTurns() + ", or until it is resisted through pain.\n";
+				"麻痹还将持续 " + dispTurns() + ",或者受到攻击。 \n";
 	}
 
 	public static float duration( Char ch ) {

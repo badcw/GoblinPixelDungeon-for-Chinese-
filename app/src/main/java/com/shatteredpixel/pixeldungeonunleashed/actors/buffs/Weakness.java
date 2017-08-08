@@ -43,7 +43,7 @@ public class Weakness extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Weakened";
+		return "虚弱";
 	}
 	
 	@Override
@@ -72,10 +72,10 @@ public class Weakness extends FlavourBuff {
 
 	@Override
 	public String desc() {
-		return "Your gear suddenly feels a lot heavier.\n" +
+		return "你的装备突然变得很重。\n" +
 				"\n" +
-				"Weakening magic is affecting you, reducing your effective strength by 2 points.\n" +
+				"虚弱魔法正在影响着你，使你的力量值减少2点。\n" +
 				"\n" +
-				"This weakness will last for " + dispTurns() + ".";
+				"虚弱还将持续 " + dispTurns() + "。";
 	}
 }

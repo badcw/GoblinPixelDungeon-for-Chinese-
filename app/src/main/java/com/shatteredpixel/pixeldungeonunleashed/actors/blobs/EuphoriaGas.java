@@ -54,6 +54,6 @@ public class EuphoriaGas extends Blob {
 
 	@Override
 	public String tileDesc() {
-		return "An iridescent cloud of coloured particles is swirling here.";
+		return "一团彩色的云朵在这里旋转。";
 	}
 }

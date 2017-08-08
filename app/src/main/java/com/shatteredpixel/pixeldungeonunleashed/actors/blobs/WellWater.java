@@ -62,24 +62,24 @@ public class WellWater extends Blob {
 				Journal.add( Feature.WELL_OF_AWARENESS );
 				if (Dungeon.difficultyLevel == Dungeon.DIFF_TUTOR && !Dungeon.tutorial_wellA_seen) {
 					Dungeon.tutorial_wellA_seen = true;
-					GameScene.show(new WndMessage("Taking a drink from a Well of Awareness identifies your equipped (and only " +
-						"your equipped) items, reveals secrets about this dungeon level, and any uncollected items. " +
-						"Or, you could also try throwing an unidentified item in and see what happens."));
+					GameScene.show(new WndMessage("从察觉之井中微微啜饮一口就可以鉴定你的装备(也只有 " +
+						"你的装备) , 并揭示这层的秘密, 和任何未知的物品。 " +
+						"或者,你也可以尝试把一个未鉴定的物品丢进去，看看会发生什么。 "));
 				}
 			} else if (this instanceof WaterOfHealth && !Dungeon.tutorial_wellH_seen) {
 				Dungeon.tutorial_wellH_seen = true;
 				Journal.add( Feature.WELL_OF_HEALTH );
 				if (Dungeon.difficultyLevel == Dungeon.DIFF_TUTOR) {
-					GameScene.show(new WndMessage("Taking a drink from a Well of Health restores you to full health and " +
-						"satisfies your hunger."));
+					GameScene.show(new WndMessage(" 从生命之井中微微啜饮一口能使你恢复健康，并" +
+						"解除你的饥饿感。"));
 				}
 			} else if (this instanceof WaterOfTransmutation && !Dungeon.tutorial_wellT_seen) {
 				Dungeon.tutorial_wellT_seen = true;
 				Journal.add( Feature.WELL_OF_TRANSMUTATION );
 				if (Dungeon.difficultyLevel == Dungeon.DIFF_TUTOR) {
-					GameScene.show(new WndMessage("A Well of Transmutation allows you to exchange one item for another of " +
-						" similar value; an enchanted tier-3 weapon for a different enchanted tier-3 weapon, an artifact for " +
-						" an artifact.  Some rare items can only be obtained through a Well of Transmutation."));
+					GameScene.show(new WndMessage("嬗变之井允许你把一个物品转换成另一个" +
+						" 相似价值的物品; 一个3级的附魔的武器转换成另一个不同的3级附魔的武器,一个神器转换成" +
+						" 另一个神器。有些稀有的物品只能通过嬗变之井获得。"));
 				}
 			}
 		}

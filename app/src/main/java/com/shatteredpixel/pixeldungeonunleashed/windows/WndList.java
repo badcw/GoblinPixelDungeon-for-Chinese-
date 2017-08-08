@@ -1,12 +1,6 @@
 /*
  * Pixel Dungeon
- * Copyright (C) 2012-2015  Oleg Dolya
- *
- * Shattered Pixel Dungeon
- * Copyright (C) 2014-2015 Evan Debenham
- *
- * Goblins Pixel Dungeon
- * Copyright (C) 2016 Mario Braun
+ * Copyright (C) 2012-2014  Oleg Dolya
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,49 +17,48 @@
  */
 package com.shatteredpixel.pixeldungeonunleashed.windows;
 
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.BitmapTextMultiline;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
+import com.watabou.noosa.RenderedText;
+import com.watabou.noosa.BitmapTextMultiline;
 
 public class WndList extends Window {
-	
-	private static final int WIDTH	= 120;
-	private static final int MARGIN	= 4;
-	private static final int GAP	= 4;
-	
-	private static final String DOT	= "\u007F";
-	
-	public WndList( String[] items ) {
-		
+
+	private static final int WIDTH = 120;
+	private static final int MARGIN = 4;
+	private static final int GAP = 4;
+
+	//private static final String DOT = "\u007F";
+
+	public WndList(String[] items) {
+
 		super();
-		
+
 		float pos = MARGIN;
 		float dotWidth = 0;
 		float maxWidth = 0;
-		
-		for (int i=0; i < items.length; i++) {
-			
+
+		for (int i = 0; i < items.length; i++) {
+
 			if (i > 0) {
 				pos += GAP;
 			}
-			
-			BitmapText dot = PixelScene.createText( DOT, 6, false );
+
+			RenderedText dot = PixelScene.renderText( "-", 6 );
 			dot.x = MARGIN;
 			dot.y = pos;
 			if (dotWidth == 0) {
-				dot.measure();
 				dotWidth = dot.width();
 			}
 			add( dot );
-			
-			BitmapTextMultiline item = PixelScene.createMultiline( items[i], 6, false );
+
+			BitmapTextMultiline item = PixelScene.createMultiline(items[i], 6);
 			item.x = dot.x + dotWidth;
 			item.y = pos;
-			item.maxWidth = (int)(WIDTH - MARGIN * 2 - dotWidth);
+			item.maxWidth = (int) (WIDTH - MARGIN * 2 - dotWidth);
 			item.measure();
-			add( item );
-			
+			add(item);
+
 			pos += item.height();
 			float w = item.width();
 			if (w > maxWidth) {
@@ -73,6 +66,6 @@ public class WndList extends Window {
 			}
 		}
 
-		resize( (int)(maxWidth + dotWidth + MARGIN * 2), (int)(pos + MARGIN) );
+		resize((int) (maxWidth + dotWidth + MARGIN * 2), (int) (pos + MARGIN));
 	}
 }

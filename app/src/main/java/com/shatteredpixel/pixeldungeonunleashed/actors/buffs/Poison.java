@@ -69,16 +69,16 @@ public class Poison extends Buff implements Hero.Doom {
 	
 	@Override
 	public String toString() {
-		return "Poisoned";
+		return "中毒";
 	}
 
 	@Override
 	public String desc() {
-		return "Poison works its way through the body, slowly impairing its internal functioning.\n" +
+		return "毒素作用于目标的体内，慢慢地削弱其内部机能。\n" +
 				"\n" +
-				"Poison deals damage each turn proportional to how long until it expires.\n" +
+				"中毒造成的伤害与剩余回合数成正比，直到效果消失为止。\n" +
 				"\n" +
-				"This poison will last for " + dispTurns(left)  + ".";
+				"中毒还将持续 " + dispTurns(left)  + "。";
 	}
 
 	@Override
@@ -120,6 +120,6 @@ public class Poison extends Buff implements Hero.Doom {
 		Badges.validateDeathFromPoison();
 		
 		Dungeon.fail( ResultDescriptions.POISON );
-		GLog.n( "You died from poison..." );
+		GLog.n( "你死于中毒..." );
 	}
 }

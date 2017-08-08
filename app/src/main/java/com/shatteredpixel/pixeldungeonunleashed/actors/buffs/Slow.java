@@ -42,16 +42,16 @@ public class Slow extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Slowed";
+		return "减速";
 	}
 
 	@Override
 	public String desc() {
-		return "Slowing magic affects the target's rate of time, to them everything is moving super-fast.\n" +
+		return "减速魔法会影响目标的时间效率，对他们来说，一切都在快速移动。\n" +
 				"\n" +
-				"A slowed character performs all actions in twice the amount of time they would normally take.\n" +
+				"被减速的目标执行所有动作的时间是正常时间的两倍。\n" +
 				"\n" +
-				"This slow will last for " + dispTurns() + ".";
+				"减速还将持续" + dispTurns() + "。";
 	}
 
 	public static float duration( Char ch ) {

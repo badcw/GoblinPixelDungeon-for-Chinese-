@@ -66,15 +66,15 @@ public class Light extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Illuminated";
+		return "发光";
 	}
 
 	@Override
 	public String desc() {
-		return "Even in the Darkest Dungeon, a steady light at your side is always comforting.\n" +
+		return "即使在最黑暗的地牢里，你身边明亮的灯光也总是令人欣慰。\n" +
 				"\n" +
-				"Light helps keep darkness at bay, allowing you to see a reasonable distance despite the environment.\n" +
+				"发光有助于保持黑暗的范围不变，以至于让你看到一个合理的视野，而不受环境的影响。\n" +
 				"\n" +
-				"The light will last for " + dispTurns() + ".";
+				"发光还将持续 " + dispTurns() + "。";
 	}
 }

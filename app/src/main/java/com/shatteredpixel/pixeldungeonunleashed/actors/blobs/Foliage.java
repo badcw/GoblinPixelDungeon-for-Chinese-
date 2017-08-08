@@ -79,8 +79,8 @@ public class Foliage extends Blob {
 			Journal.add( Journal.Feature.GARDEN );
 			if (Dungeon.difficultyLevel == Dungeon.DIFF_TUTOR && !Dungeon.tutorial_garden_found) {
 				Dungeon.tutorial_garden_found = true;
-				GameScene.show(new WndMessage("A feeling of peace and serenity overcome you in this room." +
-					" This room is fairly safe, and you will see it is added to your journal."));
+				GameScene.show(new WndMessage("在这个房间里，一种宁静祥和的感觉征服了你。" +
+					" 这个房间相当的安全，你会看到它被添加到你的日记中。"));
 			}
 		}
 	}
@@ -93,6 +93,6 @@ public class Foliage extends Blob {
 	
 	@Override
 	public String tileDesc() {
-		return "Shafts of light pierce the gloom of the underground garden.";
+		return "光线穿透了地下花园的阴暗处。";
 	}
 }

@@ -58,7 +58,7 @@ import java.util.HashSet;
 public class Ghost extends NPC {
 
 	{
-		name = "sad ghost";
+		name = "悲伤幽灵";
 		spriteClass = GhostSprite.class;
 		
 		flying = true;
@@ -67,14 +67,14 @@ public class Ghost extends NPC {
 	}
 	
 	private static final String TXT_RAT1	=
-			"Hello %s... Once I was like you - strong and confident... " +
-			"But I was slain by a foul beast... I can't leave this place... Not until I have my revenge... " +
-			"Slay the _fetid rat_, that has taken my life...\n\n" +
-			"It stalks this floor... Spreading filth everywhere... " +
-			"_Beware its cloud of stink and corrosive bite, the acid dissolves in water..._ ";
+			"%s...你好。我曾经像你一样——坚强且自信… " +
+			"但是我被一个肮脏的怪物杀死了…我不能离开这个地方…直到我成功复仇… " +
+			"杀死_腐臭老鼠_，已经占据了我的生活…\n\n" +
+			"它生活在这层中…到处散播污物…\n" +
+			"_当心它的臭味和它身上的腐蚀粘液，腐蚀粘液可以用水洗掉..._ ";
 
 	private static final String TXT_RAT2	=
-			"Please... Help me... Slay the abomination...\n\n" +
+			"拜托...帮助我...杀死这个可憎之物...\n\n" +
 			"_Fight it near water... Avoid the stench..._";
 
 	private static final String TXT_GNOLL1	=

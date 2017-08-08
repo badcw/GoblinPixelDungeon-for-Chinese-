@@ -32,6 +32,7 @@ import com.shatteredpixel.pixeldungeonunleashed.levels.Level;
 import com.shatteredpixel.pixeldungeonunleashed.levels.Terrain;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndInfoCell extends Window {
 	
@@ -64,7 +65,7 @@ public class WndInfoCell extends Window {
 		titlebar.setRect( 0, 0, WIDTH, 0 );
 		add( titlebar );
 		
-		BitmapTextMultiline info = PixelScene.createMultiline( 6, false );
+		RenderedTextMultiline info = PixelScene.renderMultiline(6);
 		add( info );
 		
 		StringBuilder desc = new StringBuilder( Dungeon.level.tileDesc( tile ) );
@@ -78,12 +79,10 @@ public class WndInfoCell extends Window {
 			}
 		}
 		
-		info.text( desc.length() > 0 ? desc.toString() : TXT_NOTHING );
-		info.maxWidth = WIDTH;
-		info.measure();
-		info.x = titlebar.left();
-		info.y = titlebar.bottom() + GAP;
+		info.text(desc.length() > 0 ? desc.toString() : TXT_NOTHING);
+		info.maxWidth(WIDTH);
+		info.setPos(titlebar.left(), titlebar.bottom() + GAP);
 		
-		resize( WIDTH, (int)(info.y + info.height()) );
+		resize( WIDTH, (int)(info.top() + info.height()) );
 	}
 }

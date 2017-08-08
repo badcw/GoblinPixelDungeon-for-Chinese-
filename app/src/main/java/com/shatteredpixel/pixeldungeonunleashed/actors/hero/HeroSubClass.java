@@ -29,32 +29,32 @@ public enum HeroSubClass {
 
 	NONE( null, null ),
 	
-	GLADIATOR( "gladiator",
-		"A successful attack with a melee weapon allows the _Gladiator_ to start a combo, " +
-		"in which every next successful hit inflicts more damage." ),
-	BERSERKER( "berserker",
-		"When severely wounded, the _Berserker_ enters a state of wild fury " +
-		"significantly increasing his damage output." ),
+	GLADIATOR( "角斗士",
+		"_角斗士_使用近战武器进行成功攻击能获得连击效果, " +
+		"每一次连续的成功攻击都会造成更大的伤害。" ),
+	BERSERKER( "狂战士",
+		"当_狂战士_严重受伤时，会获得狂怒效果，能显著增加" +
+		"其近战伤害输出。" ),
 	
-	WARLOCK( "exorcist",
-		"Normal food grants the _Exorcist_ additional wand recharge, but does very little to satisfy his hunger. " +
-		"Instead, after killing an enemy, he cleanses its soul from evil to heal his wounds and satisfy hunger." ),
-	BATTLEMAGE( "war cleric",
-		"When fighting with his staff, the _War Cleric_ conjures bonus effects depending on the wand " +
-		"his staff is imbued with. His staff will also gain charge through combat." ),
+	WARLOCK( "术士",
+		" _术士_能从食物中获得额外的法杖充能补给，但不能满足他的饥饿感。" +
+		"因此，用任何方式杀死一个敌人后，他都能洗净自己的灵魂并使他的伤口愈合及充饥。" ),
+	BATTLEMAGE( "战斗法师",
+		"当使用魔杖近战时, _战斗法师_ 会获得取绝于吸收法杖类型 " +
+		"的额外效果。他的魔杖也会在战斗中回复充能。" ),
 	
-	ASSASSIN( "assassin",
-		"When performing a surprise attack, the _Assassin_ inflicts additional damage to his target." ),
-	FREERUNNER( "freerunner",
-		"The _Freerunner_ moves faster when he is unencumbered and not starving, " +
-		"if he is invisible, this speed boost is much stronger." ),
+	ASSASSIN( "刺客",
+		"当_刺客_对敌人进行突然袭击时，目标会受到额外的伤害" ),
+	FREERUNNER( "疾行者",
+		"_疾行者_移动速度更快，负担更小且更耐饿。" +
+		"如果你隐形，移动速度还将会提升得更高。" ),
 		
-	SNIPER( "sniper",
-		"_Snipers_ are able to detect weak points in an enemy's armor, " +
-		"effectively ignoring it when using a missile weapon." ),
-	WARDEN( "warden",
-		"Having a strong connection with forces of nature gives _Wardens_ an ability to gather dewdrops and " +
-		"seeds from plants. Also trampling a high grass grants them a temporary armor buff." );
+	SNIPER( "阻击手",
+		"_阻击手_ 能够看出敌人装甲上的的弱点， " +
+		"并能有效地使用投掷武器而不浪费。" ),
+	WARDEN( "守望者",
+		"守望者与自然的联系更加密切。能够从植物中获得更多的露珠 " +
+		"和种子。并且践踏高草会还获得一个临时的树肤buff。" );
 	
 	private String title;
 	private String desc;

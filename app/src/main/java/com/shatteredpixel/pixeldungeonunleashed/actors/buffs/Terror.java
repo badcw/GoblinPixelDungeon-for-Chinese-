@@ -58,17 +58,17 @@ public class Terror extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Terrified";
+		return "恐惧";
 	}
 
 	@Override
 	public String desc() {
-		return "Terror is manipulative magic which forces its target into an uncontrollable panic.\n" +
+		return "恐惧是操纵魔法，迫使目标陷入无法控制的恐慌。\n" +
 				"\n" +
-				"Terrified characters are forced to run away from their opponent, trying to put as many doors and " +
-				"walls between them as  possible. The shock of pain is enough to break this effect, however.\n" +
+				"被恐惧的生物会逃离对手，试图尽可能多地穿过他们" +
+				"之间的门和墙。然而，疼痛足以打破这种效果。\n" +
 				"\n" +
-				"This terror will last for " + dispTurns() + ", or until the target takes damage.";
+				"恐惧还将持续 " + dispTurns() + ", 除非目标受到了伤害。";
 	}
 
 	public static void recover( Char target ) {

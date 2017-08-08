@@ -86,17 +86,17 @@ public class FireImbue extends Buff {
 
 	@Override
 	public String toString() {
-		return "Imbued with Fire";
+		return "火焰之力";
 	}
 
 	@Override
 	public String desc() {
-		return "You are imbued with the power of fire!\n" +
+		return "你获得了火焰的力量！\n" +
 				"\n" +
-				"All physical attacks will have a chance to light enemies ablaze. " +
-				"Additionally, you are completely immune to the effects of fire.\n" +
+				"所有的物理攻击都有机会使敌人燃烧。 " +
+				"此外，你完全不受火焰的影响。\n" +
 				"\n" +
-				"You are imbued for " + dispTurns(left) + ".";
+				"火焰之力还将持续 " + dispTurns(left) + "。";
 	}
 
 	{

@@ -238,7 +238,7 @@ public class WaterOfTransmutation extends WellWater {
 	@Override
 	public String tileDesc() {
 		return
-			"Power of change radiates from the water of this well. " +
-			"Throw an item into the well to turn it into something else.";
+			"变化的力量从这口井里散发出来。 " +
+			"把一个东西扔到井里，能把它变成别的东西。";
 	}
 }

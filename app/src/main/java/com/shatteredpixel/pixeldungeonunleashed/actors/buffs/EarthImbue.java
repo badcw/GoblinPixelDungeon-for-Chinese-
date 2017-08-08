@@ -44,16 +44,16 @@ public class EarthImbue extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Imbued with Earth";
+		return "大地之力";
 	}
 
 	@Override
 	public String desc() {
-		return "You are inbued with the power of earth!\n" +
+		return "你获得了大地的力量！\n" +
 				"\n" +
-				"All physical attacks will command roots to lock the enemy in place while the effect lasts.\n" +
+				"当你拥有这个效果时，你造成的所有物理攻击将会使敌人束缚在原来的位置上。\n" +
 				"\n" +
-				"You are imbued for " + dispTurns() + ".";
+				"大地之力还将持续 " + dispTurns() + "。";
 	}
 
 	{

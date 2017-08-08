@@ -42,7 +42,7 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 public class WaterOfHealth extends WellWater {
 
 	private static final String TXT_PROCCED =
-		"As you take a sip, you feel your wounds heal completely.";
+		"当你微微啜饮一口时，你感觉到你的伤口完全愈合了。";
 	
 	@Override
 	protected boolean affectHero( Hero hero ) {
@@ -83,7 +83,7 @@ public class WaterOfHealth extends WellWater {
 	@Override
 	public String tileDesc() {
 		return
-			"Power of health radiates from the water of this well. " +
-			"Take a sip from it to heal your wounds and satisfy hunger.";
+			"生命的力量从这口井里散发出来。 " +
+			"从井中微微啜饮一口，以治愈你的伤口，解除你的饥饿感。";
 	}
 }

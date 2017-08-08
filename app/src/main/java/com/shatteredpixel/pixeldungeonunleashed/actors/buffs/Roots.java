@@ -55,15 +55,15 @@ public class Roots extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Rooted";
+		return "束缚";
 	}
 
 	@Override
 	public String desc() {
-		return "Roots(magical or natural) grab at the feet, forcing them down to the ground.\n" +
+		return "树根（不管是魔法制造的还是自然生长的）抓住了你的脚，迫使你站在陆地上。\n" +
 				"\n" +
-				"Roots lock a target in place, making it impossible for them to move, but other actions are not affected.\n" +
+				"树根能束缚目标，使他们不可移动，但其他动作不受影响。\n" +
 				"\n" +
-				"The roots will last for " + dispTurns() + ".";
+				"束缚还将持续" + dispTurns() + "。";
 	}
 }

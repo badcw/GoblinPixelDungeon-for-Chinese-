@@ -84,6 +84,8 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.BuffIndicator;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.noosa.ui.Button;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.watabou.noosa.RenderedText;
 
 public class WndHero extends WndTabbed {
 	
@@ -224,7 +226,7 @@ public class WndHero extends WndTabbed {
 			title.setRect( 0, 0, WIDTH, 0 );
 			add(title);
 
-			RedButton btnCatalogus = new RedButton( TXT_CATALOGUS ) {
+			NewRedButton btnCatalogus = new NewRedButton( TXT_CATALOGUS ) {
 				@Override
 				protected void onClick() {
 					hide();
@@ -234,7 +236,7 @@ public class WndHero extends WndTabbed {
 			btnCatalogus.setRect( 0, title.height(), btnCatalogus.reqWidth() + 2, btnCatalogus.reqHeight() + 2 );
 			add( btnCatalogus );
 
-			RedButton btnJournal = new RedButton( TXT_JOURNAL ) {
+			NewRedButton btnJournal = new NewRedButton( TXT_JOURNAL ) {
 				@Override
 				protected void onClick() {
 					hide();
@@ -266,16 +268,15 @@ public class WndHero extends WndTabbed {
 
 		private void statSlot( String label, String value ) {
 
-			BitmapText txt = PixelScene.createText( label, 8, false );
+			RenderedText txt = PixelScene.renderText(label, 8);
 			txt.y = pos;
-			add( txt );
+			add(txt);
 
-			txt = PixelScene.createText( value, 8, false );
-			txt.measure();
-			txt.x = PixelScene.align( WIDTH * 0.65f );
+			txt = PixelScene.renderText(value, 8);
+			txt.x = PixelScene.align(WIDTH * 0.65f);
 			txt.y = pos;
-			add( txt );
-			
+			add(txt);
+
 			pos += GAP + txt.baseLine();
 		}
 		
@@ -287,13 +288,13 @@ public class WndHero extends WndTabbed {
 			return pos;
 		}
 	}
-	
+
 	private class BuffsTab extends Group {
-		
+
 		private static final int GAP = 2;
-		
+
 		private float pos;
-		
+
 		public BuffsTab() {
 			for (Buff buff : Dungeon.hero.buffs()) {
 				if (buff.icon() != BuffIndicator.NONE) {
@@ -304,7 +305,7 @@ public class WndHero extends WndTabbed {
 				}
 			}
 		}
-		
+
 		public float height() {
 			return pos;
 		}
@@ -314,7 +315,7 @@ public class WndHero extends WndTabbed {
 			private Buff buff;
 
 			Image icon;
-			BitmapText txt;
+			RenderedText txt;
 
 			public BuffSlot( Buff buff ){
 				super();
@@ -326,7 +327,7 @@ public class WndHero extends WndTabbed {
 				icon.y = this.y;
 				add( icon );
 
-				txt = PixelScene.createText( buff.toString(), 8, false );
+				RenderedText txt = PixelScene.renderText( buff.toString(), 8);
 				txt.x = icon.width + GAP;
 				txt.y = this.y + (int)(icon.height - txt.baseLine()) / 2;
 				add( txt );
@@ -347,6 +348,7 @@ public class WndHero extends WndTabbed {
 			}
 		}
 	}
+
 	private class PetTab extends Group {
 
 		private static final String TXT_TITLE = "Level %d %s";
@@ -357,7 +359,7 @@ public class WndHero extends WndTabbed {
 		private static final String TXT_SELECT = "What do you want to feed your pet?";
 
 		private CharSprite image;
-		private BitmapText name;
+		private RenderedText name;
 		private HealthBar health;
 		private BuffIndicator buffs;
 
@@ -368,9 +370,8 @@ public class WndHero extends WndTabbed {
 
 		public PetTab(final PET heropet) {
 
-			name = PixelScene.createText(Utils.capitalize(heropet.name), 9, true);
+			name = PixelScene.renderText(Utils.capitalize(heropet.name), 9 );
 			name.hardlight(TITLE_COLOR);
-			name.measure();
 			//add(name);
 
 			image = heropet.sprite();
@@ -392,7 +393,7 @@ public class WndHero extends WndTabbed {
 			title.setRect(0, 0, WIDTH, 0);
 			add(title);
 
-			RedButton btnFeed = new RedButton(TXT_FEED) {
+			NewRedButton btnFeed = new NewRedButton(TXT_FEED) {
 				@Override
 				protected void onClick() {
 					hide();
@@ -403,7 +404,7 @@ public class WndHero extends WndTabbed {
 					btnFeed.reqWidth() + 2, btnFeed.reqHeight() + 2);
 			add(btnFeed);
 
-			RedButton btnCall = new RedButton(TXT_CALL) {
+			NewRedButton btnCall = new NewRedButton(TXT_CALL) {
 				@Override
 				protected void onClick() {
 					hide();
@@ -415,7 +416,7 @@ public class WndHero extends WndTabbed {
 					btnCall.reqWidth() + 2, btnCall.reqHeight() + 2);
 			add(btnCall);
 
-			RedButton btnStay = new RedButton(heropet.stay ? TXT_RELEASE : TXT_STAY) {
+			NewRedButton btnStay = new NewRedButton(heropet.stay ? TXT_RELEASE : TXT_STAY) {
 				@Override
 				protected void onClick() {
 					hide();
@@ -459,16 +460,15 @@ public class WndHero extends WndTabbed {
 
 		private void statSlot(String label, String value) {
 
-			BitmapText txt = PixelScene.createText(label, 8, false);
+			RenderedText txt = PixelScene.renderText(label, 8);
 			txt.y = pos;
 			add(txt);
 
-			txt = PixelScene.createText(value, 8, false);
-			txt.measure();
+			txt = PixelScene.renderText(value, 8);
 			txt.x = PixelScene.align(WIDTH * 0.65f);
 			txt.y = pos;
 			add(txt);
-
+			
 			pos += GAP + txt.baseLine();
 		}
 

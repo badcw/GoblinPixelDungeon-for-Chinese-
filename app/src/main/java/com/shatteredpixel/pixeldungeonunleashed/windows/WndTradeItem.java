@@ -40,6 +40,8 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndTradeItem extends Window {
 	
@@ -71,7 +73,7 @@ public class WndTradeItem extends Window {
 		
 		if (item.quantity() == 1) {
 			
-			RedButton btnSell = new RedButton( Utils.format( TXT_SELL, item.price() ) ) {
+			NewRedButton btnSell = new NewRedButton( Utils.format( TXT_SELL, item.price() ) ) {
 				@Override
 				protected void onClick() {
 					sell( item );
@@ -86,7 +88,7 @@ public class WndTradeItem extends Window {
 		} else {
 			
 			int priceAll= item.price();
-			RedButton btnSell1 = new RedButton( Utils.format( TXT_SELL_1, priceAll / item.quantity() ) ) {
+			NewRedButton btnSell1 = new NewRedButton( Utils.format( TXT_SELL_1, priceAll / item.quantity() ) ) {
 				@Override
 				protected void onClick() {
 					sellOne( item );
@@ -95,7 +97,7 @@ public class WndTradeItem extends Window {
 			};
 			btnSell1.setRect( 0, pos + GAP, WIDTH, BTN_HEIGHT );
 			add( btnSell1 );
-			RedButton btnSellAll = new RedButton( Utils.format( TXT_SELL_ALL, priceAll ) ) {
+			NewRedButton btnSellAll = new NewRedButton( Utils.format( TXT_SELL_ALL, priceAll ) ) {
 				@Override
 				protected void onClick() {
 					sell( item );
@@ -109,7 +111,7 @@ public class WndTradeItem extends Window {
 			
 		}
 		
-		RedButton btnCancel = new RedButton( TXT_CANCEL ) {
+		NewRedButton btnCancel = new NewRedButton( TXT_CANCEL ) {
 			@Override
 			protected void onClick() {
 				hide();
@@ -133,7 +135,7 @@ public class WndTradeItem extends Window {
 		
 		if (canBuy) {
 			
-			RedButton btnBuy = new RedButton( Utils.format( TXT_BUY, price ) ) {
+			NewRedButton btnBuy = new NewRedButton( Utils.format( TXT_BUY, price ) ) {
 				@Override
 				protected void onClick() {
 					hide();
@@ -144,7 +146,7 @@ public class WndTradeItem extends Window {
 			btnBuy.enable( price <= Dungeon.gold );
 			add( btnBuy );
 
-			RedButton btnCancel = new RedButton( TXT_CANCEL ) {
+			NewRedButton btnCancel = new NewRedButton( TXT_CANCEL ) {
 				@Override
 				protected void onClick() {
 					hide();
@@ -154,7 +156,7 @@ public class WndTradeItem extends Window {
 			final MasterThievesArmband.Thievery thievery = Dungeon.hero.buff(MasterThievesArmband.Thievery.class);
 			if (thievery != null) {
 				final float chance = thievery.stealChance(price);
-				RedButton btnSteal = new RedButton(Utils.format(TXT_STEAL, Math.min(100, (int)(chance*100)))) {
+				NewRedButton btnSteal = new NewRedButton(Utils.format(TXT_STEAL, Math.min(100, (int)(chance*100)))) {
 					@Override
 					protected void onClick() {
 						if(thievery.steal(price)){
@@ -226,14 +228,12 @@ public class WndTradeItem extends Window {
 		}
 		
 		// Description
-		BitmapTextMultiline info = PixelScene.createMultiline( item.info(), 6, false );
-		info.maxWidth = WIDTH;
-		info.measure();
-		info.x = titlebar.left();
-		info.y = titlebar.bottom() + GAP;
+		RenderedTextMultiline info = PixelScene.renderMultiline( item.info(), 6 );
+		info.maxWidth(WIDTH);
+		info.setPos(titlebar.left(), titlebar.bottom() + GAP);
 		add( info );
 		
-		return info.y + info.height();
+		return info.bottom();
 	}
 	
 	private void sell( Item item ) {

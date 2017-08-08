@@ -33,6 +33,7 @@ import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
 import com.shatteredpixel.pixeldungeonunleashed.ui.CheckBox;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
 
 public class WndSettings extends Window {
 	
@@ -63,14 +64,14 @@ public class WndSettings extends Window {
 	private static boolean endlessUnlocked = false;
 	private static boolean testUnlocked = false;
 
-	private RedButton btnZoomOut;
-	private RedButton btnZoomIn;
-    private RedButton btnResetZ;
+	private NewRedButton btnZoomOut;
+	private NewRedButton btnZoomIn;
+    private NewRedButton btnResetZ;
 
 	private static int difficultLevel   = GoblinsPixelDungeon.getDifficulty();
-	private RedButton btnEasier;
-	private RedButton btnHarder;
-	private RedButton btnDifficulty;
+	private NewRedButton btnEasier;
+	private NewRedButton btnHarder;
+	private NewRedButton btnDifficulty;
 
 	public WndSettings( boolean inGame ) {
 		super();
@@ -88,7 +89,7 @@ public class WndSettings extends Window {
 			int w = BTN_HEIGHT;
 			
 			// Zoom out
-			btnZoomOut = new RedButton( TXT_ZOOM_OUT ) {
+			btnZoomOut = new NewRedButton( TXT_ZOOM_OUT ) {
 				@Override
 				protected void onClick() {
 					zoom( Camera.main.zoom - 0.5f );
@@ -98,7 +99,7 @@ public class WndSettings extends Window {
 			add( btnZoomOut.setRect( 0, 0, w, BTN_HEIGHT) );
 			
 			// Zoom in
-			btnZoomIn = new RedButton( TXT_ZOOM_IN ) {
+			btnZoomIn = new NewRedButton( TXT_ZOOM_IN ) {
 				@Override
 				protected void onClick() {
 					zoom( Camera.main.zoom + 0.5f );
@@ -108,7 +109,7 @@ public class WndSettings extends Window {
 			add( btnZoomIn.setRect( WIDTH - w, 0, w, BTN_HEIGHT) );
 			
 			// Default zoom
-			btnResetZ = new RedButton(TXT_ZOOM_DEFAULT + " (" + Camera.main.zoom + ")") {
+			btnResetZ = new NewRedButton(TXT_ZOOM_DEFAULT + " (" + Camera.main.zoom + ")") {
 				@Override
 				protected void onClick() {
 					zoom(PixelScene.defaultZoom);
@@ -121,7 +122,7 @@ public class WndSettings extends Window {
 			int w = BTN_HEIGHT;
 
 			// Difficulty Levels
-			btnEasier = new RedButton( TXT_EASIER ) {
+			btnEasier = new NewRedButton( TXT_EASIER ) {
 				@Override
 				protected void onClick() {
 					if ((testUnlocked && (difficultLevel <= 9)) || (!testUnlocked && (difficultLevel <= 10))) {
@@ -140,7 +141,7 @@ public class WndSettings extends Window {
 			};
 			add( btnEasier.setRect( 0, 0, w, BTN_HEIGHT) );
 
-			btnHarder = new RedButton( TXT_HARDER ) {
+			btnHarder = new NewRedButton( TXT_HARDER ) {
 				@Override
 				protected void onClick() {
 					if ((endlessUnlocked && (difficultLevel >= 15)) || (!endlessUnlocked && (difficultLevel >= 14))) {
@@ -159,7 +160,7 @@ public class WndSettings extends Window {
 			};
 			add (btnHarder.setRect( WIDTH - w, 0, w, BTN_HEIGHT) );
 
-			btnDifficulty = new RedButton( difficultyText() ) {
+			btnDifficulty = new NewRedButton( difficultyText() ) {
 				@Override
 				protected void onClick() {
 				}
@@ -205,7 +206,7 @@ public class WndSettings extends Window {
 		
 		if (!inGame) {
 			
-			RedButton btnOrientation = new RedButton( orientationText() ) {
+			NewRedButton btnOrientation = new NewRedButton( orientationText() ) {
 				@Override
 				protected void onClick() {
 					GoblinsPixelDungeon.landscape(!GoblinsPixelDungeon.landscape());

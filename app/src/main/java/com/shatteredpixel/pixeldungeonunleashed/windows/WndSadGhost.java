@@ -35,6 +35,8 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.GreatCrabSprite;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 import com.watabou.noosa.BitmapTextMultiline;
 
 public class WndSadGhost extends Window {
@@ -65,22 +67,22 @@ public class WndSadGhost extends Window {
 		super();
 		
 		IconTitle titlebar = new IconTitle();
-		BitmapTextMultiline message;
+		RenderedTextMultiline message;
 		switch (type){
 			case 1:default:
 				titlebar.icon( new FetidRatSprite() );
 				titlebar.label( "DEFEATED FETID RAT" );
-				message = PixelScene.createMultiline( TXT_RAT+TXT_GIVEITEM, 6, false );
+				message = PixelScene.renderMultiline( TXT_RAT+TXT_GIVEITEM, 6 );
 				break;
 			case 2:
 				titlebar.icon( new GnollTricksterSprite() );
 				titlebar.label( "DEFEATED GNOLL TRICKSTER" );
-				message = PixelScene.createMultiline( TXT_GNOLL+TXT_GIVEITEM, 6, false );
+				message = PixelScene.renderMultiline( TXT_GNOLL+TXT_GIVEITEM, 6 );
 				break;
 			case 3:
 				titlebar.icon( new GreatCrabSprite());
 				titlebar.label( "DEFEATED GREAT CRAB" );
-				message = PixelScene.createMultiline( TXT_CRAB+TXT_GIVEITEM, 6, false );
+				message = PixelScene.renderMultiline( TXT_CRAB+TXT_GIVEITEM, 6 );
 				break;
 
 		}
@@ -89,22 +91,21 @@ public class WndSadGhost extends Window {
 		titlebar.setRect( 0, 0, WIDTH, 0 );
 		add( titlebar );
 
-		message.maxWidth = WIDTH;
-		message.measure();
-		message.y = titlebar.bottom() + GAP;
-		add( message );
+		message.maxWidth(WIDTH);
+		message.setPos(0,titlebar.bottom() + GAP);
+		add(message);
 		
-		RedButton btnWeapon = new RedButton( TXT_WEAPON ) {
+		NewRedButton btnWeapon = new NewRedButton( TXT_WEAPON ) {
 			@Override
 			protected void onClick() {
 				selectReward( ghost, Ghost.Quest.weapon );
 			}
 		};
-		btnWeapon.setRect( 0, message.y + message.height() + GAP, WIDTH, BTN_HEIGHT );
+		btnWeapon.setRect( 0, message.top() + message.height() + GAP, WIDTH, BTN_HEIGHT );
 		add( btnWeapon );
 
 		if (!Dungeon.isChallenged( Challenges.NO_ARMOR )) {
-			RedButton btnArmor = new RedButton(TXT_ARMOR) {
+			NewRedButton btnArmor = new NewRedButton(TXT_ARMOR) {
 				@Override
 				protected void onClick() {
 					selectReward(ghost, Ghost.Quest.armor);

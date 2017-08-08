@@ -69,6 +69,6 @@ public class Web extends Blob {
 	
 	@Override
 	public String tileDesc() {
-		return "Everything is covered with a thick web here.";
+		return "这里到处都是厚厚的网。";
 	}
 }

@@ -66,7 +66,7 @@ public class Bleeding extends Buff {
 	
 	@Override
 	public String toString() {
-		return "Bleeding";
+		return "流血";
 	}
 	
 	@Override
@@ -83,7 +83,7 @@ public class Bleeding extends Buff {
 				
 				if (target == Dungeon.hero && !target.isAlive()) {
 					Dungeon.fail( ResultDescriptions.BLEEDING );
-					GLog.n( "You bled to death..." );
+					GLog.n( "你因流血过多而死..." );
 				}
 				
 				spend( TICK );
@@ -102,11 +102,11 @@ public class Bleeding extends Buff {
 
 	@Override
 	public String desc() {
-		return "That wound is leaking a worrisome amount of blood.\n" +
+		return "那个伤口正令人不安地流出大量的血。\n" +
 				"\n" +
-				"Bleeding causes damage every turn. Each turn the damage decreases by a random amount, " +
-				"until the bleeding eventually stops.\n" +
+				" 流血每个回合会引起伤害。每个回合的伤害减少一个随机数量，" +
+				"直到最终停止流血。\n" +
 				"\n" +
-				"The bleeding can currently deal " + level + " max damage.";
+				"通常流血可以处理 ，" + level + " 为最大伤害。";
 	}
 }

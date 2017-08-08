@@ -45,17 +45,17 @@ public class Blindness extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Blinded";
+		return "失明";
 	}
 
 	@Override
 	public String desc() {
-		return "Blinding turns the surrounding world into a dark haze.\n" +
+		return "失明使周围的环境进入了黑暗的阴霾。\n" +
 				"\n" +
-				"While blinded, a character can't see more than one tile infront of themselves, rendering ranged " +
-				"attacks useless and making it very easy to lose track of distant enemies. Additionally, a blinded " +
-				"hero is unable to read scrolls or books.\n" +
+				"当你失明时,  你不能看到自己附近的地方 ，以至于使得远程" +
+				"攻击变得毫无用处，并且失去远距离敌人的踪迹。 此外，失明 " +
+				"时无法阅读卷轴和书籍。\n" +
 				"\n" +
-				"The blindness will last for " + dispTurns() + ".";
+				"失明还将持续" + dispTurns() + "。";
 	}
 }

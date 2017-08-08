@@ -26,6 +26,7 @@ package com.shatteredpixel.pixeldungeonunleashed.windows;
 import com.shatteredpixel.pixeldungeonunleashed.GoblinsPixelDungeon;
 import com.watabou.noosa.BitmapTextMultiline;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 
 public class WndMessage extends Window {
@@ -38,10 +39,9 @@ public class WndMessage extends Window {
 		
 		super();
 		
-		BitmapTextMultiline info = PixelScene.createMultiline( text, 6, false );
-		info.maxWidth = (GoblinsPixelDungeon.landscape() ? WIDTH_L : WIDTH_P) - MARGIN * 2;
-		info.measure();
-		info.x = info.y = MARGIN;
+		RenderedTextMultiline info = PixelScene.renderMultiline( text, 6 );
+		info.maxWidth((GoblinsPixelDungeon.landscape() ? WIDTH_L : WIDTH_P) - MARGIN * 2);
+		info.setPos(MARGIN, MARGIN);
 		add( info );
 
 		resize(

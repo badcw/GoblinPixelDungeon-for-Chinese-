@@ -40,7 +40,7 @@ import java.text.DecimalFormat;
 
 public class Chill extends FlavourBuff {
 
-	private static final String TXT_FREEZES = "%s freezes!";
+	private static final String TXT_FREEZES = "%s 被冻伤了!";
 
 	{
 		type = buffType.NEGATIVE;
@@ -111,17 +111,17 @@ public class Chill extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Chilled";
+		return "冻伤";
 	}
 
 	@Override
 	public String desc() {
-		return "Not quite frozen, but still much too cold.\n" +
+		return "并不是很冷，但是对你来说还是太冷了。\n" +
 				"\n" +
-				"Chilled targets perform all actions more slowly, depending on how many turns are left in the effect. " +
-				"At it's worst, this is equivalent to being slowed.\n" +
+				"被冻伤的目标做任何动作都会变慢，这取决于效果有多少回合。 " +
+				"最糟糕的是，这相当于你被减速了。\n" +
 				"\n" +
-				"This chilled will last for " + dispTurns() + ", " +
-				"and is currently reducing speed by " + new DecimalFormat("#.##").format((1f-speedFactor())*100f) + "%";
+				"冻伤还将持续 " + dispTurns() + ", " +
+				"目前正在减少速度。 " + new DecimalFormat("#.##").format((1f-speedFactor())*100f) + "%";
 	}
 }

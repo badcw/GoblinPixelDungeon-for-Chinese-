@@ -66,7 +66,7 @@ public class StartScene extends PixelScene {
 
 	private static final String TXT_REALLY	= "Do you really want to start new game?";
 	private static final String TXT_WARNING	= "Your current game progress will be erased.";
-	private static final String TXT_YES		= "Yes, start new game";
+	private static final String TXT_YES		= "是的，重新开始。";
 	private static final String TXT_NO		= "No, return to main menu";
 
 	private static final String TXT_UNLOCK	= "To unlock this character, slay the 3rd boss with any other char";
@@ -234,7 +234,7 @@ public class StartScene extends PixelScene {
 
 		if (!(huntressUnlocked = (Badges.isUnlocked( Badges.Badge.BOSS_SLAIN_3 )  || Badges.isUnlocked(Badges.Badge.BETA_TESTER)))) {
 
-			BitmapTextMultiline text = PixelScene.createMultiline( TXT_UNLOCK, 9, true );
+			BitmapTextMultiline text = PixelScene.createMultiline( TXT_UNLOCK, 9 );
 			text.maxWidth = (int)width;
 			text.measure();
 
@@ -387,7 +387,7 @@ public class StartScene extends PixelScene {
 		protected void createChildren() {
 			super.createChildren();
 
-			secondary = createText( 5, false );
+			secondary = createText( 5 );
 			add( secondary );
 		}
 
@@ -470,7 +470,7 @@ public class StartScene extends PixelScene {
 			avatar = new Image( Assets.AVATARS );
 			add( avatar );
 
-			name = PixelScene.createText( 8, true );
+			name = PixelScene.createText( 8 );
 			add( name );
 
 			emitter = new Emitter();

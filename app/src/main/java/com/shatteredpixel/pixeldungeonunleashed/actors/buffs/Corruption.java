@@ -62,16 +62,16 @@ public class Corruption extends Buff {
 
 	@Override
 	public String toString() {
-		return "Corrupted";
+		return "腐化";
 	}
 
 	@Override
 	public String desc() {
-		return "Corruption seeps into the essence of a being, twisting them against their former nature.\n" +
+		return "腐化渗透到生物的内心中，扭曲了他们的过去本性。\n" +
 				"\n" +
-				"Corrupted creatures will attack and aggravate their allies, and ignore their former enemies. " +
-				"Corruption is damaging as well, and will slowly cause its target to succumb.\n" +
+				"被腐化的生物会攻击和激怒他们的盟友，而忽略他们以前的敌人。 " +
+				"腐化也具有破坏性，会慢慢使目标死亡。\n" +
 				"\n" +
-				"Corruption is permanent, its effects only end in death.";
+				"腐化是永久性的，只会因死亡的影响而结束。";
 	}
 }

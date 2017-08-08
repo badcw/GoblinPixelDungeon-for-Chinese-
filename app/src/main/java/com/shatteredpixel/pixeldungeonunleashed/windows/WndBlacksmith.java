@@ -38,6 +38,8 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.ItemSlot;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndBlacksmith extends Window {
 
@@ -70,10 +72,9 @@ public class WndBlacksmith extends Window {
 		titlebar.setRect( 0, 0, WIDTH, 0 );
 		add( titlebar );
 		
-		BitmapTextMultiline message = PixelScene.createMultiline( TXT_PROMPT, 6, false );
-		message.maxWidth = WIDTH;
-		message.measure();
-		message.y = titlebar.bottom() + GAP;
+		RenderedTextMultiline message = PixelScene.renderMultiline( TXT_PROMPT, 6 );
+		message.maxWidth(WIDTH);
+		message.setPos(0, titlebar.bottom() + GAP);
 		add( message );
 		
 		btnItem1 = new ItemButton() {
@@ -83,7 +84,7 @@ public class WndBlacksmith extends Window {
 				GameScene.selectItem( itemSelector, WndBag.Mode.UPGRADEABLE, TXT_SELECT );
 			}
 		};
-		btnItem1.setRect( (WIDTH - BTN_GAP) / 2 - BTN_SIZE, message.y + message.height() + BTN_GAP, BTN_SIZE, BTN_SIZE );
+		btnItem1.setRect( (WIDTH - BTN_GAP) / 2 - BTN_SIZE, message.top()+ message.height() + BTN_GAP, BTN_SIZE, BTN_SIZE );
 		add( btnItem1 );
 		
 		btnItem2 = new ItemButton() {
@@ -96,7 +97,7 @@ public class WndBlacksmith extends Window {
 		btnItem2.setRect( btnItem1.right() + BTN_GAP, btnItem1.top(), BTN_SIZE, BTN_SIZE );
 		add( btnItem2 );
 		
-		btnReforge = new RedButton( TXT_REFORGE ) {
+		NewRedButton btnReforge = new NewRedButton( TXT_REFORGE ) {
 			@Override
 			protected void onClick() {
 				Blacksmith.upgrade( btnItem1.item, btnItem2.item );

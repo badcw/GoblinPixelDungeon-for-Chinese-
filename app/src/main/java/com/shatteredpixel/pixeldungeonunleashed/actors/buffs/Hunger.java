@@ -46,9 +46,9 @@ public class Hunger extends Buff implements Hero.Doom {
 	public static final float HUNGRY	= 320f;
 	public static final float STARVING	= 400f;
 
-	private static final String TXT_HUNGRY		= "You are hungry.";
-	private static final String TXT_STARVING	= "You are starving!";
-	private static final String TXT_DEATH		= "You starved to death...";
+	private static final String TXT_HUNGRY		= "你饿了。";
+	private static final String TXT_STARVING	= "你非常饿了！";
+	private static final String TXT_DEATH		= "你死于饥饿…";
 
 	private float level;
 
@@ -135,13 +135,13 @@ public class Hunger extends Buff implements Hero.Doom {
 		if (((Hero) target).subClass == HeroSubClass.WARLOCK){
 			Buff.affect( target, ScrollOfRecharging.Recharging.class, energy/50f);
 			energy *= 0.15f;
-			GLog.i("The food does not satisfy your hunger.");
+			GLog.i("这点食物并不能满足你的饥饿。");
 		}
 
 		Artifact.ArtifactBuff buff = target.buff( HornOfPlenty.hornRecharge.class );
 		if (buff != null && buff.isCursed()){
 			energy *= 0.67f;
-			GLog.n("The cursed horn steals some of the food energy as you eat.");
+			GLog.n("被诅咒的号角在你进食时偷走了部分食物能量。");
 		}
 
 		if (!Dungeon.isChallenged(Challenges.NO_FOOD))
@@ -189,9 +189,9 @@ public class Hunger extends Buff implements Hero.Doom {
 	@Override
 	public String toString() {
 		if (level < STARVING) {
-			return "Hungry";
+			return "饥饿";
 		} else {
-			return "Starving";
+			return "非常饥饿";
 		}
 	}
 
@@ -199,16 +199,16 @@ public class Hunger extends Buff implements Hero.Doom {
 	public String desc() {
 		String result;
 		if (level < STARVING) {
-			result = "You can feel your stomach calling out for food, but it's not too urgent yet.\n\n";
+			result = "你能感觉到你现在有点饿了，但还不算太饿。\n\n";
 		} else {
-			result = "You're so hungry it hurts.\n\n";
+			result = "饥饿引起了你的疼痛。\n\n";
 		}
 
-		result += "Hunger slowly increases as you spend time in the dungeon, eventually you will begin to starve. " +
-				"While starving you will slowly lose health instead of regenerating it.\n" +
+		result += "当你在地牢里活动的时候，饥饿值会慢慢增加，最终你会开始挨饿。" +
+				"当你饥饿时，你会慢慢地失去健康，而不是回复。\n" +
 				"\n" +
-				"Rationing is important! If you have health to spare starving isn't a bad idea if it means there will " +
-				"be more food later. Effective rationing can make food last a lot longer!\n\n";
+				"食物如何分配很重要！ 如果你足够健康，那么饥饿并不算什么，毕竟以后还会有 " +
+				"更多的食物。有效的定量配给可以让你活得更久！\n\n";
 
 		return result;
 	}

@@ -41,7 +41,7 @@ public class GasesImmunity extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Immune to gases";
+		return "免疫气体";
 	}
 
 	{
@@ -54,11 +54,11 @@ public class GasesImmunity extends FlavourBuff {
 
 	@Override
 	public String desc() {
-		return "some strange force is filtering out the air around you, it's not causing you any harm, but it blocks " +
-				"out everything but air so effectively you can't even smell anything!\n" +
+		return "一种奇怪的力量正在过滤你周围的空气，它不会给你带来任何伤害，但它阻挡了 " +
+				"除了空气以外的任何气体。这是如此有效，以至于闻不到任何气味！\n" +
 				"\n" +
-				"You are immune to the effects of all gasses while this buff lasts.\n" +
+				"你免疫了所有气体对你带来的效果，直到这个效果消失为止。\n" +
 				"\n" +
-				"You will be immune for " + dispTurns() + ".";
+				"免疫气体还将持续 " + dispTurns() + "。";
 	}
 }

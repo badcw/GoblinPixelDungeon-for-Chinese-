@@ -34,6 +34,8 @@ import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
 import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSprite;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndResurrect extends Window {
 	
@@ -61,13 +63,13 @@ public class WndResurrect extends Window {
 		titlebar.setRect( 0, 0, WIDTH, 0 );
 		add( titlebar );
 		
-		BitmapTextMultiline message = PixelScene.createMultiline( TXT_MESSAGE, 6, false );
-		message.maxWidth = WIDTH;
-		message.measure();
-		message.y = titlebar.bottom() + GAP;
-		add( message );
+		RenderedTextMultiline message = PixelScene
+				.renderMultiline(TXT_MESSAGE, 6);
+		message.maxWidth(WIDTH);
+		message.setPos(0, titlebar.bottom() + GAP);
+		add(message);
 		
-		RedButton btnYes = new RedButton( TXT_YES ) {
+		NewRedButton btnYes = new NewRedButton( TXT_YES ) {
 			@Override
 			protected void onClick() {
 				hide();
@@ -78,10 +80,10 @@ public class WndResurrect extends Window {
 				Game.switchScene( InterlevelScene.class );
 			}
 		};
-		btnYes.setRect( 0, message.y + message.height() + GAP, WIDTH, BTN_HEIGHT );
+		btnYes.setRect( 0,message.top() + message.height() + GAP, WIDTH, BTN_HEIGHT );
 		add( btnYes );
 		
-		RedButton btnNo = new RedButton( TXT_NO ) {
+		NewRedButton btnNo = new NewRedButton( TXT_NO ) {
 			@Override
 			protected void onClick() {
 				hide();

@@ -54,15 +54,15 @@ public class SnipersMark extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Sniper's mark";
+		return "磨练";
 	}
 
 	@Override
 	public String desc() {
 		Char ch = (Char)Actor.findById(object);
-		return "The sniper is honed in " + ((ch == null) ? "on a lost target" : "on the nearby " + ch.name ) + ", " +
-				"gaining increased attack speed and armor penetration while attacking it.\n" +
+		return "阻击手被磨练了" + ((ch == null) ? "在锁定目标的情况下 ":"在附近 " + ch.name ) + ", " +
+				"这个效果能够让你在攻击时提高攻击速度和护甲穿透力。\n" +
 				"\n" +
-				"The sniper will remain honed in until she switches targets, stops attacking, or the target dies.";
+				"狙击手将继续磨练，直到她切换目标，或停止攻击，或目标死亡。";
 	}
 }

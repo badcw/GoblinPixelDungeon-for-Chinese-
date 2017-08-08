@@ -121,6 +121,6 @@ public class Fire extends Blob {
 	
 	@Override
 	public String tileDesc() {
-		return "A fire is raging here.";
+		return "火在这里熊熊燃烧。";
 	}
 }

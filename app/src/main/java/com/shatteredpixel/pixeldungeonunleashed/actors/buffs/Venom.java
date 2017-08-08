@@ -63,16 +63,16 @@ public class Venom extends Poison implements Hero.Doom {
 
 	@Override
 	public String toString() {
-		return "Venomed";
+		return "剧毒";
 	}
 
 	@Override
 	public String desc() {
-		return "Venom is a extremely caustic and dangerous poison.\n" +
+		return "剧毒是一种极其致命和危险的效果。\n" +
 				"\n" +
-				"Unlike poison, whose damage lowers over time, venom does increasing damage the longer it stays on a target.\n" +
+				"不像普通的中毒--随着时间的推移而伤害降低。剧毒作用在目标上的时间越长，伤害就越大。\n" +
 				"\n" +
-				"This venom will last for " + dispTurns(left) + ", and is currently dealing " + damage + " damage.";
+				"剧毒还将持续 " + dispTurns(left) + ",目前对你造成" + damage + " 伤害.";
 	}
 
 	@Override

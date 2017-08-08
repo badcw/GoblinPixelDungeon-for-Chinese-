@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import com.shatteredpixel.pixeldungeonunleashed.GoblinsPixelDungeon;
 import com.shatteredpixel.pixeldungeonunleashed.items.rings.Ring;
 import com.watabou.noosa.BitmapText;
+import com.watabou.noosa.RenderedText;
 import com.watabou.noosa.ui.Component;
 import com.shatteredpixel.pixeldungeonunleashed.items.Item;
 import com.shatteredpixel.pixeldungeonunleashed.items.potions.Potion;
@@ -54,7 +55,7 @@ public class WndCatalogus extends WndTabbed {
 	private static final String TXT_RINGS   = "Rings";
 	private static final String TXT_TITLE	= "Catalogus";
 	
-	private BitmapText txtTitle;
+	private RenderedText txtTitle;
 	private ScrollPane list;
 	
 	private ArrayList<ListItem> items = new ArrayList<WndCatalogus.ListItem>();
@@ -71,9 +72,8 @@ public class WndCatalogus extends WndTabbed {
 			resize( WIDTH_P, HEIGHT_P );
 		}
 
-		txtTitle = PixelScene.createText( TXT_TITLE, 9, true );
+		txtTitle = PixelScene.renderText(TXT_TITLE, 9);
 		txtTitle.hardlight(Window.TITLE_COLOR);
-		txtTitle.measure();
 		add(txtTitle);
 		
 		list = new ScrollPane( new Component() ) {
@@ -138,7 +138,6 @@ public class WndCatalogus extends WndTabbed {
 			txtTitle.text( Utils.format( TXT_TITLE, TXT_RINGS ) );
 		}
 		
-		txtTitle.measure();
 		txtTitle.x = PixelScene.align( PixelScene.uiCamera, (width - txtTitle.width()) / 2 );
 
 		items.clear();
@@ -213,7 +212,7 @@ public class WndCatalogus extends WndTabbed {
 		private boolean identified;
 		
 		private ItemSprite sprite;
-		private BitmapText label;
+		private RenderedText label;
 		
 		public ListItem( Class<? extends Item> cl ) {
 			super();
@@ -241,7 +240,7 @@ public class WndCatalogus extends WndTabbed {
 			sprite = new ItemSprite();
 			add( sprite );
 			
-			label = PixelScene.createText( 8, false );
+			label = PixelScene.renderText( 8 );
 			add( label );
 		}
 		

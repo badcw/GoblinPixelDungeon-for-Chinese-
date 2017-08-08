@@ -28,6 +28,7 @@ import java.util.Locale;
 
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.watabou.noosa.BitmapText;
+import com.watabou.noosa.RenderedText;
 import com.watabou.noosa.ColorBlock;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Group;
@@ -49,6 +50,7 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.ScrollPane;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
 
 public class WndRanking extends WndTabbed {
 	
@@ -186,7 +188,7 @@ public class WndRanking extends WndTabbed {
 				float pos = title.bottom();
 
 				if (Dungeon.challenges > 0) {
-					RedButton btnCatalogus = new RedButton(TXT_CHALLENGES) {
+					NewRedButton btnCatalogus = new NewRedButton(TXT_CHALLENGES) {
 						@Override
 						protected void onClick() {
 							Game.scene().add(new WndChallenges(Dungeon.challenges, false));
@@ -248,16 +250,15 @@ public class WndRanking extends WndTabbed {
 		
 		private float statSlot( Group parent, String label, String value, float pos ) {
 			
-			BitmapText txt = PixelScene.createText( label, 7, false );
+			RenderedText txt = PixelScene.renderText(label, 7);
 			txt.y = pos;
-			parent.add( txt );
-			
-			txt = PixelScene.createText( value, 7, false );
-			txt.measure();
-			txt.x = PixelScene.align( WIDTH * 0.65f );
+			parent.add(txt);
+
+			txt = PixelScene.renderText(value, 7);
+			txt.x = PixelScene.align(WIDTH * 0.65f);
 			txt.y = pos;
-			parent.add( txt );
-			
+			parent.add(txt);
+
 			return pos + GAP + txt.baseLine();
 		}
 	}
@@ -366,7 +367,7 @@ public class WndRanking extends WndTabbed {
 			slot = new ItemSlot();
 			add( slot );
 			
-			name = PixelScene.createText( "?", 7, false );
+			name = PixelScene.createText( "?", 7 );
 			add( name );
 			
 			super.createChildren();
@@ -384,12 +385,10 @@ public class WndRanking extends WndTabbed {
 			
 			String str = Utils.capitalize( item.name() );
 			name.text( str );
-			name.measure();
 			if (name.width() > width - name.x) {
 				do {
 					str = str.substring( 0, str.length() - 1 );
 					name.text( str + "..." );
-					name.measure();
 				} while (name.width() > width - name.x);
 			}
 			

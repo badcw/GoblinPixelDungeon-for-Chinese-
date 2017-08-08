@@ -73,9 +73,9 @@ public class Donations extends Blob {
             Journal.add( Journal.Feature.ALTAR );
             if (Dungeon.difficultyLevel == Dungeon.DIFF_TUTOR && !Dungeon.tutorial_altar_seen) {
                 Dungeon.tutorial_altar_seen = true;
-                GameScene.show(new WndMessage("An Altar room allows you to donate items to the DM in the hopes of " +
-                    "divine intervention.  More expensive donations provide better rewards, including some difficult " +
-                    "to obtain enchanted weapons, artifacts and instant level-ups.  Your donated loot is cumulative."));
+                GameScene.show(new WndMessage("祭坛允许你捐赠祭品给地下城城主因为希望之" +
+                    "神的干预。更昂贵的捐赠会带来更好的回报，包括一些难以得到的东西。 " +
+                    "你能得到附魔武器、神器或者人物等级提升，你捐赠的祭品是累积的。"));
             }
         }
     }
@@ -106,7 +106,7 @@ public class Donations extends Blob {
             // don't allow accidental donations of important items such as keys or quest items
             // and don't insult the gods with insignificant donations
             if (heap.peek().unique || heap.peek().price() < 5 || (heap.peek() instanceof MissileWeapon)) {
-                GLog.p("Herbert refuses your offering.");
+                GLog.p("赫伯特拒绝了你的祭品");
                 // throw the item off of the Altar to avoid a redonation loop
 
                 throwItem(cell, heap.pickUp());
@@ -125,28 +125,28 @@ public class Donations extends Blob {
                 Buff.affect(hero, Burning.class).reignite(hero);
                 Buff.affect(hero, Paralysis.class);
                 Buff.prolong(hero, Vertigo.class, 5f);
-                GLog.w("Herbert is displeased with your donation!");
+                GLog.w("赫伯特对你的捐赠感到不满！");
 
                 // the hero may not use an altar again during this run until amended
                 hero.donatedLoot = -1;
             } else if (hero.donatedLoot >= 350) {
                 // in order to get here you either have to donate a lot of goods all at once,
                 // or you have been doing a lot of donations and collecting the lower rewards
-                GLog.p("Herbert is very pleased and rewards you!");
+                GLog.p("赫伯特很高兴，回赠了你！");
                 if (Random.Int(3) == 0) {
-                    GLog.p("Herbert floods your mind with visions of battles past.");
+                    GLog.p("赫伯特让你的大脑充斥着过去战斗的景象。");
                     hero.earnExp( hero.maxExp() );
                     hero.donatedLoot = 0;
                 } else {
                     try {
-                        GLog.p("You are rewarded with an ancient Artifact!");
+                        GLog.p("你得到了一个神器！");
                         Item item = Generator.randomArtifact();
                         //if we're out of artifacts, return a ring instead.
                         if (item == null) {
-                            GLog.p("Oops..there are none left of those...here have a ring!");
+                            GLog.p("哎呀...这里一个东西都没有...你得到了一个戒指!");
                             item : Generator.random(Generator.Category.RING);
                         }
-                        GLog.p("You are rewarded with: " + item.name());
+                        GLog.p("你得到了: " + item.name());
                         throwItem(cell, item);
                         hero.donatedLoot = 0;
                     } catch (Exception ex) {
@@ -177,46 +177,46 @@ public class Donations extends Blob {
                         }
                         throwItem(cell, wpn);
                         hero.donatedLoot -= 150;
-                        GLog.p("you are rewarded with a magical weapon.");
+                        GLog.p("你得到了一个附魔的武器。");
                     } catch (NullPointerException e) {
                     } catch (InstantiationException e) {
                     } catch (IllegalAccessException e) {
                     }
-                    GLog.p("you feel very close to Herbert.");
+                    GLog.p("你觉得你对赫伯特很亲近。");
                 } else {
-                    GLog.p("Herbert smiles upon you.");
+                    GLog.p("赫伯特对你微笑。");
                 }
             } else if (hero.donatedLoot >= 50) {
                 // some type of reward may be given to the hero, if so reduce the total donation value
                 if (hero.HT < hero.HP) {
-                    GLog.p("Herbert heals your wounds.");
+                    GLog.p("赫伯特治愈了你的伤口。");
                     PotionOfHealing.heal(hero);
                     hero.donatedLoot -= 40;
                 } else if ((! hero.buffs().contains(Awareness.class)) && (Random.Int(6) == 0)) {
-                    GLog.p("Herbert reveals secrets of your surroundings.");
+                    GLog.p("赫伯特揭示了你周围的秘密。");
                     Buff.affect(hero, Awareness.class, Awareness.DURATION * 2);
                     Dungeon.observe();
                     hero.donatedLoot -= 35;
                 } else if ((! hero.buffs().contains(Bless.class)) && (Random.Int(6) == 0)){
-                    GLog.p("Herbert blesses you.");
+                    GLog.p("赫伯特祝福了你。");
                     hero.belongings.uncurseEquipped();
                     Buff.affect(hero, Bless.class);
                     Buff.prolong(hero, Bless.class, 120f);
                     hero.donatedLoot -= 45;
                 } else {
-                    GLog.p("Herbert seems happy...maybe its laundry day...");
+                    GLog.p("赫伯特似乎很高兴…也许今天是个是洗衣日…");
                 }
             } else {
-                GLog.p("Herbert accepts your donation...");
+                GLog.p("赫伯特接受了你的捐赠…");
             }
             heap.donate();
         } else if (heap != null) {
             if ((heap.peek() instanceof Artifact || heap.peek().level >= 5)) {
-                GLog.p("Herbert grumbles, but accepts your donation and allows you to donate more.");
+                GLog.p("赫伯特很抱怨，但还是接受了你的捐赠并且想要你捐赠更多。");
                 hero.donatedLoot = 0;
                 heap.donate();
             } else {
-                GLog.n("Herbert holds a grudge. You need to donate a very powerful item to please him now...");
+                GLog.n("赫伯特怀恨在心。你现在需要捐赠一个非常强大的物品来取悦他…");
                 throwItem(cell, heap.pickUp());
                 return;
             }

@@ -35,17 +35,17 @@ public class Vertigo extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Vertigo";
+		return "眩晕";
 	}
 
 	@Override
 	public String desc() {
-		return "Walking in a straight line can be difficult when the whole world is spinning.\n" +
+		return "当整个世界都在旋转时，走直线是很困难的一件事。\n" +
 				"\n" +
-				"While under the effects of vertigo, characters who attempt to move will go in a random direction, " +
-				"instead of the one they intended to go in. \n" +
+				"当你眩晕时，如果你试图移动，则会朝随机方向移动，" +
+				"而不是他们想要移动的方向。\n" +
 				"\n" +
-				"This Vertigo effect with last for " + dispTurns() + ".";
+				"眩晕还将持续 " + dispTurns() + "。";
 	}
 
 	public static float duration( Char ch ) {

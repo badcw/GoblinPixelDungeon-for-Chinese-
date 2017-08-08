@@ -35,6 +35,8 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndImp extends Window {
 	
@@ -58,19 +60,19 @@ public class WndImp extends Window {
 		titlebar.setRect( 0, 0, WIDTH, 0 );
 		add( titlebar );
 		
-		BitmapTextMultiline message = PixelScene.createMultiline( TXT_MESSAGE, 6, false );
-		message.maxWidth = WIDTH;
-		message.measure();
-		message.y = titlebar.bottom() + GAP;
-		add( message );
+		RenderedTextMultiline message = PixelScene
+				.renderMultiline(TXT_MESSAGE, 6);
+		message.maxWidth(WIDTH);
+		message.setPos(0,titlebar.bottom() + GAP);
+		add(message);
 		
-		RedButton btnReward = new RedButton( TXT_REWARD ) {
+		NewRedButton btnReward = new NewRedButton( TXT_REWARD ) {
 			@Override
 			protected void onClick() {
 				takeReward( imp, tokens, Imp.Quest.reward );
 			}
 		};
-		btnReward.setRect( 0, message.y + message.height() + GAP, WIDTH, BTN_HEIGHT );
+		btnReward.setRect( 0, message.top() + message.height() + GAP, WIDTH, BTN_HEIGHT );
 		add( btnReward );
 		
 		resize( WIDTH, (int)btnReward.bottom() );

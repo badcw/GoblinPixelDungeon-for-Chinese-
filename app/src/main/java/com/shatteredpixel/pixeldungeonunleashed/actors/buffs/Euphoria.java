@@ -35,18 +35,18 @@ public class Euphoria extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Euphoria";
+		return "欣快";
 	}
 
 	@Override
 	public String desc() {
-		return "Walking in a straight line can be difficult when the whole world is sooo fluffy!.\n" +
+		return "当整个世界如此柔软时，想要行走成直线是很困难的！\n" +
 				"\n" +
-				"While overwhelmed with euphoria, characters who attempt to move will go in a random direction, " +
-				"instead of the one they intended to go in. They also have a tendency to strip \n" +
-				"and throw away stuff just to see it fly.\n" +
+				"当生物获得欣快时，试图移动的生物会朝随机方向移动， " +
+				"而不是他们想要移动到的位置。他们也会取下 \n" +
+				"和扔掉东西，只是为了看它飞行的样子。\n" +
 				"\n" +
-				"The Euphoria will last for " + dispTurns() + ".";
+				"欣快还将持续 " + dispTurns() + "。";
 	}
 
 	public static float duration( Char ch ) {

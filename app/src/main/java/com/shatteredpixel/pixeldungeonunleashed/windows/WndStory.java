@@ -28,6 +28,7 @@ import com.watabou.input.Touchscreen.Touch;
 import com.watabou.noosa.BitmapTextMultiline;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.TouchArea;
+import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 import com.shatteredpixel.pixeldungeonunleashed.Chrome;
 import com.shatteredpixel.pixeldungeonunleashed.Dungeon;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
@@ -109,25 +110,19 @@ public class WndStory extends Window {
 		"they are slowly failing.\n\n This place is dangerous, but at least the evil magic at work here is weak.");
 	};
 	
-	private BitmapTextMultiline tf;
+	private RenderedTextMultiline tf;
 	
 	private float delay;
 	
 	public WndStory( String text ) {
 		super( 0, 0, Chrome.get( Chrome.Type.SCROLL ) );
 		
-		tf = PixelScene.createMultiline( text, 7, false );
-		tf.maxWidth = GoblinsPixelDungeon.landscape() ?
-					WIDTH_L - MARGIN * 2:
-					WIDTH_P - MARGIN *2;
-		tf.measure();
-		tf.ra = bgR;
-		tf.ga = bgG;
-		tf.ba = bgB;
-		tf.rm = -bgR;
-		tf.gm = -bgG;
-		tf.bm = -bgB;
-		tf.x = MARGIN;
+		tf = PixelScene.renderMultiline( text, 7 );
+		tf.maxWidth(GoblinsPixelDungeon.landscape() ?
+				WIDTH_L - MARGIN * 2:
+				WIDTH_P - MARGIN *2);
+		tf.invert();
+		tf.setPos(MARGIN, 0);
 		add( tf );
 		
 		add( new TouchArea( chrome ) {

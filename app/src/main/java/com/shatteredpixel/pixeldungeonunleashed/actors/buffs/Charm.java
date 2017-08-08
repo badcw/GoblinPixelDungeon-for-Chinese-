@@ -57,7 +57,7 @@ public class Charm extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Charmed";
+		return "魅惑";
 	}
 	
 	public static float durationFactor( Char ch ) {
@@ -67,11 +67,11 @@ public class Charm extends FlavourBuff {
 
 	@Override
 	public String desc() {
-		return "A charm is manipulative magic that can make enemies temporarily adore eachother.\n" +
+		return "魅惑是操纵魔法，可以使敌人暂时爱慕对方。\n" +
 				"\n" +
-				"Characters affected by charm are unable to directly attack the enemy they are charmed by. " +
-				"Attacking other targets is still possible however.\n" +
+				"被魅惑影响的生物无法直接攻击被他们魅惑的敌人。 " +
+				"然而，攻击其他目标仍然是可以的。\n" +
 				"\n" +
-				"The charm will last for " + dispTurns() + ".";
+				"魅惑还将持续 " + dispTurns() + "。";
 	}
 }

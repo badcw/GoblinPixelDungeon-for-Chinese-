@@ -38,15 +38,15 @@ public class Bless extends FlavourBuff {
 
 	@Override
 	public String toString() {
-		return "Blessed";
+		return "祝福";
 	}
 
 	@Override
 	public String desc() {
-		return "A great burst of focus, some say it is inspired by the gods.\n" +
+		return "一束巨大的光聚集在你身上, 有人说那是神赐予的。\n" +
 				"\n" +
-				"Blessing significantly increases accuracy and evasion, making the blessed much more effective in combat.\n" +
+				"祝福大大提高了你的准确和闪避率，这使祝福在战斗中更加有效。\n" +
 				"\n" +
-				"This blessing will last for  " + dispTurns() + ".";
+				"祝福还将持续  " + dispTurns() + "。";
 	}
 }

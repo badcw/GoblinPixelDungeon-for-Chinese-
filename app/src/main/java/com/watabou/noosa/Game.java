@@ -30,6 +30,7 @@ import com.watabou.noosa.audio.Music;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.BitmapCache;
 import com.watabou.utils.SystemTime;
+import com.watabou.glwrap.Vertexbuffer;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -52,6 +53,8 @@ public class Game extends Activity implements GLSurfaceView.Renderer, View.OnTou
 	// Actual size of the screen
 	public static int width;
 	public static int height;
+	
+	protected SceneChangeCallback onChange;
 	
 	// Density: mdpi=1, hdpi=1.5, xhdpi=2...
 	public static float density = 1;
@@ -230,6 +233,8 @@ public class Game extends Activity implements GLSurfaceView.Renderer, View.OnTou
 		GLES20.glEnable( GL10.GL_SCISSOR_TEST );
 		
 		TextureCache.reload();
+		RenderedText.reloadCache();
+        Vertexbuffer.refreshAllBuffers();
 	}
 	
 	protected void destroyGame() {
@@ -249,6 +254,16 @@ public class Game extends Activity implements GLSurfaceView.Renderer, View.OnTou
 		instance.sceneClass = c;
 		instance.requestedReset = true;
 	}
+	
+	public static void switchSceneNew(Class<? extends Scene> c) {
+		switchSceneNew(c, null);
+	}
+
+	public static void switchSceneNew(Class<? extends Scene> c, SceneChangeCallback callback) {
+		instance.sceneClass = c;
+		instance.requestedReset = true;
+		instance.onChange = callback;
+	}	
 	
 	public static Scene scene() {
 		return instance.scene;
@@ -306,4 +321,9 @@ public class Game extends Activity implements GLSurfaceView.Renderer, View.OnTou
 	public static void vibrate( int milliseconds ) {
 		((Vibrator)instance.getSystemService( VIBRATOR_SERVICE )).vibrate( milliseconds );
 	}
+	
+	public interface SceneChangeCallback{
+		void beforeCreate();
+		void afterCreate();
+	}	
 }
