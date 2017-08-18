@@ -28,10 +28,10 @@ import com.watabou.utils.Random;
 
 public class Sheep extends NPC {
 
-	private static final String[] QUOTES = {"Baa!", "Baa?", "Baa.", "Baa..."};
+	private static final String[] QUOTES = {"咩!", "咩?", "咩。", "咩..."};
 
 	{
-		name = "sheep";
+		name = "羊";
 		spriteClass = SheepSprite.class;
 	}
 
@@ -61,8 +61,8 @@ public class Sheep extends NPC {
 	@Override
 	public String description() {
 		return
-				"This is a magic sheep. What's so magical about it? You can't kill it. " +
-						"It will stand there until it magcially fades away, all the while chewing cud with a blank stare.";
+				"这是一只神奇的羊。它有什么神奇之处？你无法杀了它。" +
+						"它将会站在那里，直到它奇迹般地消失了，不停地反刍带着茫然的眼神。";
 	}
 
 	@Override

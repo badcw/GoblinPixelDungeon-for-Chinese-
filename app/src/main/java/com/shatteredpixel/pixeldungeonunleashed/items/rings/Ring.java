@@ -45,55 +45,55 @@ public class Ring extends KindofMisc {
 	private static final int TICKS_TO_KNOW    = 200;
 
 	private static final float TIME_TO_EQUIP = 1f;
-	
+
 	private static final String TXT_IDENTIFY =
-		"you are now familiar enough with your %s to identify it. It is %s.";
-	
+			"你现在熟悉你的％s来识别它。它是 %s.";
+
 	protected Buff buff;
-	
+
 	private static final Class<?>[] rings = {
-		RingOfAccuracy.class,
-		RingOfEvasion.class,
-		RingOfElements.class,
-		RingOfForce.class,
-		RingOfFuror.class,
-		RingOfHaste.class,
-		RingOfMagic.class,
-		RingOfMight.class,
-		RingOfSharpshooting.class,
-		RingOfTenacity.class,
-		RingOfWealth.class,
-		RingOfSating.class,
-		RingOfSearching.class
+			RingOfAccuracy.class,
+			RingOfEvasion.class,
+			RingOfElements.class,
+			RingOfForce.class,
+			RingOfFuror.class,
+			RingOfHaste.class,
+			RingOfMagic.class,
+			RingOfMight.class,
+			RingOfSharpshooting.class,
+			RingOfTenacity.class,
+			RingOfWealth.class,
+			RingOfSating.class,
+			RingOfSearching.class
 	};
 	private static final String[] gems =
-		{
-			"diamond", "opal", "garnet", "ruby", "amethyst", "topaz", "onyx", "tourmaline",
-			"emerald", "sapphire", "quartz", "agate", "gold", "crystal", "wooden", "ivy"
-		};
+			{
+					"钻石", "蛋白", "深红", "红宝石", "紫水晶", "黄晶", "镐玛瑙", "电气石",
+					"绿宝石", "蓝宝石", "石英", "玛瑙", "黄金", "水晶", "木制", "常青藤"
+			};
 	private static final Integer[] images = {
-		ItemSpriteSheet.RING_DIAMOND,
-		ItemSpriteSheet.RING_OPAL,
-		ItemSpriteSheet.RING_GARNET,
-		ItemSpriteSheet.RING_RUBY,
-		ItemSpriteSheet.RING_AMETHYST,
-		ItemSpriteSheet.RING_TOPAZ,
-		ItemSpriteSheet.RING_ONYX,
-		ItemSpriteSheet.RING_TOURMALINE,
-		ItemSpriteSheet.RING_EMERALD,
-		ItemSpriteSheet.RING_SAPPHIRE,
-		ItemSpriteSheet.RING_QUARTZ,
-		ItemSpriteSheet.RING_AGATE,
-		ItemSpriteSheet.RING_GOLD,
-		ItemSpriteSheet.RING_CRYSTAL,
-		ItemSpriteSheet.RING_WOOD,
-		ItemSpriteSheet.RING_IVY
+			ItemSpriteSheet.RING_DIAMOND,
+			ItemSpriteSheet.RING_OPAL,
+			ItemSpriteSheet.RING_GARNET,
+			ItemSpriteSheet.RING_RUBY,
+			ItemSpriteSheet.RING_AMETHYST,
+			ItemSpriteSheet.RING_TOPAZ,
+			ItemSpriteSheet.RING_ONYX,
+			ItemSpriteSheet.RING_TOURMALINE,
+			ItemSpriteSheet.RING_EMERALD,
+			ItemSpriteSheet.RING_SAPPHIRE,
+			ItemSpriteSheet.RING_QUARTZ,
+			ItemSpriteSheet.RING_AGATE,
+			ItemSpriteSheet.RING_GOLD,
+			ItemSpriteSheet.RING_CRYSTAL,
+			ItemSpriteSheet.RING_WOOD,
+			ItemSpriteSheet.RING_IVY
 	};
 
 	private static ItemStatusHandler<Ring> handler;
-	
+
 	private String gem;
-	
+
 	private int ticksToKnow = TICKS_TO_KNOW;
 
 	{
@@ -104,43 +104,43 @@ public class Ring extends KindofMisc {
 	public static void initGems() {
 		handler = new ItemStatusHandler<Ring>( (Class<? extends Ring>[])rings, gems, images );
 	}
-	
+
 	public static void save( Bundle bundle ) {
 		handler.save( bundle );
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static void restore( Bundle bundle ) {
 		handler = new ItemStatusHandler<Ring>( (Class<? extends Ring>[])rings, gems, images, bundle );
 	}
-	
+
 	public Ring() {
 		super();
 		syncVisuals();
 	}
-	
+
 	public void syncVisuals() {
 		image	= handler.image( this );
 		gem		= handler.label( this );
 	}
-	
+
 	@Override
 	public ArrayList<String> actions( Hero hero ) {
 		ArrayList<String> actions = super.actions( hero );
 		actions.add(isEquipped(hero) ? AC_UNEQUIP : AC_EQUIP);
 		return actions;
 	}
-	
+
 	@Override
 	public boolean doEquip( Hero hero ) {
-		
+
 		if (hero.belongings.misc1 != null && hero.belongings.misc2 != null) {
-			
-			GLog.w( "you can only wear 2 misc items at a time" );
+
+			GLog.w( "你一次只能穿两件物品" );
 			return false;
-			
+
 		} else {
-			
+
 			if (hero.belongings.misc1 == null) {
 				hero.belongings.misc1 = this;
 			} else {
@@ -148,22 +148,22 @@ public class Ring extends KindofMisc {
 			}
 
 			detach( hero.belongings.backpack );
-			
+
 			activate( hero );
-			
+
 			cursedKnown = true;
 			if (cursed) {
 				equipCursed( hero );
-				GLog.n( "your " + this + " tightens around your finger painfully" );
+				GLog.n( "你的 " + this + " 戒指勒在你的手上" );
 			}
-			
+
 			hero.spendAndNext( TIME_TO_EQUIP );
 			return true;
-			
+
 		}
 
 	}
-	
+
 	public void activate( Char ch ) {
 		buff = buff();
 		buff.attachTo(ch);
@@ -190,7 +190,7 @@ public class Ring extends KindofMisc {
 
 		}
 	}
-	
+
 	@Override
 	public boolean isEquipped( Hero hero ) {
 		return hero.belongings.misc1 == this || hero.belongings.misc2 == this;
@@ -221,74 +221,74 @@ public class Ring extends KindofMisc {
 		if (upgradeSucceds()) {
 			super.upgrade();
 		} else {
-			GLog.n("The magic failed to bind to your ring.");
+			GLog.n("用手抓紧你的手指");
 		}
 
 		if (buff != null) {
-			
+
 			Char owner = buff.target;
 			buff.detach();
 			if ((buff = buff()) != null) {
 				buff.attachTo( owner );
 			}
 		}
-		
+
 		return this;
 	}
 
 	public boolean isKnown() {
 		return handler.isKnown( this );
 	}
-	
+
 	protected void setKnown() {
 		if (!isKnown()) {
 			handler.know(this);
 		}
-		
+
 		Badges.validateAllRingsIdentified();
 	}
-	
+
 	@Override
 	public String name() {
-		return isKnown() ? name : gem + " ring";
+		return isKnown() ? name : gem + " 戒指";
 	}
-	
+
 	@Override
 	public String desc() {
 		return
-			"This metal band is adorned with a large " + gem + " gem " +
-			"that glitters in the darkness. Who knows what effect it has when worn?";
+				"这个金属圈有很大的装饰 " + gem + " 宝石 " +
+						"在黑暗中闪闪发光，谁知道带上有什么效果";
 	}
-	
+
 	@Override
 	public String info() {
 		if (isEquipped( Dungeon.hero )) {
 
 			return desc() + "\n\n" + "The " + name() + " is on your finger" +
-				(cursed ? ", and because it is cursed, you are powerless to remove it." : "." );
-			
+					(cursed ? ", and because it is cursed, you are powerless to remove it." : "." );
+
 		} else if (cursed && cursedKnown) {
-			
+
 			return desc() + "\n\nYou can feel a malevolent magic lurking within the " + name() + ".";
-			
+
 		} else {
-			
+
 			return desc();
-			
+
 		}
 	}
-	
+
 	@Override
 	public boolean isIdentified() {
 		return super.isIdentified() && isKnown();
 	}
-	
+
 	@Override
 	public Item identify() {
 		setKnown();
 		return super.identify();
 	}
-	
+
 	@Override
 	public Item random() {
 		int n = 1;
@@ -319,7 +319,7 @@ public class Ring extends KindofMisc {
 	public static boolean allKnown() {
 		return handler.known().size() == rings.length;
 	}
-	
+
 	@Override
 	public int price() {
 		int price = 75;
@@ -338,12 +338,12 @@ public class Ring extends KindofMisc {
 		}
 		return price;
 	}
-	
+
 	protected RingBuff buff() {
 		return null;
 	}
 
-	private static final String UNFAMILIRIARITY    = "unfamiliarity";
+	private static final String UNFAMILIRIARITY    = "不熟悉";
 
 	@Override
 	public void storeInBundle( Bundle bundle ) {
@@ -360,14 +360,14 @@ public class Ring extends KindofMisc {
 	}
 
 	public class RingBuff extends Buff {
-		
-		private static final String TXT_KNOWN = "This is a %s";
-		
+
+		private static final String TXT_KNOWN = "这是一个 %s";
+
 		public int level;
 		public RingBuff() {
 			level = Ring.this.level;
 		}
-		
+
 		@Override
 		public boolean attachTo( Char target ) {
 
@@ -376,22 +376,22 @@ public class Ring extends KindofMisc {
 				GLog.i( TXT_KNOWN, name() );
 				Badges.validateItemLevelAquired( Ring.this );
 			}
-			
+
 			return super.attachTo(target);
 		}
-		
+
 		@Override
 		public boolean act() {
-			
+
 			if (!isIdentified() && --ticksToKnow <= 0) {
 				String gemName = name();
 				identify();
 				GLog.w( TXT_IDENTIFY, gemName, Ring.this.toString() );
 				Badges.validateItemLevelAquired( Ring.this );
 			}
-			
+
 			spend( TICK );
-			
+
 			return true;
 		}
 	}

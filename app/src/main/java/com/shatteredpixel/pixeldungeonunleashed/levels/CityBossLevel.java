@@ -231,36 +231,36 @@ public class CityBossLevel extends Level {
 	private boolean outsideEntraceRoom( int cell ) {
 		return cell / WIDTH < arenaDoor / WIDTH;
 	}
-	
+
 	@Override
 	public String tileName( int tile ) {
 		switch (tile) {
-		case Terrain.WATER:
-			return "Suspiciously colored water";
-		case Terrain.HIGH_GRASS:
-			return "High blooming flowers";
-		default:
-			return super.tileName( tile );
+			case Terrain.WATER:
+				return "颜色可疑的水";
+			case Terrain.HIGH_GRASS:
+				return "高大盛开的花朵";
+			default:
+				return super.tileName( tile );
 		}
 	}
-	
+
 	@Override
 	public String tileDesc(int tile) {
 		switch (tile) {
-		case Terrain.ENTRANCE:
-			return "A ramp leads up to the upper depth.";
-		case Terrain.EXIT:
-			return "A ramp leads down to the lower depth.";
-		case Terrain.WALL_DECO:
-		case Terrain.EMPTY_DECO:
-			return "Several tiles are missing here.";
-		case Terrain.EMPTY_SP:
-			return "Thick carpet covers the floor.";
-		case Terrain.STATUE:
-		case Terrain.STATUE_SP:
-			return "The statue depicts some dwarf standing in a heroic stance.";
-		case Terrain.BOOKSHELF:
-			return "The rows of books on different disciplines fill the bookshelf.";
+			case Terrain.ENTRANCE:
+				return "通向上一层的楼梯。";
+			case Terrain.EXIT:
+				return "通向下一层的楼梯。";
+			case Terrain.WALL_DECO:
+			case Terrain.EMPTY_DECO:
+				return "这里少了几个砖块。";
+			case Terrain.EMPTY_SP:
+				return "地板上铺着厚厚的地毯。";
+			case Terrain.STATUE:
+			case Terrain.STATUE_SP:
+				return "雕像描绘了一个站在英雄立场上的矮人。";
+			case Terrain.BOOKSHELF:
+				return "书架上摆满了不同学科的书籍。";
 		default:
 			return super.tileDesc( tile );
 		}

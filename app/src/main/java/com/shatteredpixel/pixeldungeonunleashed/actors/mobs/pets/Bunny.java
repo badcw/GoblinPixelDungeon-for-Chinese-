@@ -29,7 +29,7 @@ import com.watabou.utils.Random;
 public class Bunny extends PET{
 	
 	{
-		name = "bunny";
+		name = "邦尼兔";
 		spriteClass = BunnySprite.class;       
 		state = HUNTING;
 		level = 1;
@@ -65,7 +65,7 @@ public class Bunny extends PET{
 		int dmg=0;
 		if (cooldown==0){
 			dmg=Random.NormalIntRange(HT, HT*2); 
-			yell("Bite!");
+			yell("咬你!");
 			cooldown=1000;
 		} else {
 			dmg=Random.NormalIntRange(HT/5, HT/2) ;
@@ -90,7 +90,7 @@ public class Bunny extends PET{
 
 @Override
 public String description() {
-	return "Death by sharp pointy fangs!";
+	return "用锋利的毒牙杀死你！";
 }
 
 
@@ -107,7 +107,7 @@ public void interact() {
 	}
 	if (buff(Paralysis.class) != null) {
 		Buff.detach(this, Paralysis.class);
-		GLog.i("You shake your %s out of paralysis.", name);
+		GLog.i("你摇动你的%s，里面有什么东西！", name);
 	}
 	
 	int curPos = pos;

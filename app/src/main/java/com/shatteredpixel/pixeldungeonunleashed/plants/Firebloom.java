@@ -34,39 +34,39 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 
 public class Firebloom extends Plant {
 
-	private static final String TXT_DESC = "When something touches a Firebloom, it bursts into flames.";
-	
+	private static final String TXT_DESC = "任何物品触碰到烈焰花时，它会立刻燃烧.";
+
 	{
 		image = 0;
-		plantName = "Firebloom";
+		plantName = "烈焰花";
 	}
-	
+
 	@Override
 	public void activate() {
-		
+
 		GameScene.add( Blob.seed( pos, 2, Fire.class ) );
-		
+
 		if (Dungeon.visible[pos]) {
 			CellEmitter.get( pos ).burst( FlameParticle.FACTORY, 5 );
 		}
 	}
-	
+
 	@Override
 	public String desc() {
 		return TXT_DESC;
 	}
-	
+
 	public static class Seed extends Plant.Seed {
 		{
-			plantName = "Firebloom";
-			
-			name = "seed of " + plantName;
+			plantName = "烈焰花";
+
+			name = "之种 " + plantName;
 			image = ItemSpriteSheet.SEED_FIREBLOOM;
-			
+
 			plantClass = Firebloom.class;
 			alchemyClass = PotionOfLiquidFlame.class;
 		}
-		
+
 		@Override
 		public String desc() {
 			return TXT_DESC;

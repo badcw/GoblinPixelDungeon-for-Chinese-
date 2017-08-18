@@ -48,6 +48,7 @@ import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -358,15 +359,15 @@ public class Item implements Bundlable {
 		
 		if (levelKnown && level != 0) {
 			if (quantity > 1) {
-				return Utils.format( TXT_TO_STRING_LVL_X, name(), level, quantity );
+				return Messages.format( TXT_TO_STRING_LVL_X, name(), level, quantity );
 			} else {
-				return Utils.format( TXT_TO_STRING_LVL, name(), level );
+				return Messages.format( TXT_TO_STRING_LVL, name(), level );
 			}
 		} else {
 			if (quantity > 1) {
-				return Utils.format( TXT_TO_STRING_X, name(), quantity );
+				return Messages.format( TXT_TO_STRING_X, name(), quantity );
 			} else {
-				return Utils.format( TXT_TO_STRING, name() );
+				return Messages.format( TXT_TO_STRING, name() );
 			}
 		}
 	}

@@ -86,29 +86,30 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.noosa.ui.Button;
 import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
 import com.watabou.noosa.RenderedText;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class WndHero extends WndTabbed {
-	
-	private static final String TXT_STATS	= "Stats";
-	private static final String TXT_BUFFS	= "Buffs";
-	private static final String TXT_PET = "Pet";
+
+	private static final String TXT_STATS	= "属性";
+	private static final String TXT_BUFFS	= "状态";
+	private static final String TXT_PET = "宠物";
 
 	private static final String TXT_HEALS = "%+dHP";
-	
-	private static final String TXT_EXP		= "Experience";
-	private static final String TXT_STR		= "Strength";
-	private static final String TXT_HEALTH	= "Health";
-	private static final String TXT_GOLD	= "Gold Collected";
-	private static final String TXT_DEPTH	= "Maximum Depth";
-	private static final String TXT_KILLS = "Kills";
-	private static final String TXT_BREATH = "Pet Ability";
-	private static final String TXT_SPIN = "Web";
-	private static final String TXT_STING = "Stinger";
-	private static final String TXT_FEATHERS = "Feathers";
-	private static final String TXT_SPARKLE = "Wand Attack";
-	private static final String TXT_FANGS = "Fangs";
-	private static final String TXT_ATTACK = "Attack Skill";
-	private static final String TXT_PETS = "Pets Lost";
+
+	private static final String TXT_EXP		= "经验";
+	private static final String TXT_STR		= "力量";
+	private static final String TXT_HEALTH	= "生命";
+	private static final String TXT_GOLD	= "金币收集数";
+	private static final String TXT_DEPTH	= "最深层数";
+	private static final String TXT_KILLS = "击杀数";
+	private static final String TXT_BREATH = "宠物能力";
+	private static final String TXT_SPIN = "";
+	private static final String TXT_STING = "蛰针";
+	private static final String TXT_FEATHERS = "羽毛";
+	private static final String TXT_SPARKLE = "法杖攻击";
+	private static final String TXT_FANGS = "长牙";
+	private static final String TXT_ATTACK = "攻击能力";
+	private static final String TXT_PETS = "失去宠物数";
 
 	
 	private static final int WIDTH		= 100;
@@ -180,10 +181,10 @@ public class WndHero extends WndTabbed {
 	}
 	
 	private class StatsTab extends Group {
-		
-		private static final String TXT_TITLE		= "Level %d %s %s";
-		private static final String TXT_CATALOGUS	= "Catalogus";
-		private static final String TXT_JOURNAL		= "Journal";
+
+		private static final String TXT_TITLE		= " %d 级 %s %s";
+		private static final String TXT_CATALOGUS	= "图鉴";
+		private static final String TXT_JOURNAL		= "日志";
 		
 		private static final int GAP = 5;
 		
@@ -196,32 +197,32 @@ public class WndHero extends WndTabbed {
 			String TXT_DIFF;
 			switch (Dungeon.difficultyLevel) {
 				case Dungeon.DIFF_TUTOR:
-					TXT_DIFF="TUTOR";
+					TXT_DIFF="教程";
 					break;
 				case Dungeon.DIFF_EASY:
-					TXT_DIFF="EASY";
+					TXT_DIFF="简单";
 					break;
 				case Dungeon.DIFF_HARD:
-					TXT_DIFF="HARD";
+					TXT_DIFF="困难";
 					break;
 				case Dungeon.DIFF_NTMARE:
-					TXT_DIFF="NTMARE";
+					TXT_DIFF="噩梦";
 					break;
 				case Dungeon.DIFF_TEST:
-					TXT_DIFF="TEST";
+					TXT_DIFF="测试";
 					break;
 				case Dungeon.DIFF_ENDLESS:
-					TXT_DIFF="ENDLESS";
+					TXT_DIFF="无尽";
 					break;
 				default:
-					TXT_DIFF="NORMAL";
+					TXT_DIFF="普通";
 					break;
 			}
 
 
 			IconTitle title = new IconTitle();
 			title.icon( HeroSprite.avatar(hero.heroClass, hero.tier()) );
-			title.label(Utils.format( TXT_TITLE, hero.lvl, hero.className(), TXT_DIFF ).toUpperCase( Locale.ENGLISH ), 9);
+			title.label(Messages.get( TXT_TITLE, hero.lvl, hero.className(), TXT_DIFF ).toUpperCase( Locale.ENGLISH ), 9);
 			title.color(Window.SHPX_COLOR);
 			title.setRect( 0, 0, WIDTH, 0 );
 			add(title);
@@ -351,12 +352,12 @@ public class WndHero extends WndTabbed {
 
 	private class PetTab extends Group {
 
-		private static final String TXT_TITLE = "Level %d %s";
-		private static final String TXT_FEED = "Feed";
-		private static final String TXT_CALL = "Call";
-		private static final String TXT_STAY = "Stay";
-		private static final String TXT_RELEASE = "Release";
-		private static final String TXT_SELECT = "What do you want to feed your pet?";
+		private static final String TXT_TITLE = "%d 级 %s";
+		private static final String TXT_FEED = "喂食";
+		private static final String TXT_CALL = "呼唤";
+		private static final String TXT_STAY = "停留";
+		private static final String TXT_RELEASE = "解除";
+		private static final String TXT_SELECT = "你想用什么喂你的宠物?";
 
 		private CharSprite image;
 		private RenderedText name;
@@ -388,7 +389,7 @@ public class WndHero extends WndTabbed {
 
 			IconTitle title = new IconTitle();
 			title.icon(image);
-			title.label(Utils.format(TXT_TITLE, heropet.level, heropet.name).toUpperCase(Locale.ENGLISH), 9);
+			title.label(Messages.get(TXT_TITLE, heropet.level, heropet.name).toUpperCase(Locale.ENGLISH), 9);
 			title.color(Window.SHPX_COLOR);
 			title.setRect(0, 0, WIDTH, 0);
 			add(title);
@@ -523,11 +524,12 @@ public class WndHero extends WndTabbed {
 				((EquipableItem)item).doUnequip( Dungeon.hero, true );
 			}
 			item.detach(Dungeon.hero.belongings.backpack);
-			GLog.p("Your pet eats the %s.",item.name());
+			GLog.p("你的宠物吃了 %s.",item.name());
 		}else if (!nearby){
-			GLog.w("Your pet is too far away!");
+			GLog.w("你的宠物跑远了!");
 		} else {
-			GLog.n("Your pet rejects the %s.",item.name());
+			GLog.n("你的宠物拒绝了 %s.",item.name());
+
 
 		}
 	}

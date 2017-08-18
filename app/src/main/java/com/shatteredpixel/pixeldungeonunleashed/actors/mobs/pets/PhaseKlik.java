@@ -49,11 +49,12 @@ import com.watabou.utils.Random;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class PhaseKlik extends PET implements Callback{
 	
 	{
-		name = "phase shift klik";
+		name = "相移克里克";
 		spriteClass = PhaseKlikSprite.class;
 		flying=true;
 		state = HUNTING;
@@ -62,7 +63,7 @@ public class PhaseKlik extends PET implements Callback{
 		cooldown=1000;
 	}
 	private static final float TIME_TO_ZAP = 2f;
-	private static final String TXT_LIGHTNING_KILLED = "%s's lightning bolt killed you...";
+	private static final String TXT_LIGHTNING_KILLED = "%s的闪电杀死了你…";
 
 	@Override
 	protected float attackDelay() {
@@ -109,7 +110,7 @@ public class PhaseKlik extends PET implements Callback{
 		
 		if (cooldown>0){
 			cooldown--;
-			if (cooldown==0) {GLog.w("The air crackles around your phase shifting klik!");}
+			if (cooldown==0) {GLog.w("在你的相移克里克周围，空气变得更湿润了！");}
 		}
 		
 		if (Random.Float()<regenChance && HP<HT){HP+=regen; super.checkHP();}
@@ -165,7 +166,7 @@ public class PhaseKlik extends PET implements Callback{
 					Camera.main.shake(2, 0.3f);
 
 					if (!enemy.isAlive()) {
-						Dungeon.fail(Utils.format(ResultDescriptions.MOB,
+						Dungeon.fail(Messages.format(ResultDescriptions.MOB,
 								Utils.indefinite(name)));
 						GLog.n(TXT_LIGHTNING_KILLED, name);
 					}
@@ -200,7 +201,7 @@ public class PhaseKlik extends PET implements Callback{
 		}
 		if (buff(Paralysis.class) != null) {
 			Buff.detach(this, Paralysis.class);
-			GLog.i("You shake your %s out of paralysis.", name);
+			GLog.i("你摇动你的%s，里面有什么东西！", name);
 		}
 		
 		int curPos = pos;

@@ -26,22 +26,22 @@ package com.shatteredpixel.pixeldungeonunleashed.items.rings;
 public class RingOfAccuracy extends Ring {
 
 	{
-		name = "Ring of Accuracy";
+		name = "精准戒指";
 	}
-	
+
 	@Override
 	protected RingBuff buff( ) {
 		return new Accuracy();
 	}
-	
+
 	@Override
 	public String desc() {
 		return isKnown() ?
-			"This ring increases your focus, reducing your enemy's ability to dodge your attacks. "+
-			"A degraded ring will instead make you easier to evade.":
-			super.desc();
+				"这个戒指提高了你的专注力使敌人难以躲避你的攻击. "+
+						"负等级的戒指会让你的攻击更容易躲避.":
+				super.desc();
 	}
-	
+
 	public class Accuracy extends RingBuff {
 	}
 }

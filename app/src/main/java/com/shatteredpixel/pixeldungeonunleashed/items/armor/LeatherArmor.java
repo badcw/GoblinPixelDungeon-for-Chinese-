@@ -29,7 +29,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 public class LeatherArmor extends Armor {
 
 	{
-		name = "leather armor";
+		name = "皮甲";
 		image = ItemSpriteSheet.ARMOR_LEATHER;
 	}
 	
@@ -39,6 +39,6 @@ public class LeatherArmor extends Armor {
 	
 	@Override
 	public String desc() {
-		return "Armor made from tanned monster hide. Not as light as cloth armor but provides better protection.";
+		return "用鞣制的兽皮制成的护甲。没有比布甲轻但提供更好的防御 。";
 	}
 }

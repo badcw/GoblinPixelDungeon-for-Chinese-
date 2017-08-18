@@ -42,25 +42,27 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class WndTradeItem extends Window {
 	
 	private static final float GAP		= 2;
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 16;
-	
-	private static final String TXT_SALE		= "FOR SALE: %s - %dg";
-	private static final String TXT_BUY			= "Buy for %dg";
-	private static final String TXT_STEAL		= "Steal with %d%% chance";
-	private static final String TXT_SELL		= "Sell for %dg";
-	private static final String TXT_SELL_1		= "Sell 1 for %dg";
-	private static final String TXT_SELL_ALL	= "Sell all for %dg";
-	private static final String TXT_CANCEL		= "Never mind";
-	
-	private static final String TXT_SOLD	= "You've sold your %s for %dg";
-	private static final String TXT_BOUGHT	= "You've bought %s for %dg";
-	private static final String TXT_STOLE	= "You've stolen the %s";
-	
+
+	private static final String TXT_SALE		= "售卖: %s - %dg";
+	private static final String TXT_BUY			= "用 %dg 买下";
+	private static final String TXT_STEAL		= "以 %d%% 机会偷取";
+	private static final String TXT_SELL		= "以 %dg 卖出";
+	private static final String TXT_SELL_1		= "以 %dg 卖出一个";
+	private static final String TXT_SELL_ALL	= "以 %dg 卖出全部";
+	private static final String TXT_CANCEL		= "不了";
+
+	private static final String TXT_SOLD	= "你以 %dg的价格卖出了 %s";
+	private static final String TXT_BOUGHT	= "你以 %dg的价格买下了 %s ";
+	private static final String TXT_STOLE	= "你偷到了 %s";
+
+
 	private WndBag owner;
 	
 	public WndTradeItem( final Item item, WndBag owner ) {
@@ -73,7 +75,7 @@ public class WndTradeItem extends Window {
 		
 		if (item.quantity() == 1) {
 			
-			NewRedButton btnSell = new NewRedButton( Utils.format( TXT_SELL, item.price() ) ) {
+			NewRedButton btnSell = new NewRedButton( Messages.get( TXT_SELL, item.price() ) ) {
 				@Override
 				protected void onClick() {
 					sell( item );
@@ -88,7 +90,7 @@ public class WndTradeItem extends Window {
 		} else {
 			
 			int priceAll= item.price();
-			NewRedButton btnSell1 = new NewRedButton( Utils.format( TXT_SELL_1, priceAll / item.quantity() ) ) {
+			NewRedButton btnSell1 = new NewRedButton( Messages.get( TXT_SELL_1, priceAll / item.quantity() ) ) {
 				@Override
 				protected void onClick() {
 					sellOne( item );
@@ -97,7 +99,7 @@ public class WndTradeItem extends Window {
 			};
 			btnSell1.setRect( 0, pos + GAP, WIDTH, BTN_HEIGHT );
 			add( btnSell1 );
-			NewRedButton btnSellAll = new NewRedButton( Utils.format( TXT_SELL_ALL, priceAll ) ) {
+			NewRedButton btnSellAll = new NewRedButton( Messages.get( TXT_SELL_ALL, priceAll ) ) {
 				@Override
 				protected void onClick() {
 					sell( item );
@@ -135,7 +137,7 @@ public class WndTradeItem extends Window {
 		
 		if (canBuy) {
 			
-			NewRedButton btnBuy = new NewRedButton( Utils.format( TXT_BUY, price ) ) {
+			NewRedButton btnBuy = new NewRedButton( Messages.get( TXT_BUY, price ) ) {
 				@Override
 				protected void onClick() {
 					hide();
@@ -156,7 +158,7 @@ public class WndTradeItem extends Window {
 			final MasterThievesArmband.Thievery thievery = Dungeon.hero.buff(MasterThievesArmband.Thievery.class);
 			if (thievery != null) {
 				final float chance = thievery.stealChance(price);
-				NewRedButton btnSteal = new NewRedButton(Utils.format(TXT_STEAL, Math.min(100, (int)(chance*100)))) {
+				NewRedButton btnSteal = new NewRedButton(Messages.get(TXT_STEAL, Math.min(100, (int)(chance*100)))) {
 					@Override
 					protected void onClick() {
 						if(thievery.steal(price)){
@@ -215,7 +217,7 @@ public class WndTradeItem extends Window {
 		IconTitle titlebar = new IconTitle();
 		titlebar.icon( new ItemSprite( item ) );
 		titlebar.label( forSale ?
-			Utils.format( TXT_SALE, item.toString(), price( item ) ) :
+			Messages.format( TXT_SALE, item.toString(), price( item ) ) :
 			Utils.capitalize( item.toString() ) );
 		titlebar.setRect( 0, 0, WIDTH, 0 );
 		add( titlebar );

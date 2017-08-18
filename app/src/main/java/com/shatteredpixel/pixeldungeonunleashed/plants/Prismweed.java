@@ -36,12 +36,12 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 public class Prismweed extends Plant {
 
 	private static final String TXT_DESC =
-			"Beautiful iridescent pollen sprouts from the tips of mature prismweed. " +
-			"It's well sought after for recreational uses, but has potent sideeffects.";
+			"美丽的彩虹花粉来自于棱镜草的尖端 " +
+					"它很好的用于娱乐，但是却会有很强大的副作用.";
 
 	{
 		image = 14;
-		plantName = "Prismweed";
+		plantName = "彩虹花";
 	}
 
 	@Override
@@ -61,9 +61,9 @@ public class Prismweed extends Plant {
 
 	public static class Seed extends Plant.Seed {
 		{
-			plantName = "Prismweed";
+			plantName = "彩虹花";
 
-			name = "seed of " + plantName;
+			name = "之种" + plantName;
 			image = ItemSpriteSheet.SEED_PRISMWEED;
 
 			plantClass = Prismweed.class;

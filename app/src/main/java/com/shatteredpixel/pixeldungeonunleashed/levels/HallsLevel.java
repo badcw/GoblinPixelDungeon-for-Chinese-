@@ -106,34 +106,34 @@ public class HallsLevel extends RegularLevel {
 		
 		placeSign();
 	}
-	
+
 	@Override
 	public String tileName( int tile ) {
 		switch (tile) {
-		case Terrain.WATER:
-			return "Cold lava";
-		case Terrain.GRASS:
-			return "Embermoss";
-		case Terrain.HIGH_GRASS:
-			return "Emberfungi";
-		case Terrain.STATUE:
-		case Terrain.STATUE_SP:
-			return "Pillar";
-		default:
-			return super.tileName( tile );
+			case Terrain.WATER:
+				return "冷岩浆";
+			case Terrain.GRASS:
+				return "灰烬苔藓";
+			case Terrain.HIGH_GRASS:
+				return "灰烬真菌";
+			case Terrain.STATUE:
+			case Terrain.STATUE_SP:
+				return "台柱";
+			default:
+				return super.tileName( tile );
 		}
 	}
-	
+
 	@Override
 	public String tileDesc(int tile) {
 		switch (tile) {
-		case Terrain.WATER:
-			return "It looks like lava, but it's cold and probably safe to touch.";
-		case Terrain.STATUE:
-		case Terrain.STATUE_SP:
-			return "The pillar is made of real humanoid skulls. Awesome.";
-		case Terrain.BOOKSHELF:
-			return "Books in ancient languages smoulder in the bookshelf.";
+			case Terrain.WATER:
+				return "看起来像是岩浆，不过却是冰凉的，应该可以碰。";
+			case Terrain.STATUE:
+			case Terrain.STATUE_SP:
+				return "这个柱子由类人类生物头骨垒成。真帅。";
+			case Terrain.BOOKSHELF:
+				return "古代语言的书籍堆积在书架上。";
 		default:
 			return super.tileDesc( tile );
 		}

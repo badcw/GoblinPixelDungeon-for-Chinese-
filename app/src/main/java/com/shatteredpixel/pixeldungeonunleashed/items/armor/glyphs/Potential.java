@@ -37,8 +37,8 @@ import com.watabou.utils.Random;
 
 public class Potential extends Glyph {
 
-	private static final String TXT_POTENTIAL	= "%s of potential";
-	private static final String TXT_DESCRIPTION = "This armor can generate an electrical charge when hit, affecting those around it.";
+	private static final String TXT_POTENTIAL	= "电势%s";
+	private static final String TXT_DESCRIPTION = "这件护甲能在受到打击时电击周围的生物。";
 
 	private static ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x66CCEE );
 	

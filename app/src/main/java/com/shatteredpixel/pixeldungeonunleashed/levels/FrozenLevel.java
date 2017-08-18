@@ -112,7 +112,7 @@ public class FrozenLevel  extends RegularLevel {
     public String tileName( int tile ) {
         switch (tile) {
             case Terrain.WATER:
-                return "Icy water";
+                return "冰水";
             default:
                 return super.tileName( tile );
         }
@@ -122,9 +122,10 @@ public class FrozenLevel  extends RegularLevel {
     public String tileDesc(int tile) {
         switch (tile) {
             case Terrain.EMPTY_DECO:
-                return "Frozen weeds cover the floor.";
+                return "地板上覆盖着冻土。";
             case Terrain.BOOKSHELF:
-                return "The bookshelf is packed with cheap useless books. Might it burn?";
+                return "书架上摆满了便宜而又没用的书，能烧着它吗？";
+
             default:
                 return super.tileDesc( tile );
         }

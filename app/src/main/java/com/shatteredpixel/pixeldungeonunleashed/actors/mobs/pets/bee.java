@@ -30,7 +30,7 @@ import com.watabou.utils.Random;
 public class bee extends PET {
 	
 	{
-		name = "steel bee";
+		name = "钢铁蜜蜂";
 		spriteClass = SteelBeeSprite.class;
         flying=true;
 		state = HUNTING;
@@ -93,7 +93,7 @@ public class bee extends PET {
 		}
 		if (buff(Paralysis.class) != null) {
 			Buff.detach(this, Paralysis.class);
-			GLog.i("You shake your %s out of paralysis.", name);
+			GLog.i("你摇动你的%s，里面有什么东西！", name);
 		}
 		
 		int curPos = pos;
@@ -133,7 +133,7 @@ public class bee extends PET {
 
 @Override
 public String description() {
-	return "Strongly armored in steely plates, this bee is here to fight!";
+	return "穿着被钢铁坚固的盔甲，这只蜜蜂在这里战斗！";
 }
 
 

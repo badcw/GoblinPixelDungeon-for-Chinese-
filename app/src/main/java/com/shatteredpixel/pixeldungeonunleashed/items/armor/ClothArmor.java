@@ -29,7 +29,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 public class ClothArmor extends Armor {
 
 	{
-		name = "cloth armor";
+		name = "布甲";
 		image = ItemSpriteSheet.ARMOR_CLOTH;
 
 		bones = false; //Finding them in bones would be semi-frequent and disappointing.
@@ -42,8 +42,8 @@ public class ClothArmor extends Armor {
 	@Override
 	public String desc() {
 		return
-				"This armor seems to be from the famous wussy shire collection of saint fruity. " +
+				" 这件护甲似乎是从著名的巫师郡收集圣水果得来的。" +
 				"\n" +
-				"At least the cloth offers some basic protection.";
+				"至少布料提供了一些基本的保护。";
 	}
 }

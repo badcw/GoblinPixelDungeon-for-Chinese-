@@ -34,17 +34,17 @@ import com.watabou.utils.Random;
 
 public class Shock extends Weapon.Enchantment {
 
-	private static final String TXT_SHOCKING	= "Shocking %s";
-	
+	private static final String TXT_SHOCKING	= "电击%s";
+
 	@Override
 	public boolean proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 		// lvl 0 - 25%
 		// lvl 1 - 40%
 		// lvl 2 - 50%
 		int level = Math.max( 0, weapon.level );
-		
+
 		if (Random.Int( level + 4 ) >= 3) {
-			
+
 			affected.clear();
 			affected.add(attacker);
 
@@ -53,16 +53,16 @@ public class Shock extends Weapon.Enchantment {
 			hit(defender, Random.Int(1, damage / 2));
 
 			attacker.sprite.parent.add( new Lightning( arcs, null ) );
-			
+
 			return true;
-			
+
 		} else {
-			
+
 			return false;
-			
+
 		}
 	}
-	
+
 	@Override
 	public String name( String weaponName ) {
 		return String.format( TXT_SHOCKING, weaponName );
@@ -71,19 +71,19 @@ public class Shock extends Weapon.Enchantment {
 	private ArrayList<Char> affected = new ArrayList<>();
 
 	private ArrayList<Lightning.Arc> arcs = new ArrayList<>();
-	
+
 	private void hit( Char ch, int damage ) {
-		
+
 		if (damage < 1) {
 			return;
 		}
-		
+
 		affected.add(ch);
 		ch.damage(Level.water[ch.pos] && !ch.flying ? (int) (damage * 2) : damage, LightningTrap.LIGHTNING);
-		
+
 		ch.sprite.centerEmitter().burst(SparkParticle.FACTORY, 3);
 		ch.sprite.flash();
-		
+
 		HashSet<Char> ns = new HashSet<Char>();
 		for (int i=0; i < Level.NEIGHBOURS8.length; i++) {
 			Char n = Actor.findChar( ch.pos + Level.NEIGHBOURS8[i] );
@@ -96,7 +96,7 @@ public class Shock extends Weapon.Enchantment {
 
 	@Override
 	public String enchDesc() {
-		return "Shocking weapons are charged with electricity, which can harm an enemy when struck.  "+
-		"Be careful though, electricity likes to jump from target to target which means you.";
+		return "电击武器充满了电荷,攻击时能伤害敌人.  "+
+				"不过要小心, 电弧会在目标之间跳动,也包括你.";
 	}
 }

@@ -43,7 +43,7 @@ public class SummoningTrap extends Trap {
 	
 	// 0x770088
 	{
-		name = "Summoning trap";
+		name = "召唤陷阱";
 		image = 7;
 	}
 

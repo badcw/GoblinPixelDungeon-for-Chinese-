@@ -34,12 +34,12 @@ public class WndPetHaste extends Window {
 	
 	//if people don't get it after this, I quit. I just quit.
 
-	private static final String TXT_MESSAGE = "You can apply a portion of your haste buff to your pet. " +
-			                                  "This will limit your haste level to 10 but your pet will be able to keep up with you while you move. "
-			                                  +"You can unhaste your pet by removing your ring of haste. "; 
-	
-	private static final String TXT_YES = "Haste my Pet";
-	private static final String TXT_NO = "No Thanks";
+	private static final String TXT_MESSAGE = "你可以将你极速状态的一部分分给你的宠物 " +
+			"这将限制你的极速等级为十,但是你的宠物可以跟得上. "
+			+"你可以摘除你的极速戒指来使你的宠物失去极速";
+
+	private static final String TXT_YES = "加快我的宠物";
+	private static final String TXT_NO = "不，谢了";
 
 
 	private static final int WIDTH = 120;

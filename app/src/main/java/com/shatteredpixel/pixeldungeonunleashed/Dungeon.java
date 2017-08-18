@@ -81,6 +81,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashSet;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Dungeon {
 
@@ -674,7 +675,7 @@ public class Dungeon {
 		bundle.put(LEVEL, level);
 
 		OutputStream output = Game.instance.openFileOutput(
-			Utils.format( depthFile( hero.heroClass ), depth ), Game.MODE_PRIVATE );
+			Messages.get( depthFile( hero.heroClass ), depth ), Game.MODE_PRIVATE );
 		Bundle.write( bundle, output );
 		output.close();
 	}
@@ -830,7 +831,7 @@ public class Dungeon {
 		Dungeon.level = null;
 		Actor.clear();
 		
-		InputStream input = Game.instance.openFileInput( Utils.format( depthFile( cl ), depth ) ) ;
+		InputStream input = Game.instance.openFileInput( Messages.get( depthFile( cl ), depth ) ) ;
 		Bundle bundle = Bundle.read( input );
 		input.close();
 		
@@ -842,7 +843,7 @@ public class Dungeon {
 		
 		if (deleteLevels) {
 			int depth = 1;
-			while (Game.instance.deleteFile( Utils.format( depthFile( cl ), depth ) )) {
+			while (Game.instance.deleteFile( Messages.get( depthFile( cl ), depth ) )) {
 				depth++;
 			}
 		}
@@ -868,15 +869,14 @@ public class Dungeon {
 
 		Hero.preview( info, bundle.getBundle( HERO ) );
 	}
-	
-	public static void fail( String desc ) {
-		resultDescription = desc;
+
+	public static void fail( Class cause ) {
 		if (hero.belongings.getItem( Ankh.class ) == null) {
 			Rankings.INSTANCE.submit( false );
 		}
 	}
-	
-	public static void win( String desc ) {
+
+	public static void win( Class cause ) {
 
 		hero.belongings.identify();
 
@@ -884,7 +884,6 @@ public class Dungeon {
 			Badges.validateChampion();
 		}
 
-		resultDescription = desc;
 		Rankings.INSTANCE.submit( true );
 	}
 	

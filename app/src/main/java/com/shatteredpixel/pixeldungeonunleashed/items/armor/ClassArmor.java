@@ -31,9 +31,9 @@ import com.watabou.utils.Bundle;
 import java.util.ArrayList;
 
 abstract public class ClassArmor extends Armor {
-	
-	private static final String TXT_LOW_HEALTH		= "Your health is too low!";
-	private static final String TXT_NOT_EQUIPPED	= "You need to be wearing this armor to use its special power!";
+
+	private static final String TXT_LOW_HEALTH		= "你的生命值太低了!";
+	private static final String TXT_NOT_EQUIPPED	= "使用这件护甲的特殊力量之前你需要穿上它!";
 	
 	{
 		levelKnown = true;
@@ -139,6 +139,6 @@ abstract public class ClassArmor extends Armor {
 	
 	@Override
 	public String desc() {
-		return "The thing looks awesome!";
+		return "这东西看起来棒极了!";
 	}
 }

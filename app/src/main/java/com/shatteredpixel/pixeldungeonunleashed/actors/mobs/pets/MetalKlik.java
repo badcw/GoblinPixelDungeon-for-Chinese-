@@ -43,7 +43,7 @@ import java.util.HashSet;
 public class MetalKlik extends PET implements Callback{
 	
 	{
-		name = "metal klik";
+		name = "金属克里克";
 		spriteClass = MetalKlikSprite.class;
 		flying=true;
 		state = HUNTING;
@@ -96,7 +96,7 @@ public class MetalKlik extends PET implements Callback{
 			cooldown--;
 			if (cooldown==0) {
 								
-					GLog.w("Klik-klik!");
+					GLog.w("克里克-克里克！");
 				
 			}
 		}
@@ -181,7 +181,7 @@ public class MetalKlik extends PET implements Callback{
 		}
 		if (buff(Paralysis.class) != null) {
 			Buff.detach(this, Paralysis.class);
-			GLog.i("You shake your %s out of paralysis.", name);
+			GLog.i("你摇动你的%s，里面有什么东西！", name);
 		}
 		
 		int curPos = pos;
@@ -199,8 +199,8 @@ public class MetalKlik extends PET implements Callback{
 
 @Override
 public String description() {
-	return "A freshly hatched metal klik grew from the proximity of stuff in your backpack. Such a cute ball! \n\n"+
-			"Might try to eat your gear...";
+	return "刚孵出的金属克里克成长的东西在你的背包里。如此可爱的球！ \n\n"+
+			"它可能会试图吃掉你的装备…";
 }
 
 	private static final HashSet<Class<?>> RESISTANCES = new HashSet<Class<?>>();

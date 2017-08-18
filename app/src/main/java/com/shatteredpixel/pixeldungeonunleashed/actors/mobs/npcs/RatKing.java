@@ -32,7 +32,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.RatKingSprite;
 public class RatKing extends NPC {
 
 	{
-		name = "rat king";
+		name = "鼠王";
 		spriteClass = RatKingSprite.class;
 		
 		state = SLEEPING;
@@ -71,19 +71,19 @@ public class RatKing extends NPC {
 		sprite.turnTo( pos, Dungeon.hero.pos );
 		if (state == SLEEPING) {
 			notice();
-			yell( "I'm not sleeping!" );
+			yell( "我不睡觉！" );
 			state = WANDERING;
 		} else {
-			yell( "What is it? I have no time for this nonsense. My kingdom won't rule itself!" );
+			yell( "你想干什么？我可没时间听这些废话。我的王国可不会自己运转下去！" );
 		}
 	}
 	
 	@Override
 	public String description() {
 		return ((RatKingSprite)sprite).festive ?
-			"This rat is a little bigger than a regular marsupial rat. " +
-			"It's wearing a tiny festive hat instead of its usual crown. Happy Holidays!"
-		:	"This rat is a little bigger than a regular marsupial rat " +
-			"and it's wearing a tiny crown on its head.";
+			"这只老鼠是比普通老鼠更大一点的有袋类老鼠。 " +
+			"它戴着一顶小小的节日帽，而不是通常的皇冠。节日快乐！"
+		:	"这只老鼠比普通老鼠大一点， " +
+			"头上戴着小皇冠。";
 	}
 }

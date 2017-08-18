@@ -37,6 +37,7 @@ import com.shatteredpixel.pixeldungeonunleashed.actors.mobs.Mob;
 import com.shatteredpixel.pixeldungeonunleashed.levels.Level;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.GameScene;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class ScrollOfPsionicBlast extends Scroll {
 
@@ -73,7 +74,7 @@ public class ScrollOfPsionicBlast extends Scroll {
 		curUser.spendAndNext( TIME_TO_READ );
 
 		if (!curUser.isAlive()) {
-			Dungeon.fail( Utils.format(ResultDescriptions.ITEM, name ));
+			Dungeon.fail( Messages.format(ResultDescriptions.ITEM, name ));
 			GLog.n("The Psionic Blast tears your mind apart...");
 		}
 	}

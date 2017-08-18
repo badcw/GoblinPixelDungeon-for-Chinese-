@@ -53,6 +53,7 @@ import com.shatteredpixel.pixeldungeonunleashed.windows.WndClass;
 import com.shatteredpixel.pixeldungeonunleashed.windows.WndMessage;
 import com.shatteredpixel.pixeldungeonunleashed.windows.WndOptions;
 import com.watabou.utils.Callback;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class StartScene extends PixelScene {
 
@@ -64,10 +65,10 @@ public class StartScene extends PixelScene {
 	private static final String TXT_ERASE		= "Erase current game";
 	private static final String TXT_DPTH_LVL	= "Depth: %d, level: %d";
 
-	private static final String TXT_REALLY	= "Do you really want to start new game?";
-	private static final String TXT_WARNING	= "Your current game progress will be erased.";
-	private static final String TXT_YES		= "是的，重新开始。";
-	private static final String TXT_NO		= "No, return to main menu";
+	private static final String TXT_REALLY	= "你确定开始一个新的游戏?";
+	private static final String TXT_WARNING	= "你当前的游戏进度将被抹去.";
+	private static final String TXT_YES		= "是的, 开始新的游戏.";
+	private static final String TXT_NO		= "不，返回主菜单.";
 
 	private static final String TXT_UNLOCK	= "To unlock this character, slay the 3rd boss with any other char";
 
@@ -299,7 +300,7 @@ public class StartScene extends PixelScene {
 			if (info != null) {
 
 				btnLoad.visible = true;
-				btnLoad.secondary( Utils.format( TXT_DPTH_LVL, info.depth, info.level ), info.challenges );
+				btnLoad.secondary( Messages.get( TXT_DPTH_LVL, info.depth, info.level ), info.challenges );
 				btnNewGame.visible = true;
 				btnNewGame.secondary( TXT_ERASE, false );
 

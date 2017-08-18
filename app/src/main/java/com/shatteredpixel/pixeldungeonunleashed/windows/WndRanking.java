@@ -51,6 +51,7 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.ScrollPane;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class WndRanking extends WndTabbed {
 	
@@ -180,7 +181,7 @@ public class WndRanking extends WndTabbed {
 
 				IconTitle title = new IconTitle();
 				title.icon(HeroSprite.avatar(Dungeon.hero.heroClass, Dungeon.hero.tier()));
-				title.label(Utils.format(TXT_TITLE, Dungeon.hero.lvl, heroClass).toUpperCase(Locale.ENGLISH));
+				title.label(Messages.get(TXT_TITLE, Dungeon.hero.lvl, heroClass).toUpperCase(Locale.ENGLISH));
 				title.color(Window.SHPX_COLOR);
 				title.setRect(0, 0, WIDTH, 0);
 				add(title);

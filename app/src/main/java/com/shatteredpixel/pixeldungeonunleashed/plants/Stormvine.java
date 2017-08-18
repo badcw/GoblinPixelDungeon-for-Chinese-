@@ -33,12 +33,12 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 public class Stormvine extends Plant {
 
 	private static final String TXT_DESC =
-			"Gravity affects the Stormvine plant strangely, allowing its whispy blue tendrils " +
-			"to 'hang' on the air. Anything caught in the vine is affected by this, and becomes disoriented.";
+			" 引力似乎并不能正常地作用在风暴藤上，" +
+					"它能“挂”在空中. 任何被风暴藤缠到的生物也被这种奇怪的引力影响，并失去方向感.";
 
 	{
 		image = 9;
-		plantName = "Stormvine";
+		plantName = "风暴藤";
 	}
 
 	@Override
@@ -57,9 +57,9 @@ public class Stormvine extends Plant {
 
 	public static class Seed extends Plant.Seed {
 		{
-			plantName = "Stormvine";
+			plantName = "风暴藤";
 
-			name = "seed of " + plantName;
+			name = "之种 " + plantName;
 			image = ItemSpriteSheet.SEED_STORMVINE;
 
 			plantClass = Stormvine.class;

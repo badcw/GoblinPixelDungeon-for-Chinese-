@@ -42,6 +42,7 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Weapon extends KindOfWeapon {
 
@@ -184,7 +185,7 @@ public class Weapon extends KindOfWeapon {
 	
 	@Override
 	public String toString() {
-		return levelKnown ? Utils.format( TXT_TO_STRING, super.toString(), STR ) : super.toString();
+		return levelKnown ? Messages.format( TXT_TO_STRING, super.toString(), STR ) : super.toString();
 	}
 	
 	@Override

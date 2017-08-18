@@ -37,6 +37,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.utils.Bundle;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class DewVial extends Item {
 
@@ -188,7 +189,7 @@ public class DewVial extends Item {
 
 	@Override
 	public String status() {
-		return Utils.format( TXT_STATUS, volume, MAX_VOLUME );
+		return Messages.get( TXT_STATUS, volume, MAX_VOLUME );
 	}
 
 	@Override

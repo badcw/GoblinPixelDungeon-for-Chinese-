@@ -28,16 +28,15 @@ import com.shatteredpixel.pixeldungeonunleashed.actors.Actor;
 import com.shatteredpixel.pixeldungeonunleashed.actors.Char;
 import com.shatteredpixel.pixeldungeonunleashed.items.food.Yumyuck;
 import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
-
 public class YumyuckMoss extends Plant {
 
 	private static final String TXT_DESC =
-			"Famed for being both the most delicious and abhorring food known in the universe. " +
-			"Yumyuck moss has recently been harvested a lot for alchemical useage.";
+			"因为它是世界上最美味和最令人厌恶的食物而闻名。 " +
+					"最近，由于化学物的使用，美味藓已经被收获了许多了.";
 
 	{
 		image = 8;
-		plantName = "Yumyuck Patch";
+		plantName = "美味藓";
 	}
 
 	@Override
@@ -54,9 +53,9 @@ public class YumyuckMoss extends Plant {
 
 	public static class Seed extends Plant.Seed {
 		{
-			plantName = "Yumyuck Moss";
+			plantName = "美味藓";
 
-			name = "spores of " + plantName;
+			name = "孢子 " + plantName;
 			image = ItemSpriteSheet.SEED_BLANDFRUIT;
 
 			plantClass = YumyuckMoss.class;
@@ -69,3 +68,4 @@ public class YumyuckMoss extends Plant {
 		}
 	}
 }
+

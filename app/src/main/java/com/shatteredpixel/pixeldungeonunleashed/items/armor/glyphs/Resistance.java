@@ -34,8 +34,8 @@ import com.watabou.utils.Random;
 
 public class Resistance extends Armor.Glyph {
 
-    private static final String TXT_METABOLISM	= "%s of resistance";
-    private static final String TXT_DESCRIPTION = "This armor can remove traces of toxins and mend the body at the cost of some personal energy.";
+    private static final String TXT_METABOLISM	= "强效代谢%s ";
+    private static final String TXT_DESCRIPTION = "这件护甲能祛除毒素并且消耗饥饿值来治疗你。";
 
     private static ItemSprite.Glowing YELLOW = new ItemSprite.Glowing( 0xCCAA44 );
 

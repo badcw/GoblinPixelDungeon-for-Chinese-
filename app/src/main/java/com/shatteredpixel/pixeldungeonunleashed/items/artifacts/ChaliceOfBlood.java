@@ -39,6 +39,7 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class ChaliceOfBlood extends Artifact {
 
@@ -129,7 +130,7 @@ public class ChaliceOfBlood extends Artifact {
 			hero.damage(damage, this);
 
 		if (!hero.isAlive()) {
-			Dungeon.fail(Utils.format( ResultDescriptions.ITEM, name ));
+			Dungeon.fail(Messages.format( ResultDescriptions.ITEM, name ));
 			GLog.n("The Chalice sucks your life essence dry...");
 		} else {
 			if (level < levelCap) {

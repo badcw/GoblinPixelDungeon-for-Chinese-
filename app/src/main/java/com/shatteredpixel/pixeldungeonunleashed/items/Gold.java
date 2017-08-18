@@ -38,6 +38,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Gold extends Item {
 
@@ -103,7 +104,7 @@ public class Gold extends Item {
 		case 1:
 			return TXT_INFO_1;
 		default:
-			return Utils.format( TXT_INFO, quantity );
+			return Messages.get( TXT_INFO, quantity );
 		}
 	}
 	

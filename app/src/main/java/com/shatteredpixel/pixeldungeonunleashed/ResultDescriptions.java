@@ -29,14 +29,14 @@ public class ResultDescriptions {
 	public static final String MOB		= "Killed by %s";
 	public static final String UNIQUE	= "Killed by the %s";
 	public static final String NAMED	= "Killed by %s";
-	
+
 	// Items
 	public static final String ITEM     = "Killed by your own %s";
 	public static final String GLYPH	= "Killed by the %s";
-	
+
 	// Dungeon features
 	public static final String TRAP		= "Killed by a %s";
-	
+
 	// Debuffs & blobs
 	public static final String BURNING	= "Burned to Ash";
 	public static final String HUNGER	= "Starved to Death";
@@ -45,6 +45,6 @@ public class ResultDescriptions {
 	public static final String BLEEDING	= "Bled to Death";
 	public static final String OOZE		= "Melted Away";
 	public static final String FALL		= "Died on Impact";
-	
+
 	public static final String WIN	= "Obtained the Amulet of Yendor";
 }

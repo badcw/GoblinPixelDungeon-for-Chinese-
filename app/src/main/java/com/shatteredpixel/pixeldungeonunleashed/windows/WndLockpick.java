@@ -65,7 +65,7 @@ public class WndLockpick extends Window {
     private RedButton autosolve;
 
 
-	private final String TXT_TITLE	= "Lock Picking";
+	private final String TXT_TITLE	= "开锁";
 
 	private BitmapText txtTitle;
     private BitmapText txtCharge;

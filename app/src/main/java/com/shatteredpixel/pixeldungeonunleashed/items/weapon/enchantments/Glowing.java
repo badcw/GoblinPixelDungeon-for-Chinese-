@@ -27,7 +27,7 @@ import com.watabou.utils.Random;
 
 public class Glowing extends Weapon.Enchantment {
 
-    private static final String TXT_GLOWING	= "Glowing %s";
+    private static final String TXT_GLOWING	= "光亮%s";
 
     private static ItemSprite.Glowing WHITE = new ItemSprite.Glowing( 0xFFFFFF );
 
@@ -59,7 +59,7 @@ public class Glowing extends Weapon.Enchantment {
 
     @Override
     public String enchDesc() {
-        return "This weapon glows with a soft light illuminating the dungeon.";
+        return "这件武器会发出光亮照亮地牢.";
     }
 
 }

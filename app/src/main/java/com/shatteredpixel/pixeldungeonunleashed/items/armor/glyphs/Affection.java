@@ -37,8 +37,8 @@ import com.watabou.utils.Random;
 
 public class Affection extends Glyph {
 
-	private static final String TXT_AFFECTION	= "%s of affection";
-	private static final String TXT_DESCRIPTION = "This armor can charm an attacker.";
+	private static final String TXT_AFFECTION	= "魅惑%s。";
+	private static final String TXT_DESCRIPTION = "这件护甲能魅惑敌人。";
 	
 	private static ItemSprite.Glowing PINK = new ItemSprite.Glowing( 0xFF4488 );
 	

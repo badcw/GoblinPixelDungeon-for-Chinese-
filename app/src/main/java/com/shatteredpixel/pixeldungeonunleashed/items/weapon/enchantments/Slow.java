@@ -33,33 +33,33 @@ import com.watabou.utils.Random;
 
 public class Slow extends Weapon.Enchantment {
 
-	private static final String TXT_CHILLING = "Chilling %s";
-	
+	private static final String TXT_CHILLING = "霜寒%s";
+
 	private static ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x0044FF );
-	
+
 	@Override
 	public boolean proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 		// lvl 0 - 25%
 		// lvl 1 - 40%
 		// lvl 2 - 50%
 		int level = Math.max( 0, weapon.level );
-		
+
 		if (Random.Int( level + 4 ) >= 3) {
-			
+
 			Buff.affect( defender, Chill.class,
-				Random.Float( 1, 3f ) );
-			
+					Random.Float( 1, 3f ) );
+
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public Glowing glowing() {
 		return BLUE;
 	}
-	
+
 	@Override
 	public String name( String weaponName) {
 		return String.format( TXT_CHILLING, weaponName );
@@ -67,8 +67,8 @@ public class Slow extends Weapon.Enchantment {
 
 	@Override
 	public String enchDesc() {
-		return "Chilling weapons have a chance of freezing your opponent in their tracks for a "+
-		"few turns, providing a good opprotunity to escape or land a killing blow.";
+		return "霜寒武器能冰冻敌人 "+
+				"几回合,使你有逃脱或击杀的机会 .";
 	}
 
 }

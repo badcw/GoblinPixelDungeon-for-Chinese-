@@ -23,7 +23,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSprite;
 import com.watabou.utils.Random;
 
 public class Holy extends Weapon.Enchantment {
-    private static final String TXT_HOLY	= "Holy %s";
+    private static final String TXT_HOLY	= "神圣%s";
 
     private static ItemSprite.Glowing WHITE = new ItemSprite.Glowing( 0xFFFFFF );
 
@@ -60,6 +60,6 @@ public class Holy extends Weapon.Enchantment {
 
     @Override
     public String enchDesc() {
-        return "Holy weapons inflict great pain upon the undead and truly evil of this world.";
+        return "神圣武器会对世界上的亡灵和恶魔造成无比的痛苦.";
     }
 }

@@ -46,7 +46,7 @@ import java.util.HashSet;
 public class FireKlik extends PET implements Callback{
 	
 	{
-		name = "fire klik";
+		name = "火焰克里克";
 		spriteClass = FireKlikSprite.class;
 		flying=true;
 		state = HUNTING;
@@ -97,7 +97,7 @@ public class FireKlik extends PET implements Callback{
 		
 		if (cooldown>0){
 			cooldown--;
-			if (cooldown==0) {yell("Klik-klik!");}
+			if (cooldown==0) {yell("克里克-克里克！");}
 		}
 		
 		if (Random.Float()<regenChance && HP<HT){HP+=regen; super.checkHP();}
@@ -181,7 +181,7 @@ public class FireKlik extends PET implements Callback{
 		}
 		if (buff(Paralysis.class) != null) {
 			Buff.detach(this, Paralysis.class);
-			GLog.i("You shake your %s out of paralysis.", name);
+			GLog.i("你摇动你的%s，里面有什么东西！", name);
 		}
 		
 		int curPos = pos;
@@ -199,8 +199,8 @@ public class FireKlik extends PET implements Callback{
 
 @Override
 public String description() {
-	return "A freshly hatched fire klik. Super fierce and blazing hot!\n\n"+
-			"Likes anything that can be burnt.";
+	return "刚孵化出来的火焰克里克。超火热！\n\n"+
+			"它喜欢的东西都可以烧。";
 }
 
 	private static final HashSet<Class<?>> IMMUNITIES = new HashSet<Class<?>>();

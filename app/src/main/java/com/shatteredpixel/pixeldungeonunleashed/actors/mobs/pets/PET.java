@@ -136,7 +136,7 @@ public abstract class PET extends Mob {
 		
 		if (src instanceof Hero){
 			goaways++;
-			GLog.n("Keep that up and your %s may leave you!",name);
+			GLog.n("保持下去，你的%s会离开你的！",name);
 		}
 		
 		if (goaways>2){
@@ -152,7 +152,7 @@ public abstract class PET extends Mob {
 		
 		    Dungeon.hero.haspet=false;
 		    Dungeon.hero.petCount++;
-			GLog.n("Your %s dies.",name);
+			GLog.n("你的 %s死了。",name);
 
 		super.die(cause);
 
@@ -177,7 +177,7 @@ public abstract class PET extends Mob {
 	
 	public void flee() {
 		Dungeon.hero.haspet=false;
-	    GLog.n("Your %s knows when it's not wanted!",name);
+	    GLog.n("你的%s知道什么时候不想！",name);
 		destroy();
 		sprite.killAndErase();
 		CellEmitter.get(pos).burst(ElmoParticle.FACTORY, 6);
@@ -208,7 +208,7 @@ public abstract class PET extends Mob {
 		
 		if (experience >= level*(level+level)*3 && level < 20){
 			level++;
-			GLog.p("Your pet %s gains a level!",name);
+			GLog.p("你的宠物 %s 升级了！",name);
 			adjustStats(level);
 			experience=0;
 		}

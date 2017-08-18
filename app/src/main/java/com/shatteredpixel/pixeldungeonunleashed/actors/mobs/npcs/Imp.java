@@ -41,39 +41,40 @@ import com.shatteredpixel.pixeldungeonunleashed.windows.WndImp;
 import com.shatteredpixel.pixeldungeonunleashed.windows.WndQuest;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Imp extends NPC {
 
 	{
-		name = "ambitious imp";
+		name = "雄心勃勃的小恶魔";
 		spriteClass = ImpSprite.class;
 	}
 	
 	private static final String TXT_GOLEMS1	=
-		"Are you an adventurer? I love adventurers! You can always rely on them " +
-		"if something needs to be killed. Am I right? For a bounty of course ;)\n" +
-		"In my case this is _golems_ who need to be killed. You see, I'm going to start a " +
-		"little business here, but these stupid golems are bad for business! " +
-		"It's very hard to negotiate with wandering lumps of granite, damn them! " +
-		"So please, kill... let's say _6 of them_ and a reward is yours.";
+		"你是冒险者吗？我爱冒险者！ 如果需要杀死某些东西，" +
+		"你们总是可以信赖的。我说得对吗？当然，我这么做是为了奖金。\n" +
+		"对我来说要杀的是_魔像_ 。你看，我将要在这里开始做一些" +
+		"小生意， 但是这些魔像阻碍了我的发展! " +
+		"我很难与这些四处游荡的花岗岩块谈判，该死的！" +
+		"所以，拜托，杀了它们...只要杀_6个_,奖励就是你的。";
 	
 	private static final String TXT_MONKS1	=
-		"Are you an adventurer? I love adventurers! You can always rely on them " +
-		"if something needs to be killed. Am I right? For a bounty of course ;)\n" +
-		"In my case this is _monks_ who need to be killed. You see, I'm going to start a " +
-		"little business here, but these lunatics don't buy anything themselves and " +
-		"will scare away other customers. " +
-		"So please, kill... let's say _8 of them_ and a reward is yours.";
+		"你是冒险者吗？我爱冒险者！ 如果需要杀死某些东西， " +
+		"你们总是可以信赖的。我说得对吗？当然，我这么做是为了奖金。\n" +
+		"对我来说要杀的是_武僧_ 。你看，我将要在这里开始做一些" +
+		"小生意，但这些疯子不买任何东西" +
+		"还会吓跑其它顾客。 " +
+		"所以，拜托，杀了它们...只要杀_8个_,奖励就是你的。.";
 	
 	private static final String TXT_GOLEMS2	=
-		"How is your golem safari going?";
+		"魔像捕猎得怎么样？";
 	
 	private static final String TXT_MONKS2	=
-		"Oh, you are still alive! I knew that your kung-fu is stronger ;) " +
-		"Just don't forget to grab these monks' tokens.";
+		"哦，你竟然还活着！我知道你的功夫更强壮。 " +
+		"只是不要忘记抓住这些武僧身上的徽章。";
 	
-	private static final String TXT_CYA	= "See you, %s!";
-	private static final String TXT_HEY	= "Psst, %s!";
+	private static final String TXT_CYA	= "再见, %s!";
+	private static final String TXT_HEY	= "喂, %s!";
 	
 	private boolean seenBefore = false;
 	
@@ -82,7 +83,7 @@ public class Imp extends NPC {
 		
 		if (!Quest.given && Dungeon.visible[pos]) {
 			if (!seenBefore) {
-				yell( Utils.format( TXT_HEY, Dungeon.hero.givenName() ) );
+				yell( Messages.format( TXT_HEY, Dungeon.hero.givenName() ) );
 			}
 			seenBefore = true;
 		} else {
@@ -101,7 +102,7 @@ public class Imp extends NPC {
 	
 	@Override
 	public String defenseVerb() {
-		return "evaded";
+		return "格挡";
 	}
 	
 	@Override
@@ -141,12 +142,12 @@ public class Imp extends NPC {
 	
 	private void tell( String format, Object...args ) {
 		GameScene.show(
-			new WndQuest( this, Utils.format( format, args ) ) );
+			new WndQuest( this, Messages.get( format, args ) ) );
 	}
 	
 	public void flee() {
 		
-		yell( Utils.format( TXT_CYA, Dungeon.hero.givenName() ) );
+		yell( Messages.format( TXT_CYA, Dungeon.hero.givenName() ) );
 		
 		destroy();
 		sprite.die();
@@ -155,8 +156,8 @@ public class Imp extends NPC {
 	@Override
 	public String description() {
 		return
-			"Imps are lesser demons. They are notable for neither their strength nor their magic talent, " +
-			"but they are quite smart and sociable. Many imps prefer to live among non-demons.";
+			"小恶魔比其它恶魔更小。他们既没有攻击力，也没有魔法天赋， " +
+			"但他们很聪明，善于交际。许多小恶魔都喜欢生活在非恶魔层。";
 	}
 	
 	public static class Quest {

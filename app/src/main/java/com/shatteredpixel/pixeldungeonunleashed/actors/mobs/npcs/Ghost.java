@@ -67,37 +67,37 @@ public class Ghost extends NPC {
 	}
 	
 	private static final String TXT_RAT1	=
-			"%s...你好。我曾经像你一样——坚强且自信… " +
+			"%s...你好...我曾经像你一样——坚强且自信… " +
 			"但是我被一个肮脏的怪物杀死了…我不能离开这个地方…直到我成功复仇… " +
-			"杀死_腐臭老鼠_，已经占据了我的生活…\n\n" +
+			"如何杀死_腐臭老鼠_，已经占据了我的生活…\n\n" +
 			"它生活在这层中…到处散播污物…\n" +
 			"_当心它的臭味和它身上的腐蚀粘液，腐蚀粘液可以用水洗掉..._ ";
 
 	private static final String TXT_RAT2	=
 			"拜托...帮助我...杀死这个可憎之物...\n\n" +
-			"_Fight it near water... Avoid the stench..._";
+			"_在水边战斗...避免腐蚀粘液..._";
 
 	private static final String TXT_GNOLL1	=
-			"Hello %s... Once I was like you - strong and confident... " +
-			"But I was slain by a devious foe... I can't leave this place... Not until I have my revenge... " +
-			"Slay the _gnoll trickster_, that has taken my life...\n\n" +
-			"It is not like the other gnolls... It hides and uses thrown weapons... " +
-			"_Beware its poisonous and incendiary darts, don't attack from a distance..._";
+			" %s...你好 ... 我曾经像你一样——坚强且自信…" +
+			"但是我被一个肮脏的怪物杀死了…我不能离开这个地方…直到我成功复仇… " +
+			"如何杀死_豺狼弓箭手_，已经占据了我的生活…\n\n" +
+			"它不像其它的豺狼一样，他会隐藏躲避和使用投掷武器... " +
+			"_当心它手上的剧毒飞镖和燃烧飞镖，不要从远处攻击..._";
 
 	private static final String TXT_GNOLL2	=
-			"Please... Help me... Slay the trickster...\n\n" +
-			"_Don't let it hit you... Get near to it..._";
+			"拜托...帮助我...杀死这个可憎之物...\n\n" +
+			"_不要让它击中你... 尽量靠近它..._";
 
 	private static final String TXT_CRAB1	=
-			"Hello %s... Once I was like you - strong and confident... " +
-			"But I was slain by an ancient creature... I can't leave this place... Not until I have my revenge... " +
-			"Slay the _great crab_, that has taken my life...\n\n" +
-			"It is unnaturally old... With a massive single claw and a thick shell... " +
-			"_Beware its claw, you must surprise the crab or it will block with it..._";
+			"%s...你好 ... 我曾经像你一样——坚强且自信…" +
+			" 但是我被一个肮脏的怪物杀死了…我不能离开这个地方…直到我成功复仇…" +
+			"如何杀死_巨钳螃蟹_，已经占据了我的生活…\n\n" +
+			"它并不太老...但它有一只巨大的蟹钳和一副厚壳..." +
+			"_当心它的蟹钳，你一定要出其不意地攻击它，否则你的攻击会被格挡。._";
 
 	private static final String TXT_CRAB2	=
-			"Please... Help me... Slay the Crustacean...\n\n" +
-			"_It will always block... When it sees you coming..._";
+			"拜托...帮助我...杀死这个可憎之物...\n\n" +
+			"_他总是会阻塞道路...当它看到你来了..._";
 	
 	public Ghost() {
 		super();
@@ -112,7 +112,7 @@ public class Ghost extends NPC {
 	
 	@Override
 	public String defenseVerb() {
-		return "evaded";
+		return "格挡";
 	}
 	
 	@Override
@@ -216,8 +216,8 @@ public class Ghost extends NPC {
 	@Override
 	public String description() {
 		return
-			"The ghost is barely visible. It looks like a shapeless " +
-			"spot of faint light with a sorrowful face.";
+			"幽灵几乎看不见。它看起来像一束无形的微弱光线， " +
+			"带着忧伤的脸。 ";
 	}
 	
 	private static final HashSet<Class<?>> IMMUNITIES = new HashSet<Class<?>>();
@@ -348,7 +348,7 @@ public class Ghost extends NPC {
 		
 		public static void process() {
 			if (spawned && given && !processed && (depth == Dungeon.depth)) {
-				GLog.n("sad ghost: Thank you... come find me...");
+				GLog.n("悲伤幽灵;谢谢你....来找我吧...");
 
 				// make it easier on the Hero, tell the Ghost to try to find the Hero as well
 				for (Mob mob : Dungeon.level.mobs){

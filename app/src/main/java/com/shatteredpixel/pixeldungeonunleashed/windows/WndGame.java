@@ -42,15 +42,15 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 
 @SuppressLint("DefaultLocale")
 public class WndGame extends Window {
-	
-	private static final String TXT_SETTINGS	= "Settings";
-	private static final String TXT_CHALLEGES	= "Challenges";
-	private static final String TXT_RANKINGS	= "Rankings";
-	private static final String TXT_START		= "Start New Game";
-	private static final String TXT_MENU		= "Main Menu";
-	private static final String TXT_EXIT		= "Exit Game";
-	private static final String TXT_RETURN		= "Return to Game";
-	private static final String TXT_LOADSAVE	= "Load/Save";
+
+	private static final String TXT_SETTINGS	= "设置";
+	private static final String TXT_CHALLEGES	= "挑战";
+	private static final String TXT_RANKINGS	= "排行榜";
+	private static final String TXT_START		= "开始新游戏";
+	private static final String TXT_MENU		= "主菜单";
+	private static final String TXT_EXIT		= "退出游戏";
+	private static final String TXT_RETURN		= "返回游戏";
+	private static final String TXT_LOADSAVE	= "木牌处存读档";
 	
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;

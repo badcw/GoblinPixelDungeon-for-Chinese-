@@ -181,31 +181,31 @@ public class LastShopLevel extends RegularLevel {
 	public int randomRespawnCell() {
 		return -1;
 	}
-	
+
 	@Override
 	public String tileName( int tile ) {
 		switch (tile) {
-		case Terrain.WATER:
-			return "Suspiciously colored water";
-		case Terrain.HIGH_GRASS:
-			return "High blooming flowers";
-		default:
-			return super.tileName( tile );
+			case Terrain.WATER:
+				return "颜色可以的水";
+			case Terrain.HIGH_GRASS:
+				return "高大盛开的花朵";
+			default:
+				return super.tileName( tile );
 		}
 	}
-	
+
 	@Override
 	public String tileDesc(int tile) {
 		switch (tile) {
-		case Terrain.ENTRANCE:
-			return "A ramp leads up to the upper depth.";
-		case Terrain.EXIT:
-			return "A ramp leads down to the Inferno.";
-		case Terrain.WALL_DECO:
-		case Terrain.EMPTY_DECO:
-			return "Several tiles are missing here.";
-		case Terrain.EMPTY_SP:
-			return "Thick carpet covers the floor.";
+			case Terrain.ENTRANCE:
+				return "通往上一层的楼梯。";
+			case Terrain.EXIT:
+				return "通往下一层的楼梯。";
+			case Terrain.WALL_DECO:
+			case Terrain.EMPTY_DECO:
+				return "这少了几个砖块。";
+			case Terrain.EMPTY_SP:
+				return "地板上铺着厚厚的地毯。";
 		default:
 			return super.tileDesc( tile );
 		}

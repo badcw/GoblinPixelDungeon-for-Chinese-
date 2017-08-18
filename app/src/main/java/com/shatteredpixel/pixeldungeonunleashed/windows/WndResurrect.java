@@ -38,11 +38,12 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndResurrect extends Window {
-	
-	private static final String TXT_MESSAGE	= "You died, but you were given another chance to win this dungeon. Will you take it?";
-	private static final String TXT_YES		= "Yes, I will fight!";
-	private static final String TXT_NO		= "No, I give up";
-	
+
+	private static final String TXT_MESSAGE	= "你死了, 但你被给予了再次挑战地牢的机会. 你会这么做吗?";
+	private static final String TXT_YES		= "是的,我会努力的!";
+	private static final String TXT_NO		= "不, 我放弃";
+
+
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;
 	private static final float GAP		= 2;

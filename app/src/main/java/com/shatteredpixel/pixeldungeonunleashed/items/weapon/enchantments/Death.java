@@ -34,40 +34,40 @@ import com.watabou.utils.Random;
 
 public class Death extends Weapon.Enchantment {
 
-	private static final String TXT_GRIM	= "Grim %s";
-	
+	private static final String TXT_GRIM	= "残酷%s";
+
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
-	
+
 	@Override
 	public boolean proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 		// lvl 0 - 8%
 		// lvl 1 ~ 9%
 		// lvl 2 ~ 10%
 		int level = Math.max( 0, weapon.level );
-		
+
 		if (Random.Int( level + 100 ) >= 92) {
-			
+
 			defender.damage( defender.HP, this );
 			defender.sprite.emitter().burst( ShadowParticle.UP, 5 );
-			
+
 			if (!defender.isAlive() && attacker instanceof Hero) {
 				Badges.validateGrimWeapon();
 			}
-			
+
 			return true;
-			
+
 		} else {
-			
+
 			return false;
-			
+
 		}
 	}
-	
+
 	@Override
 	public Glowing glowing() {
 		return BLACK;
 	}
-	
+
 	@Override
 	public String name( String weaponName) {
 		return String.format( TXT_GRIM, weaponName );
@@ -75,6 +75,6 @@ public class Death extends Weapon.Enchantment {
 
 	@Override
 	public String enchDesc() {
-		return "Grim weapons can suck all of the life out of an enemy in one hit.";
+		return "残酷武器每一次攻击都有可能秒杀敌人.";
 	}
 }

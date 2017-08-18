@@ -42,21 +42,21 @@ import com.watabou.noosa.BitmapTextMultiline;
 public class WndSadGhost extends Window {
 
 	private static final String TXT_RAT	=
-		"Thank you, that horrid rat is slain and I can finally rest..." +
-		"I wonder what twisted magic created such a foul creature...\n\n";
+			"谢谢你, 那只可怕的老鼠被杀了,我可以休息了..." +
+					"我不知道是什么扭曲的魔法创造了一个这样黑暗的生物...\n\n";
 	private static final String TXT_GNOLL	=
-		"Thank you, that scheming gnoll is slain and I can finally rest..." +
-		"I wonder what twisted magic made it so smart...\n\n";
+			"谢谢你, 那只狡诈的豺狼被杀了,我可以休息了..." +
+					"我想知道是什么扭曲的魔法把它变得这么聪明...\n\n";
 	private static final String TXT_CRAB	=
-		"Thank you, that giant crab is slain and I can finally rest..." +
-		"I wonder what twisted magic allowed it to live so long...\n\n";
+			"谢谢你, 那只巨大的螃蟹被杀了,我可以休息了..." +
+					"我想知道是什么扭曲的魔法使它能活的这么久...\n\n";
 	private static final String TXT_GIVEITEM=
-		"Please take one of these items, they are useless to me now... " +
-		"Maybe they will help you in your journey...\n\n" +
-		"Also... There is an item lost in this dungeon that is very dear to me..." +
-		"If you ever... find my... rose......";
-	private static final String TXT_WEAPON	= "Ghost's weapon";
-	private static final String TXT_ARMOR	= "Ghost's armor";
+			"请带走这些东西的一个，它们现在对我没用... " +
+					"也许它们会在旅途中帮到你...\n\n" +
+			"另外... 地牢里有一件我非常珍爱的东西..." +
+			"如果你能...找到我的... 玫瑰......";
+	private static final String TXT_WEAPON	= "幽灵的武器";
+	private static final String TXT_ARMOR	= "幽灵的防具";
 	
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;
@@ -130,7 +130,7 @@ public class WndSadGhost extends Window {
 			Dungeon.level.drop( reward, ghost.pos ).sprite.drop();
 		}
 		
-		ghost.yell( "Farewell, adventurer!" );
+		ghost.yell( "再见,冒险者!!" );
 		ghost.die( null );
 		
 		Ghost.Quest.complete();

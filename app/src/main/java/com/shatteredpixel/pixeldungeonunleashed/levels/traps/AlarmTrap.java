@@ -35,7 +35,7 @@ public class AlarmTrap extends Trap {
 
 	// 0xDD3333
 	{
-		name = "Alarm trap";
+		name = "警报陷阱";
 		image = 4;
 	}
 
@@ -43,11 +43,11 @@ public class AlarmTrap extends Trap {
 	public void activate() {
 
 		for (Mob mob : Dungeon.level.mobs) {
-				mob.beckon( pos );
+			mob.beckon( pos );
 		}
 
 		if (Dungeon.visible[pos]) {
-			GLog.w( "The trap emits a piercing sound that echoes throughout the dungeon!" );
+			GLog.w( "陷阱发出了刺耳的声音，在地牢里四处回荡" );
 			CellEmitter.center( pos ).start( Speck.factory( Speck.SCREAM ), 0.3f, 3 );
 		}
 

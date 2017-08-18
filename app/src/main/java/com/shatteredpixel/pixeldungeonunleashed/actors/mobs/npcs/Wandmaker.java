@@ -58,31 +58,32 @@ import com.shatteredpixel.pixeldungeonunleashed.windows.WndQuest;
 import com.shatteredpixel.pixeldungeonunleashed.windows.WndWandmaker;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Wandmaker extends NPC {
 
 	{
-		name = "old wandmaker";
+		name = "老杖匠";
 		spriteClass = WandmakerSprite.class;
 	}
 	
 	private static final String TXT_BERRY1	=
-		"Oh, what a pleasant surprise to meet a decent person in such place! I came here for a rare ingredient - " +
-		"a _Rotberry seed_. Being a magic user, I'm quite able to defend myself against local monsters, " +
-		"but I'm getting lost in no time, it's very embarrassing. Probably you could help me? I would be " +
-		"happy to pay for your service with one of my best wands.";
+		"哦！在这样的地方遇到一个体面的人是多么令人惊喜啊！ 我来到这里，为了一种罕见的物品 - " +
+		" _腐莓种子_。作为一个法师，我能抵御这儿的怪物， " +
+		"但是我很快就迷路了，这很尴尬。也许你能帮帮我？我很 " +
+		"乐意把我制作最精良的魔杖之一当作报酬。";
 	
 	private static final String TXT_DUST1	=
-		"Oh, what a pleasant surprise to meet a decent person in such place! I came here for a rare ingredient - " +
-		"_corpse dust_. It can be gathered from skeletal remains and there is an ample number of them in the dungeon. " +
-		"Being a magic user, I'm quite able to defend myself against local monsters, but I'm getting lost in no time, " +
-		"it's very embarrassing. Probably you could help me? I would be happy to pay for your service with one of my best wands.";
+		"哦！在这样的地方遇到一个体面的人是多么令人惊喜啊！ 我来到这里，为了一种罕见的物品 -" +
+		"_尸骨灰烬_。它可以从骸骨残骸中收集，并且在地牢中有足够的数量。 " +
+		"作为一个法师，我能抵御这儿的怪物，但是我很快就迷路了，" +
+		" 这很尴尬。我很乐意把我制作最精良的魔杖之一当作报酬。";
 	
 	private static final String TXT_BERRY2	=
-		"Any luck with a Rotberry seed, %s? No? Don't worry, I'm not in a hurry.";
+		"运气好的话 ，你能找到一个腐苺种子，%s? 没有? 别担心，我并不着急。";
 	
 	private static final String TXT_DUST2	=
-		"Any luck with corpse dust, %s? Bone piles are the most obvious places to look.";
+		"运气好的话，你能找到尸骨灰烬， %s?遗骸是最容易找到它的地方。";
 	
 	@Override
 	protected boolean act() {
@@ -97,7 +98,7 @@ public class Wandmaker extends NPC {
 	
 	@Override
 	public String defenseVerb() {
-		return "absorbed";
+		return "全神贯注";
 	}
 	
 	@Override
@@ -140,14 +141,14 @@ public class Wandmaker extends NPC {
 	}
 	
 	private void tell( String format, Object...args ) {
-		GameScene.show( new WndQuest( this, Utils.format( format, args ) ) );
+		GameScene.show( new WndQuest( this, Messages.get( format, args ) ) );
 	}
 	
 	@Override
 	public String description() {
 		return
-			"This old but hale gentleman wears a slightly confused " +
-			"expression. He is protected by a magic shield.";
+			"这位老而硬朗的绅士有点 " +
+			"困惑。他被魔法屏障保护着。";
 	}
 	
 	public static class Quest {
@@ -292,11 +293,11 @@ public class Wandmaker extends NPC {
 	public static class Rotberry extends Plant {
 		
 		private static final String TXT_DESC =
-			"Berries of this shrub taste like sweet, sweet death.";
+			"这种灌木长出的浆果尝起来很甜，甜得可以令人死亡。";
 		
 		{
 			image = 7;
-			plantName = "Rotberry";
+			plantName = "腐莓";
 		}
 		
 		@Override
@@ -319,9 +320,9 @@ public class Wandmaker extends NPC {
 		
 		public static class Seed extends Plant.Seed {
 			{
-				plantName = "Rotberry";
+				plantName = "腐莓";
 				
-				name = "seed of " + plantName;
+				name = "之种 " + plantName;
 				image = ItemSpriteSheet.SEED_ROTBERRY;
 				
 				plantClass = Rotberry.class;
@@ -337,7 +338,7 @@ public class Wandmaker extends NPC {
 							mob.beckon( Dungeon.hero.pos );
 						}
 						
-						GLog.w( "The seed emits a roar that echoes throughout the dungeon!" );
+						GLog.w( "这种子发出了一声怒吼，惊动了整个地牢！" );
 						CellEmitter.center( Dungeon.hero.pos ).start( Speck.factory( Speck.SCREAM ), 0.3f, 3 );
 						Sample.INSTANCE.play( Assets.SND_CHALLENGE );
 					}

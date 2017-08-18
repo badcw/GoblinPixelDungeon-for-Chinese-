@@ -356,22 +356,22 @@ public class PrisonBossLevel extends RegularLevel {
 	public int randomRespawnCell() {
 		return -1;
 	}
-	
+
 	@Override
 	public String tileName( int tile ) {
 		switch (tile) {
-		case Terrain.WATER:
-			return "Dark cold water.";
-		default:
-			return super.tileName( tile );
+			case Terrain.WATER:
+				return "黑色的冰冷的水。";
+			default:
+				return super.tileName( tile );
 		}
 	}
-	
+
 	@Override
 	public String tileDesc(int tile) {
 		switch (tile) {
-		case Terrain.EMPTY_DECO:
-			return "There are old blood stains on the floor.";
+			case Terrain.EMPTY_DECO:
+				return "地板上有一些血迹。";
 		default:
 			return super.tileDesc( tile );
 		}

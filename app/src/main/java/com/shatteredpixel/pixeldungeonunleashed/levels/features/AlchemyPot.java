@@ -36,12 +36,12 @@ import java.util.Iterator;
 
 public class AlchemyPot {
 
-	private static final String TXT_SELECT_SEED	= "Select a seed to throw";
-	private static final String TXT_POT	        = "Alchemy Pot";
-	private static final String TXT_FRUIT	    = "Cook Yumyuck Moss";
-	private static final String TXT_POTION	    = "Brew a Potion";
+	private static final String TXT_SELECT_SEED	= "选择一个种子扔进去";
+	private static final String TXT_POT	        = "炼药釜";
+	private static final String TXT_FRUIT	    = "煮无味果";
+	private static final String TXT_POTION	    = "炼制药水";
 	private static final String TXT_OPTIONS	    =
-			"Do you want to cook some Yumyuck Moss with a seed, or brew a Potion from seeds?";
+			"你想用一个种子和无味果一起煮，或者用一些种子来酿造药水吗?";
 	
 	public static Hero hero;
 	public static int pos;

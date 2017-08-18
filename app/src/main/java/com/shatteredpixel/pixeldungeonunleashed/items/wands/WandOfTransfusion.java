@@ -61,6 +61,8 @@ import com.watabou.utils.Random;
 import java.util.Arrays;
 import java.util.HashSet;
 
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
+
 public class WandOfTransfusion extends Wand {
 
 	{
@@ -198,7 +200,7 @@ public class WandOfTransfusion extends Wand {
 		curUser.damage(damage, this);
 
 		if (!curUser.isAlive()){
-			Dungeon.fail( Utils.format(ResultDescriptions.ITEM, name) );
+			Dungeon.fail( Messages.format(ResultDescriptions.ITEM, name) );
 			GLog.n("You killed yourself with your own Wand of Transfusion...");
 		}
 	}

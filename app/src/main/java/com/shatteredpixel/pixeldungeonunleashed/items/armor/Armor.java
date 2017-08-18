@@ -40,19 +40,20 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Armor extends EquipableItem {
 
 	private static final int HITS_TO_KNOW    = 10;
 
-	private static final String TXT_EQUIP_CURSED	= "your %s constricts around you painfully";
+	private static final String TXT_EQUIP_CURSED	= "你的%s 勒得你生疼。";
 		
-	private static final String TXT_IDENTIFY	= "you are now familiar enough with your %s to identify it. It is %s.";
+	private static final String TXT_IDENTIFY	= "你现在足够熟悉你的%s了. 它是%s。";
 	
 	private static final String TXT_TO_STRING	= "%s :%d";
 	
 	private static final String TXT_INCOMPATIBLE =
-		"Interaction of different types of magic has erased the glyph on this armor!";
+		"不同类型的魔法冲突消除了护甲上的刻印!";
 	
 	public int tier;
 	
@@ -71,8 +72,8 @@ public class Armor extends EquipableItem {
 		DR = typicalDR();
 	}
 
-	private static final String UNFAMILIRIARITY	= "unfamiliarity";
-	private static final String GLYPH			= "glyph";
+	private static final String UNFAMILIRIARITY	= "未鉴定";
+	private static final String GLYPH			= "刻印";
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
@@ -187,7 +188,7 @@ public class Armor extends EquipableItem {
 			STR--;
 			super.upgrade();
 		} else {
-			GLog.n("The magic failed to bind to your armor.");
+			GLog.n("魔法无法附上你的护甲。");
 		}
 
 		return this;
@@ -220,7 +221,7 @@ public class Armor extends EquipableItem {
 	
 	@Override
 	public String toString() {
-		return levelKnown ? Utils.format( TXT_TO_STRING, super.toString(), STR ) : super.toString();
+		return levelKnown ? Messages.format( TXT_TO_STRING, super.toString(), STR ) : super.toString();
 	}
 	
 	@Override
@@ -235,45 +236,46 @@ public class Armor extends EquipableItem {
 		
 		if (levelKnown) {
 			info.append(
-				"\n\nThis " + name + " provides damage absorption up to " +
-				Math.max( DR, 0 ) + " points per attack. " );
+				"\n\n这件 " + name + " 最多可以提供 " +
+				Math.max( DR, 0 ) + " 点伤害减免。 " );
 			
 			if (STR > Dungeon.hero.STR()) {
-				
+
 				if (isEquipped( Dungeon.hero )) {
 					info.append(
-						"\n\nBecause of your inadequate strength your " +
-						"movement speed and defense skill is decreased. " );
+							"\n\n由于你的力量不足 " +
+									"移动速度和防御都会被降低. " );
 				} else {
 					info.append(
-						"\n\nBecause of your inadequate strength wearing this armor " +
-						"will decrease your movement speed and defense skill. " );
+							"\n\n由于你的力量不足这件护甲 " +
+									"会减少你的移速和防御. " );
 				}
-				
+
 			}
 		} else {
 			info.append(
-				"\n\nTypical " + name + " provides damage absorption up to " + typicalDR() + " points per attack " +
-				" and requires " + typicalSTR() + " points of strength. " );
+					"\n\n这件 " + name + " 最多可以提供 " + typicalDR() + " 点伤害减免 " +
+							"并且需要 " + typicalSTR() + " 点力量. " );
 			if (typicalSTR() > Dungeon.hero.STR()) {
-				info.append( "Probably this armor is too heavy for you. " );
+				info.append( "或许这件护甲对你来说太重了. " );
 			}
 		}
-		
+
 		if (glyph != null) {
-			info.append( "It is inscribed; ");
+			info.append( "它已被附魔; ");
 			info.append( glyph.glyphDescription() );
 		}
-		
+
 		if (isEquipped( Dungeon.hero )) {
-			info.append( "\n\nYou are wearing the " + name +
-				(cursed ? ", and because it is cursed, you are powerless to remove it." : ".") );
+			info.append( "\n\n你穿着 " + name +
+					(cursed? ", 因为它被诅咒了, 你无法脱下." : ".") );
 		} else {
 			if (cursedKnown && cursed) {
-				info.append( "\n\nYou can feel a malevolent magic lurking within the " + name + "." );
+				info.append( "\n\n你能感受到一股潜伏在 " + name + "里的恶毒魔法." );
 			}
 		}
-		
+
+
 		return info.toString();
 	}
 	
@@ -421,8 +423,8 @@ public class Armor extends EquipableItem {
 		public boolean checkOwner( Char owner ) {
 			if (!owner.isAlive() && owner instanceof Hero) {
 
-				Dungeon.fail( Utils.format( ResultDescriptions.GLYPH, name() ) );
-				GLog.n( "%s killed you...", name() );
+				Dungeon.fail( Messages.format( ResultDescriptions.GLYPH, name() ) );
+				GLog.n( "%s杀死了你...", name() );
 
 				Badges.validateDeathFromGlyph();
 				return true;

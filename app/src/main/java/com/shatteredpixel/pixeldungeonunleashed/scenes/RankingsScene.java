@@ -81,7 +81,7 @@ public class RankingsScene extends PixelScene {
 		
 		Rankings.INSTANCE.load();
 
-		BitmapText title = PixelScene.createText(TXT_TITLE, 9 );
+		BitmapText title = PixelScene.createText(TXT_TITLE, 9);
 		title.hardlight(Window.SHPX_COLOR);
 		title.measure();
 		title.x = align((w - title.width()) / 2);
@@ -113,7 +113,7 @@ public class RankingsScene extends PixelScene {
 			}
 			
 			if (Rankings.INSTANCE.totalNumber >= Rankings.TABLE_SIZE) {
-				BitmapText label = PixelScene.createText( TXT_TOTAL, 8 );
+				BitmapText label = PixelScene.createText( TXT_TOTAL, 8);
 				label.hardlight( 0xCCCCCC );
 				label.measure();
 				add( label );

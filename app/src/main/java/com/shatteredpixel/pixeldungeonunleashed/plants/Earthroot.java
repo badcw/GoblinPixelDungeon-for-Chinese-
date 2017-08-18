@@ -35,73 +35,74 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 import com.shatteredpixel.pixeldungeonunleashed.ui.BuffIndicator;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.utils.Bundle;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Earthroot extends Plant {
 
 	private static final String TXT_DESC =
-		"When a creature touches an Earthroot, its roots " +
-		"create a kind of immobile natural armor around it.";
-	
+			"碰到地缚根后，它会固定住你" +
+					"并在你的周围形成无法移动的天然护甲.";
+
 	{
 		image = 5;
-		plantName = "Earthroot";
+		plantName = "地缚根";
 	}
-	
+
 	@Override
 	public void activate() {
 		Char ch = Actor.findChar(pos);
-		
+
 		if (ch == Dungeon.hero) {
 			Buff.affect( ch, Armor.class ).level = ch.HT;
 		}
-		
+
 		if (Dungeon.visible[pos]) {
 			CellEmitter.bottom( pos ).start( EarthParticle.FACTORY, 0.05f, 8 );
 			Camera.main.shake( 1, 0.4f );
 		}
 	}
-	
+
 	@Override
 	public String desc() {
 		return TXT_DESC;
 	}
-	
+
 	public static class Seed extends Plant.Seed {
 		{
-			plantName = "Earthroot";
-			
-			name = "seed of " + plantName;
+			plantName = "地缚根";
+
+			name = "之种" + plantName;
 			image = ItemSpriteSheet.SEED_EARTHROOT;
-			
+
 			plantClass = Earthroot.class;
 			alchemyClass = PotionOfParalyticGas.class;
 
 			bones = true;
 		}
-		
+
 		@Override
 		public String desc() {
 			return TXT_DESC;
 		}
 	}
-	
+
 	public static class Armor extends Buff {
-		
+
 		private static final float STEP = 1f;
-		
+
 		private int pos;
 		private int level;
 
 		{
 			type = buffType.POSITIVE;
 		}
-		
+
 		@Override
 		public boolean attachTo( Char target ) {
 			pos = target.pos;
 			return super.attachTo( target );
 		}
-		
+
 		@Override
 		public boolean act() {
 			if (target.pos != pos) {
@@ -110,7 +111,7 @@ public class Earthroot extends Plant {
 			spend( STEP );
 			return true;
 		}
-		
+
 		public int absorb( int damage ) {
 			if (level <= damage-damage/2) {
 				detach();
@@ -120,45 +121,45 @@ public class Earthroot extends Plant {
 				return damage/2;
 			}
 		}
-		
+
 		public void level( int value ) {
 			if (level < value) {
 				level = value;
 			}
 		}
-		
+
 		@Override
 		public int icon() {
 			return BuffIndicator.ARMOR;
 		}
-		
+
 		@Override
 		public String toString() {
-			return Utils.format("Herbal armor", level);
+			return Messages.get("植物护甲", level);
 		}
 
 		@Override
 		public String desc() {
-			return "A kind of natural, immobile armor is protecting you. " +
-					"The armor forms plates of bark and twine, wrapping around your body.\n" +
+			return "一种自然的，不动的盔甲在保护你。" +
+					"盔甲形成树皮和缠绕的绳子，缠绕在你的身体上。\n" +
 					"\n" +
-					"This herbal armor will absorb 50% of all physical damage you take, " +
-					"until it eventually runs out of durability and collapses. The armor is also immobile, " +
-					"if you attempt to move it will break apart and be lost.\n" +
+					" 这种奇特护甲会吸收你所遭受的所有物理伤害的50%，" +
+					"直到它最终失去耐久性和消失。护甲也是不动的，" +
+					"如果你试图移动，它会破碎并消失。\n" +
 					"\n" +
-					"The herbal armor can absorb " + level + " more damage before breaking.";
+					"这植物护甲还可以吸收 " + level + "，破损前可以吸收伤害。";
 		}
 
 		private static final String POS		= "pos";
 		private static final String LEVEL	= "level";
-		
+
 		@Override
 		public void storeInBundle( Bundle bundle ) {
 			super.storeInBundle( bundle );
 			bundle.put( POS, pos );
 			bundle.put( LEVEL, level );
 		}
-		
+
 		@Override
 		public void restoreFromBundle( Bundle bundle ) {
 			super.restoreFromBundle( bundle );

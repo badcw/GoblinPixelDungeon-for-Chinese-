@@ -29,7 +29,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 public class ScaleArmor extends Armor {
 
 	{
-		name = "scale armor";
+		name = "鳞甲";
 		image = ItemSpriteSheet.ARMOR_SCALE;
 	}
 	
@@ -40,6 +40,6 @@ public class ScaleArmor extends Armor {
 	@Override
 	public String desc() {
 		return
-			"The metal scales sewn onto a leather vest create a flexible, yet protective armor.";
+			"在厚实的皮背心中缝入金属鳞片, 形成了灵活而高防御的护甲。";
 	}
 }

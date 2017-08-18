@@ -40,6 +40,7 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Shaman extends Mob implements Callback {
 
@@ -103,7 +104,7 @@ public class Shaman extends Mob implements Callback {
 					Camera.main.shake( 2, 0.3f );
 					
 					if (!enemy.isAlive()) {
-						Dungeon.fail( Utils.format( ResultDescriptions.MOB, Utils.indefinite( name ) ) );
+						Dungeon.fail( Messages.format( ResultDescriptions.MOB, Utils.indefinite( name ) ) );
 						GLog.n( TXT_LIGHTNING_KILLED, name );
 					}
 				}

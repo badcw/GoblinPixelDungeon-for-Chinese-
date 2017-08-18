@@ -39,6 +39,7 @@ import com.watabou.noosa.BitmapTextMultiline;
 import com.watabou.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Weightstone extends Item {
 
@@ -150,7 +151,7 @@ public class Weightstone extends Item {
 			titlebar.setRect( 0, 0, WIDTH, 0 );
 			add( titlebar );
 
-			BitmapTextMultiline tfMesage = PixelScene.createMultiline( Utils.format( TXT_CHOICE, weapon.name() ), 8 );
+			BitmapTextMultiline tfMesage = PixelScene.createMultiline( Messages.format( TXT_CHOICE, weapon.name() ), 8 );
 			tfMesage.maxWidth = WIDTH - MARGIN * 2;
 			tfMesage.measure();
 			tfMesage.x = MARGIN;

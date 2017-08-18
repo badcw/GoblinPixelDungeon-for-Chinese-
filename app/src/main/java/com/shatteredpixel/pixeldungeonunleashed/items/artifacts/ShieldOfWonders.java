@@ -93,6 +93,7 @@ import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 
 public class ShieldOfWonders extends Artifact{
@@ -371,7 +372,7 @@ public class ShieldOfWonders extends Artifact{
                                 user.spendAndNext( 1f );
 
                                 if (!user.isAlive()) {
-                                    Dungeon.fail( Utils.format(ResultDescriptions.ITEM, name ));
+                                    Dungeon.fail( Messages.format(ResultDescriptions.ITEM, name ));
                                     GLog.n("Your shield tears your mind apart...");
                                     Badges.validateDeathBySoW();
                                 }
@@ -425,7 +426,7 @@ public class ShieldOfWonders extends Artifact{
 									target.sprite.emitter().burst(Speck.factory(Speck.HEALING), 3);
 									Sample.INSTANCE.play(Assets.SND_CURSED);
 									if (!user.isAlive()) {
-										Dungeon.fail(Utils.format(ResultDescriptions.ITEM, name));
+										Dungeon.fail(Messages.format(ResultDescriptions.ITEM, name));
 										GLog.n("You were killed by your Shield of Wonder.");
                                         Badges.validateDeathBySoW();
 									} else {

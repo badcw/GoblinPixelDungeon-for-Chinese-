@@ -46,6 +46,7 @@ import com.shatteredpixel.pixeldungeonunleashed.items.potions.PotionOfInvisibili
 import com.shatteredpixel.pixeldungeonunleashed.levels.Level;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.GameScene;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
@@ -132,7 +133,7 @@ public class CharSprite extends MovieClip implements Tweener.Listener, MovieClip
 	public void showStatus( int color, String text, Object... args ) {
 		if (visible) {
 			if (args.length > 0) {
-				text = Utils.format( text, args );
+				text = Messages.get( text, args );
 			}
 			if (ch != null) {
 				FloatingText.show( x + width * 0.5f, y, ch.pos, text, color );

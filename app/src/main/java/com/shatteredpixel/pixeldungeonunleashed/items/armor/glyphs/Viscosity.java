@@ -38,11 +38,12 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Viscosity extends Glyph {
 
-	private static final String TXT_VISCOSITY	= "%s of viscosity";
-	private static final String TXT_DESCRIPTION = "This armor can defer damage until some time later.";
+	private static final String TXT_VISCOSITY	= "粘稠%s";
+	private static final String TXT_DESCRIPTION = "这件护甲能延缓受到的伤害。";
 
 	private static ItemSprite.Glowing PURPLE = new ItemSprite.Glowing( 0x8844CC );
 
@@ -67,7 +68,7 @@ public class Viscosity extends Glyph {
 			}
 			debuff.prolong( damage );
 			
-			defender.sprite.showStatus( CharSprite.WARNING, "deferred %d", damage );
+			defender.sprite.showStatus( CharSprite.WARNING, "延缓 %d", damage );
 			
 			return 0;
 			
@@ -126,7 +127,7 @@ public class Viscosity extends Glyph {
 		
 		@Override
 		public String toString() {
-			return Utils.format( "Defered damage", damage );
+			return Messages.get( "延缓伤害", damage );
 		}
 		
 		@Override
@@ -137,8 +138,8 @@ public class Viscosity extends Glyph {
 				if (target == Dungeon.hero && !target.isAlive()) {
 
 					Glyph glyph = new Viscosity();
-					Dungeon.fail( Utils.format( ResultDescriptions.GLYPH, glyph.name() ) );
-					GLog.n( "%s killed you...", glyph.name() );
+					Dungeon.fail( Messages.format( ResultDescriptions.GLYPH, glyph.name() ) );
+					GLog.n( "%s 杀死了你...", glyph.name() );
 					
 					Badges.validateDeathFromGlyph();
 				}
@@ -159,12 +160,12 @@ public class Viscosity extends Glyph {
 
 		@Override
 		public String desc() {
-			return "While your armor's glyph has protected you from damage, it seems to be slowly paying you back for it.\n" +
+			return "当你的护甲的刻印保护你免受伤害时，它似乎正在慢慢地回报着你。\n" +
 					"\n" +
-					"Damage is being dealt to you over time instead of immediately. " +
-					"You will take one damage per turn until there is no damage left.\n" +
+					"伤害随着时间慢慢处理而不是立即处理。 " +
+					"你将每回合受到一次伤害，直到没有伤害为止。\n" +
 					"\n" +
-					"There is " + damage + " deffered damage left.";
+					"还有" + damage + "伤害会被延迟。";
 		}
 	}
 }

@@ -28,13 +28,13 @@ import com.shatteredpixel.pixeldungeonunleashed.items.weapon.Weapon;
 
 public class Instability extends Weapon.Enchantment {
 
-	private static final String TXT_UNSTABLE	= "Unstable %s";
-	
+	private static final String TXT_UNSTABLE	= "紊乱 %s";
+
 	@Override
 	public boolean proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 		return random().proc( weapon, attacker, defender, damage );
 	}
-	
+
 	@Override
 	public String name( String weaponName) {
 		return String.format(TXT_UNSTABLE, weaponName);
@@ -42,8 +42,8 @@ public class Instability extends Weapon.Enchantment {
 
 	@Override
 	public String enchDesc() {
-		return "Unstable weapons are imbued with Chaos magic; magical patterns on the surface of "+
-				"the weapon keep changing and every blow wields a different random effect.";
+		return "紊乱武器被灌注了混乱的魔法; 武器上的魔法纹路"+
+				"不断地改变而且每一次攻击都会有不同的效果.";
 	}
 
 }

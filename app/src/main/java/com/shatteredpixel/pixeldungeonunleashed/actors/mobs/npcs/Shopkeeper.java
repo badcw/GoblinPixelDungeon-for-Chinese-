@@ -37,11 +37,11 @@ import com.watabou.utils.Random;
 
 public class Shopkeeper extends NPC {
 
-	public static final String TXT_THIEF = "Thief, Thief!";
+	public static final String TXT_THIEF = "小偷，小偷！";
 	private int startPos = -1;
 
 	{
-		name = "shopkeeper";
+		name = "商人";
 		spriteClass = ShopkeeperSprite.class;
 	}
 	
@@ -52,7 +52,7 @@ public class Shopkeeper extends NPC {
 		}
 
 		if (startPos != pos) {
-			yell("Unhand me!");
+			yell("放开我！");
 			flee();
 			return true;
 		}
@@ -100,12 +100,12 @@ public class Shopkeeper extends NPC {
 	@Override
 	public String description() {
 		return
-			"This stout guy looks more appropriate for a trade district in some large city " +
-			"than for a dungeon. His prices explain why he prefers to do business here.";
+			"这个胖男人看起来更适合出现一些大城市的商业区，而不是在地牢。" +
+			" 他的价格解释了他为什么喜欢在这里做生意。";
 	}
 	
 	public static WndBag sell() {
-		return GameScene.selectItem( itemSelector, WndBag.Mode.FOR_SALE, "Select an item to sell" );
+		return GameScene.selectItem( itemSelector, WndBag.Mode.FOR_SALE, "选择一个物品出售" );
 	}
 	
 	private static WndBag.Listener itemSelector = new WndBag.Listener() {

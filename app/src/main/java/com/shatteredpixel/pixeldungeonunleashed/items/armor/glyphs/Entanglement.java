@@ -38,8 +38,8 @@ import com.watabou.utils.Random;
 
 public class Entanglement extends Glyph {
 
-	private static final String TXT_ENTANGLEMENT	= "%s of entanglement";
-	private static final String TXT_DESCRIPTION = "This armor encases the defender in protective bands of energy, this can make it difficult to move though.";
+	private static final String TXT_ENTANGLEMENT	= "缠绕%s ";
+	private static final String TXT_DESCRIPTION = "这件护甲能为你开启能量保护带, 这使你难以移动.";
 
 	private static ItemSprite.Glowing GREEN = new ItemSprite.Glowing( 0x448822 );
 	

@@ -26,7 +26,7 @@ package com.shatteredpixel.pixeldungeonunleashed.items.rings;
 public class RingOfTenacity extends Ring {
 
 	{
-		name = "Ring of Tenacity";
+		name = "韧性之戒";
 	}
 
 	@Override
@@ -37,9 +37,9 @@ public class RingOfTenacity extends Ring {
 	@Override
 	public String desc() {
 		return isKnown() ?
-				"When worn, this ring will allow the wearer to resist normally mortal strikes. " +
-				"The more injured the user is, the more resistant they will be to damage. " +
-				"A degraded ring will instead make it easier for enemies to execute the wearer." :
+				"这枚戒指可以让佩戴者能够抵御原本致命的攻击 " +
+						"佩戴者受伤越重，对伤害的抗性越高" +
+						"负等级的戒指会让敌人更容易杀死佩戴者" :
 				super.desc();
 	}
 

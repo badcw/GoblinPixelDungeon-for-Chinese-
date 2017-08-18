@@ -28,7 +28,7 @@ import com.shatteredpixel.pixeldungeonunleashed.Dungeon;
 public class RingOfForce extends Ring {
 
 	{
-		name = "Ring of Force";
+		name = "武力戒指 ";
 	}
 
 	@Override
@@ -39,16 +39,16 @@ public class RingOfForce extends Ring {
 	@Override
 	public String desc() {
 		if (isKnown()){
-			String desc = "This ring enhances the force of the wearer's blows. " +
-					"This extra power is largely wasted when wielding weapons, " +
-					"but an unarmed attack will be made much stronger. " +
-					"A degraded ring will instead weaken the wearer's blows.\n\n" +
-					"When unarmed, at your current strength, ";
+			String desc = "这个戒指增强了穿着者空手攻击的力量。 " +
+					"这种额外的力量在挥舞武器时大部分是浪费的, " +
+					"但是空手的攻击力会更强一些。 " +
+					"一个负等级的戒指将会削弱穿戴者的打击。\n\n" +
+					"在空手时的时候，";
 			int str = Dungeon.hero.STR() - 8;
 			desc += levelKnown ?
-					"average damage with this ring is " + (str/2+level + (int)(str*0.5f*level) + str*2)/2 + " points per hit.":
-					"typical average damage with this ring is" + (str/2+1 + (int)(str*0.5f) + str*2)/2 + " points per hit.";
-			desc += " Wearing a second ring of force would enhance this.";
+					"这个戒指的平均伤害是 " + (str/2+level + (int)(str*0.5f*level) + str*2)/2 + " 每次攻击造成":
+					"这个戒指的典型平均伤害是" + (str/2+1 + (int)(str*0.5f) + str*2)/2 + " 每次攻击";
+			desc += " 穿第二个武力戒指将会增强这一点。";
 			return desc;
 		} else
 			return super.desc();

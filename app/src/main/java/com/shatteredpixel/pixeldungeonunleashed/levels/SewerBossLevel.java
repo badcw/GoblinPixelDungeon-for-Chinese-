@@ -290,22 +290,22 @@ public class SewerBossLevel extends RegularLevel {
 		super.restoreFromBundle( bundle );
 		stairs = bundle.getInt( STAIRS );
 	}
-	
+
 	@Override
 	public String tileName( int tile ) {
 		switch (tile) {
-		case Terrain.WATER:
-			return "Murky water";
-		default:
-			return super.tileName( tile );
+			case Terrain.WATER:
+				return "浑浊不清的水。";
+			default:
+				return super.tileName( tile );
 		}
 	}
-	
+
 	@Override
 	public String tileDesc( int tile ) {
 		switch (tile) {
-		case Terrain.EMPTY_DECO:
-			return "Wet yellowish moss covers the floor.";
+			case Terrain.EMPTY_DECO:
+				return "湿黄色的苔藓覆盖在地板上。";
 		default:
 			return super.tileDesc( tile );
 		}

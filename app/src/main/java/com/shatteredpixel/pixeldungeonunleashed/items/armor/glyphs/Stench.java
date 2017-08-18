@@ -38,8 +38,8 @@ import com.watabou.utils.Random;
 
 public class Stench extends Glyph {
 
-	private static final String TXT_STENCH	= "%s of stench";
-	private static final String TXT_DESCRIPTION = "This armor emits a noxious stench to throw off an attacker.";
+	private static final String TXT_STENCH	= "恶臭%s";
+	private static final String TXT_DESCRIPTION = "这件护甲能散发出一股恶臭气体来驱逐攻击者。";
 
 	private static ItemSprite.Glowing GREEN = new ItemSprite.Glowing( 0x22CC44 );
 	

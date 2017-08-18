@@ -36,42 +36,42 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 public class Sorrowmoss extends Plant {
 
 	private static final String TXT_DESC =
-		"A Sorrowmoss is a flower (not a moss) with razor-sharp petals, coated with a deadly venom.";
-	
+			"断肠苔并不是一种苔藓，而是一种具有极强毒性，花瓣利如刀片.";
+
 	{
 		image = 2;
-		plantName = "Sorrowmoss";
+		plantName = "断肠苔";
 	}
-	
+
 	@Override
 	public void activate() {
 		Char ch = Actor.findChar(pos);
-		
+
 		if (ch != null) {
 			Buff.affect( ch, Poison.class ).set( Poison.durationFactor( ch ) * (4 + Dungeon.depth / 2) );
 		}
-		
+
 		if (Dungeon.visible[pos]) {
 			CellEmitter.center( pos ).burst( PoisonParticle.SPLASH, 3 );
 		}
 	}
-	
+
 	@Override
 	public String desc() {
 		return TXT_DESC;
 	}
-	
+
 	public static class Seed extends Plant.Seed {
 		{
-			plantName = "Sorrowmoss";
-			
-			name = "seed of " + plantName;
+			plantName = "断肠苔";
+
+			name = "之种 " + plantName;
 			image = ItemSpriteSheet.SEED_SORROWMOSS;
-			
+
 			plantClass = Sorrowmoss.class;
 			alchemyClass = PotionOfToxicGas.class;
 		}
-		
+
 		@Override
 		public String desc() {
 			return TXT_DESC;

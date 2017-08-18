@@ -39,8 +39,8 @@ import com.watabou.utils.Random;
 
 public class AntiEntropy extends Glyph {
 
-	private static final String TXT_ANTI_ENTROPY	= "%s of anti-entropy";
-	private static final String TXT_DESCRIPTION = "This armor can transfer large amounts of heat from the defender to the attacker.";
+	private static final String TXT_ANTI_ENTROPY	= "反熵%s ";
+	private static final String TXT_DESCRIPTION = "这件护甲能把攻击者的大量热量转移到你身上.";
 
 	private static ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x0000FF );
 	

@@ -39,12 +39,12 @@ import com.watabou.utils.Random;
 public class Blindweed extends Plant {
 
 	private static final String TXT_DESC =
-		"Upon being touched a Blindweed perishes in a bright flash of light. " +
-		"The flash is strong enough to disorient for several seconds.";
-	
+			"当致盲草被触碰时，它会瞬间枯萎并释放一道强光 " +
+					"这道光足以刺伤受害者的双眼，使其暂时失明.";
+
 	{
 		image = 3;
-		plantName = "Blindweed";
+		plantName = "致盲草";
 	}
 	
 	@Override
@@ -70,18 +70,17 @@ public class Blindweed extends Plant {
 	public String desc() {
 		return TXT_DESC;
 	}
-	
+
 	public static class Seed extends Plant.Seed {
 		{
-			plantName = "Blindweed";
-			
-			name = "seed of " + plantName;
+			plantName = "致盲草";
+
+			name = "之种 " + plantName;
 			image = ItemSpriteSheet.SEED_BLINDWEED;
-			
+
 			plantClass = Blindweed.class;
 			alchemyClass = PotionOfInvisibility.class;
 		}
-		
 		@Override
 		public String desc() {
 			return TXT_DESC;

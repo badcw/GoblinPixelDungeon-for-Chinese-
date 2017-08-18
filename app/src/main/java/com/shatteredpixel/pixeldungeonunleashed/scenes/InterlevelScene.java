@@ -49,19 +49,19 @@ import java.io.IOException;
 public class InterlevelScene extends PixelScene {
 
 	private static final float TIME_TO_FADE = 0.3f;
-	
-	private static final String TXT_DESCENDING	= "Descending...";
-	private static final String TXT_ASCENDING	= "Ascending...";
-	private static final String TXT_LOADING		= "Loading...";
-	private static final String TXT_SAVING		= "Saving...";
-	private static final String TXT_RESURRECTING= "Resurrecting...";
-	private static final String TXT_RETURNING	= "Returning...";
-	private static final String TXT_FALLING		= "Falling...";
-	
-	private static final String ERR_FILE_NOT_FOUND	= "Save file not found. If this error persists after restarting, " +
-														"it may mean this save game is corrupted. Sorry about that.";
-	private static final String ERR_IO			    = "Cannot read save file. If this error persists after restarting, " +
-														"it may mean this save game is corrupted. Sorry about that.";
+
+	private static final String TXT_DESCENDING	= "下楼中...";
+	private static final String TXT_ASCENDING	= "上楼中...";
+	private static final String TXT_LOADING		= "读档中...";
+	private static final String TXT_SAVING		= "存档中...";
+	private static final String TXT_RESURRECTING= "复活中...";
+	private static final String TXT_RETURNING	= "返回中...";
+	private static final String TXT_FALLING		= "跌落中...";
+
+	private static final String ERR_FILE_NOT_FOUND	= "保存游戏未找到.如果这个错误在重新启动后仍然存在， " +
+			"这可能意味着游戏进度被破坏了. 抱歉.";
+	private static final String ERR_IO			    = "无法读取保存文件。如果这个错误在重新启动后仍然存在， " +
+			" 这可能意味着游戏进度被破坏了.抱歉.";
 	
 	public enum Mode {
 		DESCEND, ASCEND, CONTINUE, SAVE, RESURRECT, RETURN, FALL
@@ -212,7 +212,7 @@ public class InterlevelScene extends PixelScene {
 				if (error instanceof FileNotFoundException) errorMsg = ERR_FILE_NOT_FOUND;
 				else if (error instanceof IOException) errorMsg = ERR_IO;
 
-				else throw new RuntimeException("fatal error occured while moving between floors", error);
+				else throw new RuntimeException("", error);
 
 				add( new WndError( errorMsg ) {
 					public void onBackPressed() {

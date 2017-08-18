@@ -30,15 +30,16 @@ import com.shatteredpixel.pixeldungeonunleashed.effects.particles.ElmoParticle;
 import com.shatteredpixel.pixeldungeonunleashed.items.Heap;
 import com.shatteredpixel.pixeldungeonunleashed.sprites.ImpSprite;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class ImpShopkeeper extends Shopkeeper {
 
-	private static final String TXT_GREETINGS = "Hello, %s!";
-	public static final String TXT_THIEF = "I thought I could trust you!";
+	private static final String TXT_GREETINGS = "又见面了！%s！";
+	public static final String TXT_THIEF = "我以为我可以信任你！";
 
 	
 	{
-		name = "ambitious imp";
+		name = "雄心勃勃的小恶魔";
 		spriteClass = ImpSprite.class;
 	}
 	
@@ -48,7 +49,7 @@ public class ImpShopkeeper extends Shopkeeper {
 	protected boolean act() {
 
 		if (!seenBefore && Dungeon.visible[pos]) {
-			yell( Utils.format( TXT_GREETINGS, Dungeon.hero.givenName() ) );
+			yell( Messages.format( TXT_GREETINGS, Dungeon.hero.givenName() ) );
 			seenBefore = true;
 		}
 		
@@ -73,7 +74,7 @@ public class ImpShopkeeper extends Shopkeeper {
 	@Override
 	public String description() {
 		return
-			"Imps are lesser demons. They are notable for neither their strength nor their magic talent. " +
-			"But they are quite smart and sociable, and many of imps prefer to live and do business among non-demons.";
+				"小恶魔比其它恶魔更小。他们既没有攻击力，也没有魔法天赋， " +
+						"但他们很聪明，善于交际。许多小恶魔都喜欢生活在非恶魔层。";
 	}
 }

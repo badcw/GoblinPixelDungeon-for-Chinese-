@@ -35,7 +35,7 @@ import com.watabou.utils.Random;
 public class GrippingTrap extends Trap {
 
 	{
-		name = "Gripping trap";
+		name = "残废陷阱";
 		image = 6;
 	}
 

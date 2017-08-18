@@ -25,24 +25,33 @@ package com.shatteredpixel.pixeldungeonunleashed.actors;
 
 import com.shatteredpixel.pixeldungeonunleashed.Assets;
 import com.shatteredpixel.pixeldungeonunleashed.Dungeon;
-import com.shatteredpixel.pixeldungeonunleashed.ResultDescriptions;
-import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.*;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Bless;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Buff;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Charm;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Chill;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Cripple;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.EarthImbue;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Euphoria;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.FireImbue;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Frost;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.MagicalSleep;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Paralysis;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Slow;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Speed;
+import com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Vertigo;
 import com.shatteredpixel.pixeldungeonunleashed.actors.hero.Hero;
 import com.shatteredpixel.pixeldungeonunleashed.actors.hero.HeroSubClass;
-import com.shatteredpixel.pixeldungeonunleashed.actors.mobs.Bestiary;
-import com.shatteredpixel.pixeldungeonunleashed.actors.mobs.Mob;
-import com.shatteredpixel.pixeldungeonunleashed.actors.mobs.Yog;
 import com.shatteredpixel.pixeldungeonunleashed.items.Generator;
 import com.shatteredpixel.pixeldungeonunleashed.items.Honeypot;
 import com.shatteredpixel.pixeldungeonunleashed.items.Item;
 import com.shatteredpixel.pixeldungeonunleashed.levels.Level;
 import com.shatteredpixel.pixeldungeonunleashed.levels.Terrain;
 import com.shatteredpixel.pixeldungeonunleashed.levels.features.Door;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 import com.shatteredpixel.pixeldungeonunleashed.sprites.CharSprite;
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
-import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
-import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.Camera;
+import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.GameMath;
@@ -179,18 +188,11 @@ public abstract class Char extends Actor {
 			if (!enemy.isAlive() && visibleFight) {
 				if (enemy == Dungeon.hero) {
 
-						if ( this instanceof Yog ) {
-							Dungeon.fail( Utils.format( ResultDescriptions.NAMED, name) );
-						} if (Bestiary.isUnique( this )) {
-							Dungeon.fail( Utils.format( ResultDescriptions.UNIQUE, name) );
-						} else {
-							Dungeon.fail( Utils.format( ResultDescriptions.MOB, Utils.indefinite( name )) );
-						}
-						
-						GLog.n( TXT_KILL, name );
+								Dungeon.fail( getClass() );
+					GLog.n( Messages.capitalize(Messages.get(Char.class, "kill", name)) );
 					
-				} else {
-					GLog.i( TXT_DEFEAT, name, enemy.name );
+				} else if (this == Dungeon.hero) {
+					GLog.i( Messages.capitalize(Messages.get(Char.class, "defeat", enemy.name)) );
 				}
 			}
 			

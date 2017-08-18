@@ -28,7 +28,7 @@ public class Ancient extends Weapon.Enchantment  {
     public int numKills = 0;
     public int myLevel = 1;
 
-    private static final String TXT_ANCIENT	= "Artifact %s";
+    private static final String TXT_ANCIENT	= "天赐%s";
     private static final String NUMKILLS = "numkills";
 
     private static ItemSprite.Glowing LTGRAY = new ItemSprite.Glowing( 0x888888 );
@@ -103,7 +103,7 @@ public class Ancient extends Weapon.Enchantment  {
 
     @Override
     public String enchDesc() {
-        return "Artifact weapons can not be upgraded, instead they attune themselves to the wielder "+
-                "and grow in power through combat.";
+        return "这把神器不能被升级, 但是在战斗中 "+
+                "会强化自身.";
     }
 }

@@ -37,20 +37,20 @@ import com.watabou.utils.Random;
 public class RingOfElements extends Ring {
 
 	{
-		name = "Ring of Elements";
+		name = "元素之戒";
 	}
-	
+
 	@Override
 	protected RingBuff buff( ) {
 		return new Resistance();
 	}
-	
+
 	@Override
 	public String desc() {
 		return isKnown() ?
-			"This ring provides resistance to different elements, such as fire, " +
-			"electricity, gases etc. Also it decreases duration of negative effects." :
-			super.desc();
+				"这种戒指能为你提供多种元素抗性，例如火焰，闪电，气体等, " +
+						"他还能降低负面效果的持续时间" :
+				super.desc();
 	}
 
 	private static final HashSet<Class<?>> EMPTY = new HashSet<Class<?>>();
@@ -65,9 +65,9 @@ public class RingOfElements extends Ring {
 		FULL.add( Eye.class );
 		FULL.add( BurningFist.class );
 	}
-	
+
 	public class Resistance extends RingBuff {
-		
+
 		public HashSet<Class<?>> resistances() {
 			if (Random.Int( level + 2 ) >= 2) {
 				return FULL;
@@ -75,7 +75,7 @@ public class RingOfElements extends Ring {
 				return EMPTY;
 			}
 		}
-		
+
 		public float durationFactor() {
 			return level < 0 ? 1 : (1 + 0.5f * level) / (1 + level);
 		}

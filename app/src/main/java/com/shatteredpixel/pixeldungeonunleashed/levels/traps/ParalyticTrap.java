@@ -32,7 +32,7 @@ public class ParalyticTrap extends Trap{
 
 	// 0xCCCC55
 	{
-		name = "Paralytic gas trap";
+		name = "麻痹陷阱";
 		image = 2;
 	}
 

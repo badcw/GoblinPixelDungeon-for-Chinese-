@@ -32,7 +32,7 @@ public class ToxicTrap extends Trap{
 
 	// 0x40CC55
 	{
-		name = "Toxic gas trap";
+		name = "毒气陷阱";
 		image = 0;
 	}
 

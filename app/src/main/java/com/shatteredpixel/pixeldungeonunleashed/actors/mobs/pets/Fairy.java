@@ -35,11 +35,12 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.noosa.Camera;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Fairy extends PET implements Callback{
 	
 	{
-		name = "fairy";
+		name = "仙子";
 		spriteClass = FairySprite.class;       
 		flying=true;
 		state = HUNTING;
@@ -48,7 +49,7 @@ public class Fairy extends PET implements Callback{
 		cooldown=1000;
 	}
 	private static final float TIME_TO_ZAP = 2f;
-	private static final String TXT_LIGHTNING_KILLED = "%s's lightning bolt killed you...";
+	private static final String TXT_LIGHTNING_KILLED = "%s的闪电杀死了你…";
 
 	@Override
 	protected float attackDelay() {
@@ -92,7 +93,7 @@ public class Fairy extends PET implements Callback{
 		
 		if (cooldown>0){
 			cooldown--;
-			if (cooldown==0) {GLog.w("Your fairy begins to sparkle!");}
+			if (cooldown==0) {GLog.w("你的仙子开始闪耀！");}
 		}
 		
 		if (cooldown==0 && Level.adjacent(pos, Dungeon.hero.pos) && Random.Int(2)==0){
@@ -136,7 +137,7 @@ public class Fairy extends PET implements Callback{
 
 			spend(TIME_TO_ZAP);
             cooldown = super.calccooldown(1000, this.level);
-			yell("Take that!");
+			yell("放开他！");
 
 			if (hit(this, enemy, true)) {
 				int dmg = damageRoll()*2;
@@ -153,7 +154,7 @@ public class Fairy extends PET implements Callback{
 					Camera.main.shake(2, 0.3f);
 
 					if (!enemy.isAlive()) {
-						Dungeon.fail(Utils.format(ResultDescriptions.MOB,
+						Dungeon.fail(Messages.format(ResultDescriptions.MOB,
 								Utils.indefinite(name)));
 						GLog.n(TXT_LIGHTNING_KILLED, name);
 					}
@@ -188,7 +189,7 @@ public class Fairy extends PET implements Callback{
 		}
 		if (buff(Paralysis.class) != null) {
 			Buff.detach(this, Paralysis.class);
-			GLog.i("You shake your %s out of paralysis.", name);
+			GLog.i("你摇动你的%s，里面有什么东西！", name);
 		}
 		
 		int curPos = pos;
@@ -206,7 +207,7 @@ public class Fairy extends PET implements Callback{
 
 @Override
 public String description() {
-	return "A fairy! Something tells you no one messes with fairies.";
+	return "一个仙子！告诉你，这是没人敢惹的仙子。";
 }
 
 

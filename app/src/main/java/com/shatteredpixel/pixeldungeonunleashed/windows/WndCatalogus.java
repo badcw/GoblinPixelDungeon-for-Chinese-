@@ -39,6 +39,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSprite;
 import com.shatteredpixel.pixeldungeonunleashed.ui.ScrollPane;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class WndCatalogus extends WndTabbed {
 
@@ -131,11 +132,11 @@ public class WndCatalogus extends WndTabbed {
 	
 	private void updateList() {
 		if (showTab == 0) {
-			txtTitle.text( Utils.format( TXT_TITLE, TXT_POTIONS ) );
+			txtTitle.text( Messages.format( TXT_TITLE, TXT_POTIONS ) );
 		} else if (showTab == 1) {
-			txtTitle.text( Utils.format( TXT_TITLE, TXT_SCROLLS ) );
+			txtTitle.text( Messages.format( TXT_TITLE, TXT_SCROLLS ) );
 		} else {
-			txtTitle.text( Utils.format( TXT_TITLE, TXT_RINGS ) );
+			txtTitle.text( Messages.format( TXT_TITLE, TXT_RINGS ) );
 		}
 		
 		txtTitle.x = PixelScene.align( PixelScene.uiCamera, (width - txtTitle.width()) / 2 );

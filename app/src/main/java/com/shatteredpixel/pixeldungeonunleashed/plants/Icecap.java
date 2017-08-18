@@ -35,44 +35,44 @@ import com.watabou.utils.PathFinder;
 public class Icecap extends Plant {
 
 	private static final String TXT_DESC =
-		"Upon being touched, an Icecap lets out a puff of freezing pollen. " +
-		"The freezing effect is much stronger if the environment is wet.";
-	
+			"当被碰到时，冰冠花会释放一股冰冷的花粉. " +
+					"在潮湿的环境中，冰冻效果更强.";
+
 	{
 		image = 1;
-		plantName = "Icecap";
+		plantName = "冰冠花";
 	}
-	
+
 	@Override
 	public void activate() {
-		
+
 		PathFinder.buildDistanceMap( pos, BArray.not( Level.losBlocking, null ), 1 );
-		
+
 		Fire fire = (Fire)Dungeon.level.blobs.get( Fire.class );
-		
+
 		for (int i=0; i < Level.LENGTH; i++) {
 			if (PathFinder.distance[i] < Integer.MAX_VALUE) {
 				Freezing.affect( i, fire );
 			}
 		}
 	}
-	
+
 	@Override
 	public String desc() {
 		return TXT_DESC;
 	}
-	
+
 	public static class Seed extends Plant.Seed {
 		{
-			plantName = "Icecap";
-			
-			name = "seed of " + plantName;
+			plantName = "冰冠花";
+
+			name = "之种 " + plantName;
 			image = ItemSpriteSheet.SEED_ICECAP;
-			
+
 			plantClass = Icecap.class;
 			alchemyClass = PotionOfFrost.class;
 		}
-		
+
 		@Override
 		public String desc() {
 			return TXT_DESC;

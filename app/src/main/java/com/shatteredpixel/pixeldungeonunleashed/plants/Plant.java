@@ -119,33 +119,33 @@ public abstract class Plant implements Bundlable {
 	public String desc() {
 		return null;
 	}
-	
+
 	public static class Seed extends Item {
-		
+
 		public static final String AC_PLANT	= "PLANT";
-		
-		private static final String TXT_INFO = "Throw this seed to the place where you want to grow %s.\n\n%s";
-		private static final String TXT_INFOYUCK = "Throw these spores to the place where you want to grow %s.\n\n%s";
-		
+
+		private static final String TXT_INFO = "把这个种子扔到你想要生长的地方%s。\n\n%s";
+		private static final String TXT_INFOYUCK = "把这些孢子扔到你想要生长的地方 %s。\n\n%s";
+
 		private static final float TIME_TO_PLANT = 1f;
-		
+
 		{
 			stackable = true;
 			defaultAction = AC_THROW;
 		}
-		
+
 		protected Class<? extends Plant> plantClass;
 		protected String plantName;
-		
+
 		public Class<? extends Item> alchemyClass;
-		
+
 		@Override
 		public ArrayList<String> actions( Hero hero ) {
 			ArrayList<String> actions = super.actions( hero );
 			actions.add( AC_PLANT );
 			return actions;
 		}
-		
+
 		@Override
 		protected void onThrow( int cell ) {
 			if (Dungeon.level.map[cell] == Terrain.ALCHEMY || Level.pit[cell]) {
@@ -154,24 +154,24 @@ public abstract class Plant implements Bundlable {
 				Dungeon.level.plant( this, cell );
 			}
 		}
-		
+
 		@Override
 		public void execute( Hero hero, String action ) {
 			if (action.equals( AC_PLANT )) {
-							
+
 				hero.spend( TIME_TO_PLANT );
 				hero.busy();
 				((Seed)detach( hero.belongings.backpack )).onThrow( hero.pos );
-				
+
 				hero.sprite.operate( hero.pos );
-				
+
 			} else {
-				
+
 				super.execute (hero, action );
-				
+
 			}
 		}
-		
+
 		public Plant couch( int pos ) {
 			try {
 				if (Dungeon.visible[pos]) {
@@ -184,25 +184,25 @@ public abstract class Plant implements Bundlable {
 				return null;
 			}
 		}
-		
+
 		@Override
 		public boolean isUpgradable() {
 			return false;
 		}
-		
+
 		@Override
 		public boolean isIdentified() {
 			return true;
 		}
-		
+
 		@Override
 		public int price() {
 			return 10 * quantity;
 		}
-		
+
 		@Override
 		public String info() {
-			if (plantName.equals("Yumyuck Moss")) {
+			if (plantName.equals("美味藓")) {
 				return String.format(TXT_INFOYUCK, plantName, desc());
 			} else {
 				return String.format(TXT_INFO, Utils.indefinite(plantName), desc());

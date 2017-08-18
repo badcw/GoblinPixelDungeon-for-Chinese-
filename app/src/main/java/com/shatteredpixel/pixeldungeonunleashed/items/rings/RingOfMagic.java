@@ -24,24 +24,24 @@
 package com.shatteredpixel.pixeldungeonunleashed.items.rings;
 
 public class RingOfMagic extends Ring {
-	
+
 	{
-		name = "Ring of Magic";
+		name = "巫术之戒";
 	}
-	
+
 	@Override
 	protected RingBuff buff( ) {
 		return new Magic();
 	}
-	
+
 	@Override
 	public String desc() {
 		return isKnown() ?
-			"Your wands will recharge faster in the arcane field that radiates from this ring. "+
-					"Degraded rings of magic will instead take longer to charge." :
-			super.desc();
+				"你的法杖将在这个戒指的奥术场中更快地充能。 "+
+						"负等级的戒指会使法杖的充能时间更长。" :
+				super.desc();
 	}
-	
+
 	public class Magic extends RingBuff {
 	}
 }

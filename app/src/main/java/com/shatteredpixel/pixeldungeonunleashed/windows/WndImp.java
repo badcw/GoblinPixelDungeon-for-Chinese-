@@ -39,12 +39,12 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 
 public class WndImp extends Window {
-	
+
 	private static final String TXT_MESSAGE	=
-		"Oh yes! You are my hero!\n" +
-		"Regarding your reward, I don't have cash with me right now, but I have something better for you. " +
-		"This is my family heirloom ring: my granddad took it off a dead paladin's finger.";
-	private static final String TXT_REWARD		= "Take the ring";
+			"噢，没错!你真的是我的英雄\n" +
+					"对于给你的奖励,我现在没有现金给你, 但是我要更好的东西要给你. " +
+					"这是我的祖传戒指: 我的祖父从一个死去的骑士手上摘下的.";
+	private static final String TXT_REWARD		= "拿走戒指";
 	
 	private static final int WIDTH      = 120;
 	private static final int BTN_HEIGHT = 20;

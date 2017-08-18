@@ -35,7 +35,7 @@ import com.watabou.utils.Random;
 
 public class Horror extends Weapon.Enchantment {
 
-	private static final String TXT_ELDRITCH = "Eldritch %s";
+	private static final String TXT_ELDRITCH = "恐惧%s";
 
 	private static ItemSprite.Glowing GREY = new ItemSprite.Glowing(0x222222);
 
@@ -72,7 +72,7 @@ public class Horror extends Weapon.Enchantment {
 
 	@Override
 	public String enchDesc() {
-		return "Eldritch weapons psychically fill your enemines minds with visions of terror.  But, " +
-				"like all psychic attacks, they sometimes affect the wielder as well.";
+		return "恐惧附魔的武器在精神上使敌人脑中充满可怕的景象. 但是 , " +
+				"像大多数物理攻击一样, 它们有时也影响使用者.";
 	}
 }

@@ -48,6 +48,7 @@ import com.watabou.noosa.Game;
 import com.watabou.utils.Bundle;
 
 import android.annotation.SuppressLint;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 @SuppressLint("DefaultLocale")
 public class LoadSaveScene extends PixelScene {
@@ -137,7 +138,7 @@ public class LoadSaveScene extends PixelScene {
         String currentProgress = "dead";
         GamesInProgress.Info info = GamesInProgress.check(Dungeon.hero.heroClass);
         if (info != null) {
-            currentProgress = Utils.format(TXT_DPTH_LVL, info.depth, info.level);
+            currentProgress = Messages.get(TXT_DPTH_LVL, info.depth, info.level);
         }
         BitmapText subTitle = PixelScene.createText( "Currently " + currentProgress, 6 );
         subTitle.hardlight(Window.TITLE_COLOR);
@@ -201,7 +202,7 @@ public class LoadSaveScene extends PixelScene {
                     Bundle savedHero = bundle.getBundle(HERO);
                     int savedDif = bundle.getInt(DIFLEV);
                     int savedLevel = savedHero.getInt(LEVEL);
-                    String savedProgress = Utils.format(TXT_DPTH_LVL, savedDepth, savedLevel);
+                    String savedProgress = Messages.get(TXT_DPTH_LVL, savedDepth, savedLevel);
                     String loadLevel;
                     switch (savedDif) {
                         case Dungeon.DIFF_TUTOR:

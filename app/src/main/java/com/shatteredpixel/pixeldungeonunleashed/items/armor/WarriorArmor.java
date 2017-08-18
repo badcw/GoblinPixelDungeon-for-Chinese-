@@ -51,10 +51,10 @@ public class WarriorArmor extends ClassArmor {
 	
 	private static final String AC_SPECIAL = "HEROIC LEAP";
 	
-	private static final String TXT_NOT_WARRIOR	= "Only complains can use this armor!";
+	private static final String TXT_NOT_WARRIOR	= "只有战士能使用这件护甲！";
 	
 	{
-		name = "prissan styled armor";
+		name = "古代风格护甲";
 		image = ItemSpriteSheet.ARMOR_WARRIOR;
 	}
 	
@@ -81,10 +81,10 @@ public class WarriorArmor extends ClassArmor {
 	@Override
 	public String desc() {
 		return
-			"Forged by a master blacksmith who was inspired by the original prissan armor on a paladin. \n" +
-			"\n" +
-			"While this armor looks heavy, it allows a warrior to perform a heroic leap towards " +
-			"a targeted location, slamming down to stun all neighbouring enemies.";
+				"一位铁匠大师受到骑士身上的原始古代护甲的启发锻造而成的。 \n" +
+						"\n" +
+						"即使这件护甲看起来很笨重, 它能让一个战士向着一个方向" +
+						"使出英勇之跃, 抨击周围的敌人使其麻痹。";
 	}
 	
 	protected static CellSelector.Listener leaper = new  CellSelector.Listener() {
@@ -137,7 +137,7 @@ public class WarriorArmor extends ClassArmor {
 		
 		@Override
 		public String prompt() {
-			return "Choose direction to leap";
+			return "选择英勇之跃的方向";
 		}
 	};
 }

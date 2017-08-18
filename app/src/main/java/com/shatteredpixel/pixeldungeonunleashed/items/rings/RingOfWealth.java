@@ -26,7 +26,7 @@ package com.shatteredpixel.pixeldungeonunleashed.items.rings;
 public class RingOfWealth extends Ring {
 
 	{
-		name = "Ring of Wealth";
+		name = "财富之戒";
 	}
 
 	@Override
@@ -37,9 +37,9 @@ public class RingOfWealth extends Ring {
 	@Override
 	public String desc() {
 		return isKnown() ?
-				"It's not clear what this ring does exactly, good luck may influence " +
-				"the life of an adventurer in many subtle ways. " +
-				"Naturally a degraded ring would give bad luck." :
+				"说不清楚这个戒指如何起效，好运会以任何形式 " +
+						"微妙的影响这冒险家的一生 " +
+						"自然，一个负等级的戒指，会为佩戴者带来厄运" :
 				super.desc();
 	}
 

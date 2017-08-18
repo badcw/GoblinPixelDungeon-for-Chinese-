@@ -30,19 +30,19 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSprite.Glowing;
 
 public class Luck extends Weapon.Enchantment {
 
-	private static final String TXT_LUCKY	= "Lucky %s";
-	
+	private static final String TXT_LUCKY	= "幸运%s";
+
 	private static ItemSprite.Glowing GREEN = new ItemSprite.Glowing( 0x00FF00 );
-	
+
 	@Override
 	public boolean proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 		int level = Math.max( 0, weapon.level );
-		
+
 		int dmg = damage;
 		for (int i=1; i <= level+1; i++) {
 			dmg = Math.max( dmg, attacker.damageRoll() - i );
 		}
-		
+
 		if (dmg > damage) {
 			defender.damage( dmg - damage, this );
 			return true;
@@ -50,7 +50,7 @@ public class Luck extends Weapon.Enchantment {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public String name( String weaponName) {
 		return String.format( TXT_LUCKY, weaponName );
@@ -63,7 +63,7 @@ public class Luck extends Weapon.Enchantment {
 
 	@Override
 	public String enchDesc() {
-		return "Lucky weapons are enchanted by ancient magic to do extra damage.";
+		return "幸运武器被远古魔法附魔以造成更高的伤害.";
 	}
 
 }

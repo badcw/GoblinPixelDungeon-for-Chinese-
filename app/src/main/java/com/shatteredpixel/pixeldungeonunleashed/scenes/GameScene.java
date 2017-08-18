@@ -91,16 +91,16 @@ import com.watabou.utils.GameMath;
 import com.watabou.utils.Random;
 
 public class GameScene extends PixelScene {
-	
-	private static final String TXT_WELCOME			= "Welcome to the level %d of Goblins Pixel Dungeon!";
-	private static final String TXT_WELCOME_BACK	= "Welcome back to the level %d of Goblins Pixel Dungeon!";
-	
-	private static final String TXT_CHASM	= "Your steps echo across the dungeon.";
-	private static final String TXT_WATER	= "You hear water splashing around you.";
-	private static final String TXT_GRASS	= "The smell of vegetation is thick in the air.";
-	private static final String TXT_DARK	= "You can hear enemies moving in the darkness...";
-	private static final String TXT_SECRETS	= "The atmosphere hints that this floor hides many secrets.";
-	private static final String TXT_BURNT   = "The smell of burnt grass fills the air...";
+
+	private static final String TXT_WELCOME			= "欢迎来到哥布林的像素地牢的第 %d层!";
+	private static final String TXT_WELCOME_BACK	= "欢迎回到哥布林的像素地牢的第 %d层!";
+
+	private static final String TXT_CHASM	= "你的脚步在地牢里回响。";
+	private static final String TXT_WATER	= "你听到周围有哗哗的流水声。";
+	private static final String TXT_GRASS	= "青草的味道弥漫在空气中。";
+	private static final String TXT_DARK	= "你可以听到敌人在黑暗中移动...";
+	private static final String TXT_SECRETS	= "诡异的气氛暗示着这层楼隐藏着许多秘密。";
+	private static final String TXT_BURNT   = "灰烬的味道弥漫在空气中...";
 	
 	static GameScene scene;
 

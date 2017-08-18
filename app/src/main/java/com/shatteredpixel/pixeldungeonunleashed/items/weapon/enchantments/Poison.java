@@ -32,33 +32,33 @@ import com.watabou.utils.Random;
 
 public class Poison extends Weapon.Enchantment {
 
-	private static final String TXT_VENOMOUS	= "Venomous %s";
-	
+	private static final String TXT_VENOMOUS	= "淬毒 %s";
+
 	private static ItemSprite.Glowing PURPLE = new ItemSprite.Glowing( 0x4400AA );
-	
+
 	@Override
 	public boolean proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 		// lvl 0 - 33%
 		// lvl 1 - 50%
 		// lvl 2 - 60%
 		int level = Math.max( 0, weapon.level );
-		
+
 		if (Random.Int( level + 3 ) >= 2) {
-			
+
 			Buff.affect( defender, com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Poison.class ).
-				set( com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Poison.durationFactor( defender ) * (level + 1) );
-			
+					set( com.shatteredpixel.pixeldungeonunleashed.actors.buffs.Poison.durationFactor( defender ) * (level + 1) );
+
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public Glowing glowing() {
 		return PURPLE;
 	}
-	
+
 	@Override
 	public String name( String weaponName) {
 		return String.format( TXT_VENOMOUS, weaponName );
@@ -66,6 +66,6 @@ public class Poison extends Weapon.Enchantment {
 
 	@Override
 	public String enchDesc() {
-		return "Venomous weapons drip with poison, which can affect an enemy when struck.";
+		return "淬毒武器浸过毒液, 在攻击时会影响敌人.";
 	}
 }

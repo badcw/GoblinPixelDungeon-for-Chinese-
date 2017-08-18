@@ -36,27 +36,28 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.ItemSlot;
 import com.shatteredpixel.pixeldungeonunleashed.ui.Window;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class WndInfoItem extends Window {
-	
-	private static final String TTL_CHEST           = "Chest";
-	private static final String TTL_LOCKED_CHEST	= "Locked chest";
-	private static final String TTL_CRYSTAL_CHEST	= "Crystal chest";
-	private static final String TTL_TOMB			= "Tomb";
-	private static final String TTL_SKELETON		= "Skeletal remains";
-	private static final String TTL_REMAINS 		= "Heroes remains";
-	private static final String TXT_WONT_KNOW		= "You won't know what's inside until you open it!";
-	private static final String TXT_NEED_KEY		= TXT_WONT_KNOW + " But to open it you need a golden key.";
-	private static final String TXT_INSIDE			= "You can see %s inside, but to open the chest you need a golden key.";
+
+	private static final String TTL_CHEST           = "宝箱";
+	private static final String TTL_LOCKED_CHEST	= "上锁的宝箱";
+	private static final String TTL_CRYSTAL_CHEST	= "水晶宝箱";
+	private static final String TTL_TOMB			= "墓碑";
+	private static final String TTL_SKELETON		= "残骸";
+	private static final String TTL_REMAINS 		= "英雄残骸";
+	private static final String TXT_WONT_KNOW		= "在你打开之前,你不知道里面有什么";
+	private static final String TXT_NEED_KEY		= TXT_WONT_KNOW + " 要打开它你需要一把钥匙.";
+	private static final String TXT_INSIDE			= "你能看见 %s 在里面, 但是你需要一把金钥匙来打开它";
 	private static final String TXT_OWNER	=
-		"This ancient tomb may contain something useful, " +
-		"but its owner will most certainly object to checking.";
+			"这个古老的坟墓可能会有有用的东西, " +
+					"但是它的主人肯定会反对你的搜查.";
 	private static final String TXT_SKELETON =
-		"This is all that's left of some unfortunate adventurer. " +
-		"Maybe it's worth checking for any valuables.";
+			"这是一些不幸的冒险家留下的全部东西" +
+					"或许它值得找一找看有没有珍贵的东西.";
 	private static final String TXT_REMAINS =
-		"This is all that's left from one of your predecessors. " +
-		"Maybe it's worth checking for any valuables.";
+			"这是你的上一位冒险者留下的全部东西. " +
+					"或许它值得找一找看有没有珍贵的东西.";
 	
 	private static final float GAP	= 2;
 	
@@ -178,13 +179,13 @@ public class WndInfoItem extends Window {
 			} else if (heap.type == Type.CRYSTAL_CHEST) {
 				title = TTL_CRYSTAL_CHEST;
 				if (heap.peek() instanceof Artifact)
-					info = Utils.format( TXT_INSIDE, "an artifact" );
+					info = Messages.format( TXT_INSIDE, "an artifact" );
 				else if (heap.peek() instanceof Wand)
-					info = Utils.format( TXT_INSIDE, "a wand" );
+					info = Messages.format( TXT_INSIDE, "a wand" );
 				else if (heap.peek() instanceof Ring)
-					info = Utils.format( TXT_INSIDE, "a ring" );
+					info = Messages.format( TXT_INSIDE, "a ring" );
 				else
-					info = Utils.format( TXT_INSIDE, Utils.indefinite( heap.peek().name() ) );
+					info = Messages.format( TXT_INSIDE, Utils.indefinite( heap.peek().name() ) );
 			} else {
 				title = TTL_LOCKED_CHEST;
 				info = TXT_NEED_KEY;

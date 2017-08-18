@@ -25,7 +25,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSprite;
 import com.watabou.utils.Random;
 
 public class Hunting extends Weapon.Enchantment {
-    private static final String TXT_HUNTING	= "Hunting %s";
+    private static final String TXT_HUNTING	= "狩猎 %s";
 
     private static ItemSprite.Glowing RED = new ItemSprite.Glowing( 0xFF3333 );
 
@@ -58,6 +58,6 @@ public class Hunting extends Weapon.Enchantment {
 
     @Override
     public String enchDesc() {
-        return "This weapon is designed to effectively butcher animals and turn them into tasty, tasty meat.";
+        return "这把武器能有效地把动物杀死变成美味的食物.";
     }
 }

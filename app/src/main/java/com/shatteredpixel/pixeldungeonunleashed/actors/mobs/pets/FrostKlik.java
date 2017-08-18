@@ -48,7 +48,7 @@ import java.util.HashSet;
 public class FrostKlik extends PET implements Callback{
 	
 	{
-		name = "frost klik";
+		name = "寒冰克里克";
 		spriteClass = FrostKlikSprite.class;
 		flying=true;
 		state = HUNTING;
@@ -103,9 +103,9 @@ public class FrostKlik extends PET implements Callback{
 			if (cooldown==0) {
 				
 				if (calendar.get(Calendar.MONTH)==11) {
-					GLog.w("Klik?* - (\"Do you want to build a snow man?\")");
+					GLog.w("KLIK?* - (\"你想堆一个雪人吗？\")");
 				} else {
-					GLog.w("The air grows chilly around your frosty friend!");
+					GLog.w("在你朋友旁边，空气变得寒冷！");
 				}
 			}
 		}
@@ -153,7 +153,7 @@ public class FrostKlik extends PET implements Callback{
 
         cooldown = super.calccooldown(1000, this.level);
 		if (calendar.get(Calendar.MONTH)==11) {
-			yell("KLIK!* - (\"Look! It's beautiful!\"");
+			yell("KLIK!* - (\"看！很漂亮！\"");
 		} else {
 			yell("KLIK!");
 		}
@@ -196,7 +196,7 @@ public class FrostKlik extends PET implements Callback{
 		}
 		if (buff(Paralysis.class) != null) {
 			Buff.detach(this, Paralysis.class);
-			GLog.i("You shake your %s out of paralysis.", name);
+			GLog.i("你摇动你的%s，里面有什么东西！", name);
 		}
 		
 		int curPos = pos;
@@ -214,8 +214,8 @@ public class FrostKlik extends PET implements Callback{
 
 @Override
 public String description() {
-	return "A freshly hatched frosty klik. Super cool!\n\n"+
-			"Anything frozen is its favourite.";
+	return "刚孵出的寒冰克里克。超级冷！\n\n"+
+			"它喜欢的任何东西都可以被冰冻。";
 }
 
 	private static final HashSet<Class<?>> IMMUNITIES = new HashSet<Class<?>>();

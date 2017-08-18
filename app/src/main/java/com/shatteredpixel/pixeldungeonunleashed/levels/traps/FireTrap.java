@@ -33,7 +33,7 @@ public class FireTrap extends Trap {
 
 	// 0xFF7708
 	{
-		name = "Fire trap";
+		name = "火焰陷阱";
 		image = 1;
 	}
 

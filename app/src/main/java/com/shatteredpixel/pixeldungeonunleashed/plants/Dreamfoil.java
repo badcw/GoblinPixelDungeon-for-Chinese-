@@ -44,13 +44,13 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 public class Dreamfoil extends Plant {
 
 	private static final String TXT_DESC =
-			"The Dreamfoil's prickly flowers contain a chemical which is known for its " +
-			"properties as a strong neutralizing agent. Most weaker creatures are overwhelmed " +
-			"and knocked unconscious, which gives the plant its namesake.";
+			"梦夜花的花瓣中含有一种化学物质 " +
+					"具有极强的净化性. 大多数生物碰到后会被埋没 " +
+					"并昏迷, 因此而得名.";
 
 	{
 		image = 10;
-		plantName = "Dreamfoil";
+		plantName = "梦夜花";
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class Dreamfoil extends Plant {
 			if (ch instanceof Mob)
 				Buff.affect(ch, MagicalSleep.class);
 			else if (ch instanceof Hero){
-				GLog.i( "You feel refreshed." );
+				GLog.i( "你感到浑身清爽." );
 				Buff.detach( ch, Poison.class );
 				Buff.detach( ch, Cripple.class );
 				Buff.detach( ch, Weakness.class );
@@ -70,7 +70,7 @@ public class Dreamfoil extends Plant {
 				Buff.detach( ch, Slow.class );
 				Buff.detach( ch, Vertigo.class);
 				Buff.detach( ch, Euphoria.class);
-		   }
+			}
 		}
 	}
 
@@ -81,9 +81,9 @@ public class Dreamfoil extends Plant {
 
 	public static class Seed extends Plant.Seed {
 		{
-			plantName = "Dreamfoil";
+			plantName = "梦夜花";
 
-			name = "seed of " + plantName;
+			name = "之种" + plantName;
 			image = ItemSpriteSheet.SEED_DREAMFOIL;
 
 			plantClass = Dreamfoil.class;

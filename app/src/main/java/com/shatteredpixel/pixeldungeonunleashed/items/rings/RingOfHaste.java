@@ -34,9 +34,9 @@ import com.shatteredpixel.pixeldungeonunleashed.windows.WndPetHaste;
 public class RingOfHaste extends Ring {
 
 	{
-		name = "Ring of Haste";
+		name = "疾速之戒";
 	}
-	
+
 	@Override
 	protected RingBuff buff( ) {
 		return new Haste();
@@ -50,15 +50,15 @@ public class RingOfHaste extends Ring {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public String desc() {
 		return isKnown() ?
-			"This ring reduces the stress of movement on the wearer, allowing them to run " +
-			"at superhuman speeds. A degraded ring will instead weigh the wearer down.":
-			super.desc();
+				"这枚戒指减轻了佩戴者的负担，使其能够飞速奔跑" +
+						"负等级的戒指会让佩戴者倍感沉重。":
+				super.desc();
 	}
-	
+
 	public class Haste extends RingBuff {
 /*
 		// I have to think about this one... do we want the Buff Icon to display for unidentified rings?
@@ -74,9 +74,9 @@ public class RingOfHaste extends Ring {
 
 		@Override
 		public String desc() {
-			return "Haste magic affects the target's rate of time, to them everything is moving super-slow.\n\n" +
-					"A hasted character performs all actions quicker than they would normally take.\n\n" +
-					"This haste is sustained by your Magic ring.";
+			return "急速的魔法会影响目标的时间，对他们来说一切都是缓慢的。\n\n" +
+					"使角色更快地执行所有的动作。\n\n" +
+					"这个效果是由你的戒戒持续的。";
 		}
 		*/
 	}

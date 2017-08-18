@@ -33,19 +33,20 @@ import com.shatteredpixel.pixeldungeonunleashed.levels.Terrain;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.GameScene;
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.windows.WndMessage;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Sign {
 
-	private static final String TXT_DEAD_END = "What are you doing here?!";
+	private static final String TXT_DEAD_END = "你在这干什么?!";
 	private static final String TXT_ENDLESS  = "Level %d\n%s";
 
 	private static final String[] TIPS = {
-		"Almost all equipment has a strength requirement. Don't overestimate your strength, using equipment you can't " +
-				"handle has big penalties!\n\nRaising your strength is not the only way to access better equipment, " +
-				"you can also lower equipment strength requirements with Scrolls of Upgrade.\n\n\n" +
-				"Items found in the dungeon will often be unidentified. Some items will have unknown effects, others " +
-				"may be upgraded, or degraded and cursed! Unidentified items are unpredictable, so be careful!",
-		"Charging forward recklessly is a great way to get killed.\n\n" +
+			"几乎所有的装备都有力量要求，不要高估你的力量，使用你不能使用的装备。" +
+					"handle has big penalties!\n\nRaising your strength is not the only way to access better equipment, " +
+					"you can also lower equipment strength requirements with Scrolls of Upgrade.\n\n\n" +
+					"在地牢里发现的物品往往是未鉴定的，有些东西会有未知的效果。" +
+					"物品有时是诅咒的！所以未鉴定的物品往往是不可预测的，所以要小心。",
+			"鲁莽的四处闯荡并不是一个好的方法，或许你可以绕道门后面给追你的怪物一个惊喜。\n\n" +
 				"Slowing down a bit to examine enemies and use the environment and items to your advantage can make a" +
 				" big difference.\n\nThe dungeon is full of traps and hidden passageways as well, keep your eyes open!",
 		"Your game auto-saves when you leave, but you can also Save your game into a save-slot when you are adjacent" +
@@ -114,7 +115,7 @@ public class Sign {
 	
 	public static void read( int pos ) {
 		if (Dungeon.difficultyLevel == Dungeon.DIFF_ENDLESS) {
-			GameScene.show( new WndMessage( Utils.format(TXT_ENDLESS, Dungeon.depth, InfiniteBestiary.currentTheme)) );
+			GameScene.show( new WndMessage( Messages.get(TXT_ENDLESS, Dungeon.depth, InfiniteBestiary.currentTheme)) );
 			return;
 		}
 		

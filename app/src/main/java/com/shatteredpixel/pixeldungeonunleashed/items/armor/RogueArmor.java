@@ -42,14 +42,14 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 
 public class RogueArmor extends ClassArmor {
-	
-	private static final String TXT_FOV 		= "You can only flicker to an empty location in your field of view";
-	private static final String TXT_NOT_ROGUE	= "Only fumbles can use this armor!";
-	
-	private static final String AC_SPECIAL = "FLICKER";
-	
+
+	private static final String TXT_FOV 		= "你只能闪现到你视野中的空地！";
+	private static final String TXT_NOT_ROGUE	= "只有 盗贼能使用这件护甲 !";
+
+	private static final String AC_SPECIAL = "闪现";
+
 	{
-		name = "kickasso garb";
+		name = "暗影披风";
 		image = ItemSpriteSheet.ARMOR_ROGUE;
 	}
 	
@@ -76,8 +76,8 @@ public class RogueArmor extends ClassArmor {
 	@Override
 	public String desc() {
 		return
-			"Wearing this dark garb, fumbles can perform a trick, that is called \"flickering\" " +
-			"(no real explosives are used): He blinds enemies who could see him and jumps aside.";
+				"穿着这件暗影披风, 能表演一个把戏: \"闪现\" " +
+						"(没用多少炸药): 他能闪瞎能看到他的敌人的眼睛并跳开。";
 	}
 	
 	protected static CellSelector.Listener teleporter = new  CellSelector.Listener() {
@@ -116,7 +116,7 @@ public class RogueArmor extends ClassArmor {
 		
 		@Override
 		public String prompt() {
-			return "Choose a location to flicker to";
+			return "选择要闪现的到地方";
 		}
 	};
 }

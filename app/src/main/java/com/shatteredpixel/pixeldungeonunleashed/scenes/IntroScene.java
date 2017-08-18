@@ -29,13 +29,13 @@ import com.shatteredpixel.pixeldungeonunleashed.windows.WndStory;
 public class IntroScene extends PixelScene {
 
 	private static final String TEXT =
-		"Many heroes have ventured into the dungeon before you from the city above. Some " +
-		"have returned with treasures and magical artifacts, most have never been heard from again.\n\n" +
-		"None, however, have ventured to the bottom and retrieved the Amulet of Yendor, " +
-		"which is said to be guarded by an ancient evil in the depths. " +
-		"Even now dark energy radiates from below, making its way up into the city.\n\n" +
-		"You consider yourself ready for the challenge. Most importantly, " +
-		"you feel that fortune smiles upon you. It's time to start your own adventure!";
+			"许多英雄在你离开城市之前就进入了地牢. 一些 " +
+					"带着财富和神器回来，大多数人再也没有回来." +
+					"然而，没有一个人能走到深渊，找到Yendor的护身符. " +
+					"据说它是被远古的罪恶守护的. " +
+					"即便现在，也有邪恶的能量从下面泄露出来，进入城市." +
+					"你感到你准备好迎接挑战.最重要的是, " +
+					"你感到胜利女神在向你微笑. 现在是时候开始你的冒险了!";
 	
 	@Override
 	public void create() {

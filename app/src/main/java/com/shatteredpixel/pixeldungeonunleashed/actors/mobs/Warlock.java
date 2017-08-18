@@ -42,6 +42,7 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Warlock extends Mob implements Callback {
 	
@@ -105,7 +106,7 @@ public class Warlock extends Mob implements Callback {
 			enemy.damage( dmg, this );
 			
 			if (!enemy.isAlive() && enemy == Dungeon.hero) {
-				Dungeon.fail( Utils.format( ResultDescriptions.MOB, Utils.indefinite( name ) ) );
+				Dungeon.fail( Messages.format( ResultDescriptions.MOB, Utils.indefinite( name ) ) );
 				GLog.n( TXT_SHADOWBOLT_KILLED, name );
 			}
 		} else {

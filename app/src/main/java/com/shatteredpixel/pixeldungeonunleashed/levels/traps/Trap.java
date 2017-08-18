@@ -94,6 +94,6 @@ public abstract class Trap implements Bundlable {
 	}
 
 	public String desc() {
-		return "Stepping onto a hidden pressure plate will activate the trap.";
+		return ".踩到隐藏的压力板将会激活陷阱。";
 	}
 }

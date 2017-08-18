@@ -50,6 +50,7 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class WandOfBlastWave extends Wand {
 
@@ -100,7 +101,7 @@ public class WandOfBlastWave extends Wand {
 		}
 
 		if (!curUser.isAlive()) {
-			Dungeon.fail( Utils.format(ResultDescriptions.ITEM, name) );
+			Dungeon.fail( Messages.format(ResultDescriptions.ITEM, name) );
 			GLog.n("You killed yourself with your own Wand of Blast Wave...");
 		}
 	}

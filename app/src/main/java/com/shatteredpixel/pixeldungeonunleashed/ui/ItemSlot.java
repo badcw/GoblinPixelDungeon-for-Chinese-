@@ -24,6 +24,7 @@
 package com.shatteredpixel.pixeldungeonunleashed.ui;
 
 import com.shatteredpixel.pixeldungeonunleashed.Dungeon;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 import com.shatteredpixel.pixeldungeonunleashed.items.Item;
 import com.shatteredpixel.pixeldungeonunleashed.items.armor.Armor;
 import com.shatteredpixel.pixeldungeonunleashed.items.keys.Key;
@@ -160,7 +161,7 @@ public class ItemSlot extends Button {
 				if (item.levelKnown || (isWeapon && !(item instanceof MeleeWeapon))) {
 					
 					int str = isArmor ? ((Armor)item).STR : ((Weapon)item).STR;
-					topRight.text( Utils.format( TXT_STRENGTH, str ) );
+					topRight.text( Messages.get( TXT_STRENGTH, str ) );
 					if (str > Dungeon.hero.STR()) {
 						topRight.hardlight( DEGRADED );
 					} else {
@@ -169,7 +170,7 @@ public class ItemSlot extends Button {
 					
 				} else {
 					
-					topRight.text( Utils.format( TXT_TYPICAL_STR, isArmor ?
+					topRight.text( Messages.get( TXT_TYPICAL_STR, isArmor ?
 						((Armor)item).typicalSTR() :
 						((MeleeWeapon)item).typicalSTR() ) );
 					topRight.hardlight( WARNING );
@@ -178,7 +179,7 @@ public class ItemSlot extends Button {
 				topRight.measure();
 
 			} else if (item instanceof Key && !(item instanceof SkeletonKey)) {
-				topRight.text(Utils.format(TXT_KEY_DEPTH, ((Key) item).depth));
+				topRight.text(Messages.get(TXT_KEY_DEPTH, ((Key) item).depth));
 				topRight.measure();
 			} else {
 				
@@ -189,7 +190,7 @@ public class ItemSlot extends Button {
 			int level = item.visiblyUpgraded();
 
 			if (level != 0) {
-				bottomRight.text( item.levelKnown ? Utils.format( TXT_LEVEL, level ) : TXT_CURSED );
+				bottomRight.text( item.levelKnown ? Messages.get( TXT_LEVEL, level ) : TXT_CURSED );
 				bottomRight.measure();
 				bottomRight.hardlight( level > 0 ? UPGRADED : DEGRADED );
 			} else if (item instanceof Scroll || item instanceof Potion) {

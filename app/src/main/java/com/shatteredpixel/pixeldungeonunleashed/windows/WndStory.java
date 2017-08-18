@@ -56,58 +56,58 @@ public class WndStory extends Window {
 	public static final int ID_SPECIAL_1    = 8;
 
 	private static final SparseArray<String> CHAPTERS = new SparseArray<String>();
-	
+
 	static {
 		CHAPTERS.put( ID_SEWERS,
-		"The Dungeon lies right beneath Brassmoon City, its upper levels constitute the City's sewer system.\n\n " +
-		"As dark energy has crept up from below the usually harmless sewer creatures have become more and more " +
-		"dangerous. The city sends guard patrols down here to try and maintain safety for those above, but " +
-		"they are slowly failing.\n\n This place is dangerous, but at least the evil magic at work here is weak." );
-		
+				"这片地牢位于 Brassmoon 市正下方,它的最上层其实是由城市的下水道系统组成的。\n\n " +
+						"由于下方不断渗透的黑暗能量,这些本应无害的下水道生物变得越来越" +
+						"危险.城市向这里派出了巡逻队并试图保护其上方的区域.但 " +
+						"他们的影响也在逐渐式微。" );
+
 		CHAPTERS.put( ID_PRISON,
-		"Many years ago an underground prison was built here for the most dangerous monsters. At the time it seemed " +
-		"like a very clever idea, because this place indeed was very hard to escape. But soon dark miasma started to permeate " +
-		"from below, driving prisoners and guards insane. In the end the prison was abandoned, though some prisoners " +
-		"were left behind here." );
-		
+				"很多年以后一个关押最危险怪物的地下监狱建在了这里.在当时它看起来 " +
+						"像一个非常好的主意,因为这个地方真的很难逃脱.但很快黑暗的瘴气开始" +
+						"从下方弥漫,使得囚徒和卫兵变得疯狂.最后监狱被遗弃了,尽管有些囚徒" +
+						"被留在这里了。" );
+
 		CHAPTERS.put( ID_CAVES,
-		"The caves, which stretch down under the abandoned prison, are sparcely populated. They lie too deep to be exploited " +
-		"by the City and they are too poor in minerals to interest the dwarves. In the past there was a trade outpost " +
-		"somewhere here on the route between these two states, but it has perished since the decline of Greyhill. " +
-		"Only omnipresent gnolls and subterranean animals dwell here now." );
-		
+				"这些伸展到遗弃监狱下方的洞穴几乎没人居住。它们在地下太深难以被城市利用 " +
+						"，缺乏各种矮人感兴趣的矿物。过去这里有一个贸易站建在 " +
+						"在两地之间， 但它自从矮人王国Greyhill的衰退已经消失。 " +
+						"只有无处不在的豺狼人和地下生物居住在这里。" );
+
 		CHAPTERS.put( ID_METROPOLIS,
-		"Greyhill was once the greatest of dwarven city-states. In its heyday the mechanized army of dwarves " +
-		"has successfully repelled the invasion of the Sacred and his demon army. But it is said, that the returning paladin " +
-		"has brought the seed of corruption with him, and that victory was the beginning of the end for the underground kingdom." );
+				"Greyhill曾经是最伟大的矮人城邦， 在其鼎盛时期矮人的机械化部队" +
+						"成功的击退了古神及其恶魔军队的入侵。但据说 归来的骑士 " +
+						"给他带来了腐败的种子，所以 这场胜利是这个地下王国灭亡的开始。" );
 
 		CHAPTERS.put( ID_FROZEN,
-		"The air suddenly grows cold. This was once an extension of the dwarven empire but years of abandonment have let something "+
-		"else take over.  With the Undead Dwarven King behind you, it is time to press on.  The magic that pervades this place "+
-		"feels vaguely demonic\n\n");
+				"空气突然变冷，这里是矮人王国的延伸。但多年的荒废已经使一些东西 "+
+						"接管了。 随着你身后的不死矮人国王、, 是时候奋力推进了、。 充满这里的魔法  "+
+						"感觉像是恶魔的。\n\n");
 		CHAPTERS.put( ID_HALLS,
-		"In the past these levels were the outskirts of Greyhill. After the costly victory in the war with the Sacred " +
-		"dwarves were too weakened to clear them of remaining demons. Gradually demons have made this place an extension of hell  " +
-		"and now it's called Demon Halls.\n\n" +
-		"Very few adventurers have ever descended this far..." );
+				"在过去这些楼层是矮人王国的郊区。与古神的战争中获得高额代价的胜利后， " +
+						"矮人族虚弱而不能清除剩下的恶魔。渐渐地恶魔使这个地方变成了地狱的延伸。 " +
+						"而且现在它被称为恶魔大厅。\n\n" +
+						"非常少的冒险者能如此深入..." );
 
 		CHAPTERS.put (ID_TUTOR_1,
-		"Welcome to Goblins Pixel Dungeon! You are currently in Tutorial mode; you can change modes from the Out-of-Game " +
-		"settings menu (it's shaped like little gears). The signs contain can contain useful information about the level, and " +
-		"are worth reading. You can also save (at Normal difficulty, Easy lets you save anywhere) when you are next to them by " +
-		"pressing the In-Game settings button (top right corner).\n\n" +
-		"For the moment you should start looking for the stairway down to the next level.");
+				"欢迎来到哥布林的像素地牢! 你现在处于教学难度; 你可以在游戏外设置菜单里" +
+						"改变难度 (它的形状像小齿轮). 游戏内的标志牌包含有当前难度的有用的信息,它们 " +
+						"值得一看。你也可以存档 (只在在普通难度里,简单难度你可以随地保存 )，只要你站在标志牌的旁边。 " +
+						"按下游戏设置按钮(右上角)。\n\n" +
+						"现在你需要寻找下楼的楼梯。");
 
 		CHAPTERS.put (ID_TUTOR_2,
-		"This is your first Boss level.  On this level you will see a locked door leading to the next level, you will have to " +
-		"find the special Boss Key somewhere on this level before descending.");
+				"这是你第一个boss关。 在这一层你会看到前往下一层的门被锁住了,你得  " +
+						"在下去之前找到楼层某个地方的特殊boss钥匙。");
 
 		CHAPTERS.put (ID_SPECIAL_1,
-		"Brassmoon city above lies covered in snow, and the frost has descended to the first levels of the dungeon. "+
-		"The upper levels of the dungeon constitute the City's sewer system.\n\n " +
-		"As dark energy has crept up from below the usually harmless sewer creatures have become more and more " +
-		"dangerous. The city sends guard patrols down here to try and maintain safety for those above, but " +
-		"they are slowly failing.\n\n This place is dangerous, but at least the evil magic at work here is weak.");
+				"城市Brassmoon上面被冰雪覆盖 , 霜已经降到了地牢的第一层。 "+
+						"地牢的上层部分构成了城市的下水道系统。\n\n " +
+						"由于下方不断渗透的黑暗能量这些本应无害的下水道生物变得越来越" +
+						"危险。 城市向这里派出巡逻队并试图保护其上方的区域， 但 " +
+						"他们慢慢地失败了。\n\n 找个地方足够危险了, 但至少这里的邪恶魔法还不强大。");
 	};
 	
 	private RenderedTextMultiline tf;

@@ -38,54 +38,54 @@ import com.watabou.utils.Bundle;
 
 public class Sungrass extends Plant {
 
-	private static final String TXT_DESC = "Sungrass is renowned for its sap's slow but effective healing properties.";
-	
+	private static final String TXT_DESC = "阳春草以它强大而缓慢的治疗特性而著名.";
+
 	{
 		image = 4;
-		plantName = "Sungrass";
+		plantName = "阳春草";
 	}
-	
+
 	@Override
 	public void activate() {
 		Char ch = Actor.findChar(pos);
-		
+
 		if (ch == Dungeon.hero) {
 			Buff.affect( ch, Health.class ).level = ch.HT;
 		}
-		
+
 		if (Dungeon.visible[pos]) {
 			CellEmitter.get( pos ).start( ShaftParticle.FACTORY, 0.2f, 3 );
 		}
 	}
-	
+
 	@Override
 	public String desc() {
 		return TXT_DESC;
 	}
-	
+
 	public static class Seed extends Plant.Seed {
 		{
-			plantName = "Sungrass";
-			
-			name = "seed of " + plantName;
+			plantName = "阳春草";
+
+			name = "之种 " + plantName;
 			image = ItemSpriteSheet.SEED_SUNGRASS;
-			
+
 			plantClass = Sungrass.class;
 			alchemyClass = PotionOfHealing.class;
 
 			bones = true;
 		}
-		
+
 		@Override
 		public String desc() {
 			return TXT_DESC;
 		}
 	}
-	
+
 	public static class Health extends Buff {
-		
+
 		private static final float STEP = 1f;
-		
+
 		private int pos;
 		private int healCurr = 1;
 		private int count = 0;
@@ -94,13 +94,13 @@ public class Sungrass extends Plant {
 		{
 			type = buffType.POSITIVE;
 		}
-		
+
 		@Override
 		public boolean attachTo( Char target ) {
 			pos = target.pos;
 			return super.attachTo( target );
 		}
-		
+
 		@Override
 		public boolean act() {
 			if (target.pos != pos) {
@@ -141,25 +141,25 @@ public class Sungrass extends Plant {
 		public void boost( int amount ){
 			level += amount;
 		}
-		
+
 		@Override
 		public int icon() {
 			return BuffIndicator.HEALING;
 		}
-		
+
 		@Override
 		public String toString() {
-			return "Herbal Healing";
+			return "植物回复";
 		}
 
 		@Override
 		public String desc() {
-			return "Sungrass possesses excellent healing properties, though its not as fast as a potion of healing.\n" +
+			return "阳春草具有极好的治疗特性，尽管其不快一个治疗药水。\n" +
 					"\n" +
-					"You are current slowly regenerating health from the sungrass plant. " +
-					"Taking damage while healing will reduce the healing effectiveness, and moving off the plant will break the healing effect.\n" +
+					"因为阳春草，你目前正在缓慢回复健康。 " +
+					"伤口愈合会降低愈合效果，离开植物会破坏治疗效果。\n" +
 					"\n" +
-					"You can heal for " + level + " more health, or until your health is full.";
+					"你还能回复 " + level +"生命，直到你完全健康。";
 		}
 
 		private static final String POS	= "pos";
@@ -175,7 +175,7 @@ public class Sungrass extends Plant {
 			bundle.put( COUNT, count);
 			bundle.put( LEVEL, level);
 		}
-		
+
 		@Override
 		public void restoreFromBundle( Bundle bundle ) {
 			super.restoreFromBundle( bundle );

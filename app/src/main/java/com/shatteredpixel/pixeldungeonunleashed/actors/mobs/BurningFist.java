@@ -40,6 +40,7 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 
 import java.util.HashSet;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class BurningFist extends Mob {
 
@@ -82,7 +83,7 @@ public class BurningFist extends Mob {
                 enemy.sprite.flash();
 
                 if (!enemy.isAlive() && enemy == Dungeon.hero) {
-                    Dungeon.fail( Utils.format(ResultDescriptions.UNIQUE, name) );
+                    Dungeon.fail( Messages.format(ResultDescriptions.UNIQUE, name) );
                     GLog.n(TXT_KILL, name);
                 }
                 return true;

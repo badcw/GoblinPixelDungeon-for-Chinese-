@@ -127,24 +127,24 @@ public class PrisonLevel extends RegularLevel {
 		
 		placeSign();
 	}
-	
+
 	@Override
 	public String tileName( int tile ) {
 		switch (tile) {
-		case Terrain.WATER:
-			return "Dark cold water.";
-		default:
-			return super.tileName( tile );
+			case Terrain.WATER:
+				return "黑色的冰冷的水。";
+			default:
+				return super.tileName( tile );
 		}
 	}
-	
+
 	@Override
 	public String tileDesc(int tile) {
 		switch (tile) {
-		case Terrain.EMPTY_DECO:
-			return "There are old blood stains on the floor.";
-		case Terrain.BOOKSHELF:
-			return "This is probably a vestige of a prison library. Might it burn?";
+			case Terrain.EMPTY_DECO:
+				return "地板上有一些血迹。";
+			case Terrain.BOOKSHELF:
+				return "这可能是监狱里的图书馆，它会燃烧吗?";
 		default:
 			return super.tileDesc( tile );
 		}

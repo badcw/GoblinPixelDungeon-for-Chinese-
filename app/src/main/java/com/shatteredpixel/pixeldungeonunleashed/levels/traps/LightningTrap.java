@@ -38,11 +38,12 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class LightningTrap extends Trap {
 
 	{
-		name = "Lightning trap";
+		name = "闪电陷阱";
 		image = 5;
 	}
 
@@ -58,8 +59,8 @@ public class LightningTrap extends Trap {
 				Camera.main.shake( 2, 0.3f );
 
 				if (!ch.isAlive()) {
-					Dungeon.fail( Utils.format( ResultDescriptions.TRAP, name ) );
-					GLog.n( "You were killed by a discharge of a lightning trap..." );
+					Dungeon.fail( Messages.format( ResultDescriptions.TRAP, name ) );
+					GLog.n( "你被闪电陷阱杀死了..." );
 				}
 			}
 

@@ -29,7 +29,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 public class MailArmor extends Armor {
 
 	{
-		name = "mail armor";
+		name = "链甲";
 		image = ItemSpriteSheet.ARMOR_MAIL;
 	}
 	
@@ -40,6 +40,6 @@ public class MailArmor extends Armor {
 	@Override
 	public String desc() {
 		return
-			"Interlocking metal links make for a tough but flexible suit of armor.";
+			"由金属链环环相扣制成的一套结实又不失灵活的护甲。";
 	}
 }

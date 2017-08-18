@@ -46,12 +46,12 @@ import com.shatteredpixel.pixeldungeonunleashed.windows.WndOptions;
 import com.watabou.utils.Random;
 
 public class Chasm {
-	
-	private static final String TXT_CHASM	= "Chasm";
-	private static final String TXT_YES		= "Yes, I know what I'm doing";
-	private static final String TXT_NO		= "No, I changed my mind";
+
+	private static final String TXT_CHASM	= "空洞";
+	private static final String TXT_YES		= "是的，我知道我在干什么";
+	private static final String TXT_NO		= "不，我改变主意了";
 	private static final String TXT_JUMP 	=
-		"Do you really want to jump into the chasm? It will hurt and pets can't follow.";
+			"你真的想要跳进这个洞里？你将会受伤并且宠物将不会跟你一起跳下去";
 	
 	public static boolean jumpConfirmed = false;
 	
@@ -110,7 +110,7 @@ public class Chasm {
 				Badges.validateDeathFromFalling();
 				
 				Dungeon.fail( ResultDescriptions.FALL );
-				GLog.n( "You fell to death..." );
+				GLog.n( "你摔死了..." );
 			}
 		} );
 	}

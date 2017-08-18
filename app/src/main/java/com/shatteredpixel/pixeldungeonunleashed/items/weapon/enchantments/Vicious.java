@@ -31,7 +31,7 @@ import com.watabou.utils.Random;
 
 public class Vicious  extends Weapon.Enchantment {
 
-    private static final String TXT_VICIOUS	= "Vicious %s";
+    private static final String TXT_VICIOUS	= "恶毒%s";
     private static ItemSprite.Glowing BLOODY = new ItemSprite.Glowing( 0x991111 );
 
     @Override
@@ -66,8 +66,8 @@ public class Vicious  extends Weapon.Enchantment {
 
     @Override
     public String enchDesc() {
-        return "Vicious weapons are covered in razor sharp spikes that do a great deal of damage to"+
-        "your enemies, but they are difficult to use without injuring yourself.";
+        return "恶毒的武器被锋利的尖刺覆盖使其能对敌人造成大量的"+
+                "伤害, 但使用它们很难不伤害到你自己.";
     }
 
 }

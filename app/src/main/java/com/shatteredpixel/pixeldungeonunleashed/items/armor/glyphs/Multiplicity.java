@@ -40,8 +40,8 @@ import com.watabou.utils.Random;
 
 public class Multiplicity extends Glyph {
 
-	private static final String TXT_MULTIPLICITY	= "%s of multiplicity";
-	private static final String TXT_DESCRIPTION = "When struck, this armor can create a mirror image of the defender.";
+	private static final String TXT_MULTIPLICITY	= "分身%s";
+	private static final String TXT_DESCRIPTION = "受到攻击时，这件护甲能创造出你的一个分身.";
 
 	private static ItemSprite.Glowing PINK = new ItemSprite.Glowing( 0xCCAA88 );
 	

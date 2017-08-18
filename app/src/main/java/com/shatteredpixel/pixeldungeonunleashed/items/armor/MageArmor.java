@@ -39,13 +39,13 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 
 public class MageArmor extends ClassArmor {
-	
-	private static final String AC_SPECIAL = "MOLTEN EARTH";
-	
-	private static final String TXT_NOT_MAGE	= "Only chief can use this armor!";
-	
+
+	private static final String AC_SPECIAL = "熔岩裂地";
+
+	private static final String TXT_NOT_MAGE	= "只有法师能使用这件护甲!";
+
 	{
-		name = "clerical robe";
+		name = "牧师长袍";
 		image = ItemSpriteSheet.ARMOR_MAGE;
 	}
 	
@@ -57,8 +57,8 @@ public class MageArmor extends ClassArmor {
 	@Override
 	public String desc() {
 		return
-			"Wearing this gorgeous robe, a cleric can cast a spell of molten earth: all the enemies " +
-			"in his field of view will be set on fire and unable to move at the same time.";
+				"穿着这件华丽的长袍,一个牧师能使用一种熔解大地的咒语 : 所有在他视野内 " +
+						"的敌人会被点燃而且寸步难移。";
 	}
 	
 	@Override

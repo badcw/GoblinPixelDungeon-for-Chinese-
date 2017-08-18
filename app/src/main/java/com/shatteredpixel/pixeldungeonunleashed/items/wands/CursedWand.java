@@ -76,6 +76,7 @@ import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 //helper class to contain all the cursed wand zapping logic, so the main wand class doesn't get huge.
 public class CursedWand {
@@ -242,8 +243,8 @@ public class CursedWand {
 									target.sprite.emitter().burst(Speck.factory(Speck.HEALING), 3);
 									Sample.INSTANCE.play(Assets.SND_CURSED);
 									if (!user.isAlive()) {
-										Dungeon.fail(Utils.format(ResultDescriptions.ITEM, wand.name()));
-										GLog.n("You were killed by your own " + wand.name());
+										Dungeon.fail(Messages.format(ResultDescriptions.ITEM, wand.name()));
+										GLog.n("你被你的 " + wand.name()+"杀了");
 									}
 									break;
 							}
@@ -251,7 +252,7 @@ public class CursedWand {
 						}
 					});
 				} else {
-					GLog.i("nothing happens");
+					GLog.i("什么都没有发生");
 					wand.wandUsed();
 				}
 				break;
@@ -297,7 +298,7 @@ public class CursedWand {
 							GameScene.add(sheep);
 							CellEmitter.get(sheep.pos).burst(Speck.factory(Speck.WOOL), 4);
 						} else {
-							GLog.i("nothing happens");
+							GLog.i("什么都没有发生");
 						}
 						wand.wandUsed();
 					}
@@ -315,7 +316,7 @@ public class CursedWand {
 				if (misc1 != null)  misc1.cursed = misc1.cursedKnown = true;
 				if (misc2 != null)  misc2.cursed = misc2.cursedKnown = true;
 				EquipableItem.equipCursed(user);
-				GLog.n("Your worn equipment becomes cursed!");
+				GLog.n("你身上的装备都被诅咒了!");
 				wand.wandUsed();
 				break;
 
@@ -369,8 +370,8 @@ public class CursedWand {
 				} while (Random.Int(5) != 0);
 				new Flare(8, 32).color(0xFFFF66, true).show(user.sprite, 2f);
 				Sample.INSTANCE.play(Assets.SND_TELEPORT);
-				GLog.p("grass explodes around you!");
-				GLog.w("you smell burning...");
+				GLog.p("你身边的气体爆炸了!");
+				GLog.w("你闻到了烧烤的味道...");
 				wand.wandUsed();
 				break;
 
@@ -406,7 +407,7 @@ public class CursedWand {
 				} while (result.level < 0 && !(result instanceof MissileWeapon) && (Generator.spawnedArtifacts.contains(result.getClass().getSimpleName())));
 				if (result.isUpgradable()) result.upgrade();
 				result.cursed = result.cursedKnown = true;
-				GLog.w("your wand transmogrifies into a different item!");
+				GLog.w("你的法杖变成了全新的东西!");
 				Dungeon.level.drop(result, user.pos).sprite.drop();
 				wand.wandUsed();
 				break;

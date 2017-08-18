@@ -38,14 +38,14 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.watabou.utils.Callback;
 
 public class HuntressArmor extends ClassArmor {
-	
-	private static final String TXT_NO_ENEMIES 		= "No enemies in sight";
-	private static final String TXT_NOT_HUNTRESS	= "Only Thaco can use this armor!";
-	
-	private static final String AC_SPECIAL = "ROUNDHOUSE KICK";
+
+	private static final String TXT_NO_ENEMIES 		= "视野里没有敌人!";
+	private static final String TXT_NOT_HUNTRESS	= "只有 女猎 能使用这件护甲!";
+
+	private static final String AC_SPECIAL = "回旋踢";
 	
 	{
-		name = "savage touch";
+		name = "野蛮之触";
 		image = ItemSpriteSheet.ARMOR_HUNTRESS;
 	}
 	
@@ -106,8 +106,8 @@ public class HuntressArmor extends ClassArmor {
 	@Override
 	public String desc() {
 		return
-			"The savage touch of a goblin was all this armor needed. It grants exeptional " +
-			"freedom of movement to let thaco hit all enemies around him, inflicting damage " +
-			"depending on his currently equipped melee weapon.";
+				"这件护甲需要哥布林的野蛮之触。这给予了移动上 " +
+						"的高度自由，使得能踢中周围所有的敌人， 造成的伤害 " +
+						"取决于他装备的武器。";
 	}
 }

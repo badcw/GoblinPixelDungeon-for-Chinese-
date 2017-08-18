@@ -50,6 +50,7 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
 
 import java.util.ArrayList;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class LloydsBeacon extends Artifact {
 
@@ -277,7 +278,7 @@ public class LloydsBeacon extends Artifact {
 
 	@Override
 	public String desc() {
-		return TXT_INFO + (returnDepth == -1 ? "" : Utils.format( TXT_SET, returnDepth ) );
+		return TXT_INFO + (returnDepth == -1 ? "" : Messages.get( TXT_SET, returnDepth ) );
 	}
 
 	public void reset() {

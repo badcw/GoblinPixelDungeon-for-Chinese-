@@ -35,12 +35,12 @@ import com.watabou.utils.Random;
 public class Starflower extends Plant {
 
 	private static final String TXT_DESC =
-			"An extremely rare plant, " +
-			"Starflower is said to grant holy power to whomever touches it.";
+			"一种极其稀有的植物 " +
+					"据说星陨花可以赐予接触它的人神圣力量.";
 
 	{
 		image = 11;
-		plantName = "Starflower";
+		plantName = "星陨花";
 	}
 
 	@Override
@@ -62,9 +62,9 @@ public class Starflower extends Plant {
 	public static class Seed extends Plant.Seed{
 
 		{
-			plantName = "Starflower";
+			plantName = "星陨花";
 
-			name = "Seed of " + plantName;
+			name = "之种 " + plantName;
 			image = ItemSpriteSheet.SEED_STARFLOWER;
 
 			plantClass = Starflower.class;

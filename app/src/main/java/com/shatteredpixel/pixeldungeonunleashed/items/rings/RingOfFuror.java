@@ -26,7 +26,7 @@ package com.shatteredpixel.pixeldungeonunleashed.items.rings;
 public class RingOfFuror extends Ring {
 
 	{
-		name = "Ring of Furor";
+		name = "狂怒之戒";
 	}
 
 	@Override
@@ -37,10 +37,10 @@ public class RingOfFuror extends Ring {
 	@Override
 	public String desc() {
 		return isKnown() ?
-				"This ring grants the wearer an inner fury, allowing them to attack more rapidly. " +
-				"This fury works best in large bursts, so slow weapons benefit far more than fast ones. " +
-				"A degraded ring will instead slow the wearer's speed of attack." :
-				super.desc();
+				"这枚戒指会激发佩戴者的怒火使其能够更快的攻击, " +
+						"这种愤怒能让大力一击变快.因此慢速武器能够获得最多的收益 ," +
+		"一个负等级的戒指会导致佩戴者攻击缓慢." :
+		super.desc();
 	}
 
 	public class Furor extends RingBuff {

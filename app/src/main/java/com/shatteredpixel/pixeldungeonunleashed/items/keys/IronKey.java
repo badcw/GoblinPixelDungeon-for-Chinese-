@@ -27,6 +27,7 @@ import com.shatteredpixel.pixeldungeonunleashed.Dungeon;
 import com.shatteredpixel.pixeldungeonunleashed.items.bags.Bag;
 import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSpriteSheet;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class IronKey extends Key {
 
@@ -66,7 +67,7 @@ public class IronKey extends Key {
 	
 	@Override
 	public String toString() {
-		return Utils.format( TXT_FROM_DEPTH, depth );
+		return Messages.get( TXT_FROM_DEPTH, depth );
 	}
 	
 	@Override

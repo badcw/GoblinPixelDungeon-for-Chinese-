@@ -35,9 +35,9 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
 
 public class WndChooseWay extends Window {
-	
-	private static final String TXT_MESSAGE	= "Which way will you follow?";
-	private static final String TXT_CANCEL	= "I'll decide later";
+
+	private static final String TXT_MESSAGE	= "你会选择哪一条路呢?";
+	private static final String TXT_CANCEL	= "稍后再做决定";
 	
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 18;

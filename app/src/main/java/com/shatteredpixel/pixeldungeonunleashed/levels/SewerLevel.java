@@ -135,24 +135,24 @@ public class SewerLevel extends RegularLevel {
 			}
 		}
 	}
-	
+
 	@Override
 	public String tileName( int tile ) {
 		switch (tile) {
-		case Terrain.WATER:
-			return "Murky water";
-		default:
-			return super.tileName( tile );
+			case Terrain.WATER:
+				return "浑浊不清的水。";
+			default:
+				return super.tileName( tile );
 		}
 	}
-	
+
 	@Override
 	public String tileDesc(int tile) {
 		switch (tile) {
-		case Terrain.EMPTY_DECO:
-			return "Wet yellowish moss covers the floor.";
-		case Terrain.BOOKSHELF:
-			return "The bookshelf is packed with cheap useless books. Might it burn?";
+			case Terrain.EMPTY_DECO:
+				return "湿黄色的苔藓覆盖在地板上。";
+			case Terrain.BOOKSHELF:
+				return "书架上摆满了便宜而又没用的书，它会燃烧吗？";
 		default:
 			return super.tileDesc( tile );
 		}

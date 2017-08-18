@@ -33,6 +33,7 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 import java.util.ArrayList;
 
@@ -192,15 +193,15 @@ public class Artifact extends KindofMisc {
 
 		if (levelKnown && level/levelCap != 0) {
 			if (chargeCap > 0) {
-				return Utils.format( TXT_TO_STRING_LVL_CHARGE, name(), visiblyUpgraded(), charge, chargeCap );
+				return Messages.format( TXT_TO_STRING_LVL_CHARGE, name(), visiblyUpgraded(), charge, chargeCap );
 			} else {
-				return Utils.format( TXT_TO_STRING_LVL, name(), visiblyUpgraded() );
+				return Messages.format( TXT_TO_STRING_LVL, name(), visiblyUpgraded() );
 			}
 		} else {
 			if (chargeCap > 0) {
-				return Utils.format( TXT_TO_STRING_CHARGE, name(), charge, chargeCap );
+				return Messages.format( TXT_TO_STRING_CHARGE, name(), charge, chargeCap );
 			} else {
-				return Utils.format( TXT_TO_STRING, name() );
+				return Messages.format( TXT_TO_STRING, name() );
 			}
 		}
 	}
@@ -210,20 +211,20 @@ public class Artifact extends KindofMisc {
 
 		//display the current cooldown
 		if (cooldown != 0)
-			return Utils.format( "%d", cooldown );
+			return Messages.get( "%d", cooldown );
 
 		//display as percent
 		if (chargeCap == 100)
-			return Utils.format( "%d%%", charge );
+			return Messages.get( "%d%%", charge );
 
 		//display as #/#
 		if (chargeCap > 0)
-			return Utils.format( "%d/%d", charge, chargeCap );
+			return Messages.get( "%d/%d", charge, chargeCap );
 
 		//if there's no cap -
 		//- but there is charge anyway, display that charge
 		if (charge != 0)
-			return Utils.format( "%d", charge );
+			return Messages.get( "%d", charge );
 
 		//otherwise, if there's no charge, return null.
 		return null;

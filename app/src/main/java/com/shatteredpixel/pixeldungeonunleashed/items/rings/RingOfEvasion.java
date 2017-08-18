@@ -30,22 +30,22 @@ import com.shatteredpixel.pixeldungeonunleashed.actors.mobs.Mob;
 public class RingOfEvasion extends Ring {
 
 	{
-		name = "Ring of Evasion";
+		name = "闪避戒指";
 	}
-	
+
 	@Override
 	protected RingBuff buff( ) {
 		return new Evasion();
 	}
-	
+
 	@Override
 	public String desc() {
 		return isKnown() ?
-			"This ring obfuscates the true position of the wearer, making them harder to detect and attack. " +
-			"This ring is much stronger while the user remains undetected, and if the user is targeted the power of " +
-			"evasion will slowly fade away, remaining undetected will restore the ring's effectiveness. " +
-			"A degraded ring will instead make the user easier to detect and strike.":
-			super.desc();
+				"这枚戒指混淆了佩戴者的真实位置，使他们更难被发现和攻击。 " +
+						"在敌人没有注意到你时这个戒指的功效会更强大" +
+						"逃避将慢慢消失，未被发现的将恢复戒指的有效性。 " +
+						"负等级的戒指会让佩戴者更容易被发现被攻击":
+				super.desc();
 	}
 
 	//yup, the only ring in the game with logic inside of its class

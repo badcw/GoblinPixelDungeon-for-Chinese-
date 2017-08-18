@@ -273,34 +273,34 @@ public class CavesBossLevel extends Level {
 		int cy = cell / WIDTH;
 		return cx < ROOM_LEFT-1 || cx > ROOM_RIGHT+1 || cy < ROOM_TOP-1 || cy > ROOM_BOTTOM+1;
 	}
-	
+
 	@Override
 	public String tileName( int tile ) {
 		switch (tile) {
-		case Terrain.GRASS:
-			return "Fluorescent moss";
-		case Terrain.HIGH_GRASS:
-			return "Fluorescent mushrooms";
-		case Terrain.WATER:
-			return "Freezing cold water.";
-		default:
-			return super.tileName( tile );
+			case Terrain.GRASS:
+				return "荧光苔藓";
+			case Terrain.HIGH_GRASS:
+				return "荧光蘑菇";
+			case Terrain.WATER:
+				return "冰冷刺骨的水";
+			default:
+				return super.tileName( tile );
 		}
 	}
-	
+
 	@Override
 	public String tileDesc( int tile ) {
 		switch (tile) {
-		case Terrain.ENTRANCE:
-			return "The ladder leads up to the upper depth.";
-		case Terrain.EXIT:
-			return "The ladder leads down to the lower depth.";
-		case Terrain.HIGH_GRASS:
-			return "Huge mushrooms block the view.";
-		case Terrain.WALL_DECO:
-			return "A vein of some ore is visible on the wall. Gold?";
-		default:
-			return super.tileDesc( tile );
+			case Terrain.ENTRANCE:
+				return "通向上一层的楼梯";
+			case Terrain.EXIT:
+				return "通向下一层的楼梯";
+			case Terrain.HIGH_GRASS:
+				return "巨大的蘑菇挡住了你的视线";
+			case Terrain.WALL_DECO:
+				return "在墙上可以看到一些矿物的矿脉，是黄金？";
+			default:
+				return super.tileDesc( tile );
 		}
 	}
 	

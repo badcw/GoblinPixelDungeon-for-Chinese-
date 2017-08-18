@@ -36,8 +36,8 @@ import com.watabou.utils.Random;
 
 public class Displacement extends Glyph {
 
-	private static final String TXT_DISPLACEMENT	= "%s of displacement";
-	private static final String TXT_DESCRIPTION = "This armor can teleport the wearer away from harm.";
+	private static final String TXT_DISPLACEMENT	= "转移%s";
+	private static final String TXT_DESCRIPTION = "这件护甲会把你转移到另一个地方。";
 
 	private static ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x66AAFF );
 	

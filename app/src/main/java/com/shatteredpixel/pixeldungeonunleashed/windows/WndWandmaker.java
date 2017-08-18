@@ -37,14 +37,15 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.shatteredpixel.pixeldungeonunleashed.ui.NewRedButton;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class WndWandmaker extends Window {
-	
+
 	private static final String TXT_MESSAGE	=
-		"Oh, I see you have succeeded! I do hope it hasn't troubled you too much. " +
-		"As I promised, you can choose one of my high quality wands.";
-	
-	private static final String TXT_FARAWELL	= "Good luck in your quest, %s!";
+			"噢, 我看见你成功了希望没有给你带来太多麻烦. " +
+					"作为我承诺的, 你可以选择我制作的一把高质量法杖。";
+
+	private static final String TXT_FARAWELL	= "祝你在探险中有个好运气, %s!";
 	
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;
@@ -105,7 +106,7 @@ public class WndWandmaker extends Window {
 			Dungeon.level.drop( reward, wandmaker.pos ).sprite.drop();
 		}
 		
-		wandmaker.yell( Utils.format( TXT_FARAWELL, Dungeon.hero.givenName() ) );
+		wandmaker.yell( Messages.format( TXT_FARAWELL, Dungeon.hero.givenName() ) );
 		wandmaker.destroy();
 		
 		wandmaker.sprite.die();

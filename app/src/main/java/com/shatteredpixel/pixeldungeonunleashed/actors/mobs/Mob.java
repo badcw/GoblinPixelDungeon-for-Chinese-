@@ -24,6 +24,7 @@
 package com.shatteredpixel.pixeldungeonunleashed.actors.mobs;
 
 import com.shatteredpixel.pixeldungeonunleashed.Badges;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 import com.shatteredpixel.pixeldungeonunleashed.Challenges;
 import com.shatteredpixel.pixeldungeonunleashed.Dungeon;
 import com.shatteredpixel.pixeldungeonunleashed.Statistics;
@@ -692,7 +693,7 @@ public abstract class Mob extends Char {
 
 		@Override
 		public String status() {
-			return Utils.format( "This %s is sleeping", name );
+			return Messages.format( "This %s is sleeping", name );
 		}
 	}
 
@@ -729,7 +730,7 @@ public abstract class Mob extends Char {
 
 		@Override
 		public String status() {
-			return Utils.format( "This %s is wandering", name );
+			return Messages.format( "This %s is wandering", name );
 		}
 	}
 
@@ -768,7 +769,7 @@ public abstract class Mob extends Char {
 
 		@Override
 		public String status() {
-			return Utils.format( "This %s is hunting", name );
+			return Messages.format( "This %s is hunting", name );
 		}
 	}
 
@@ -803,7 +804,7 @@ public abstract class Mob extends Char {
 
 		@Override
 		public String status() {
-			return Utils.format( "This %s is fleeing", name );
+			return Messages.format( "This %s is fleeing", name );
 		}
 	}
 
@@ -820,7 +821,7 @@ public abstract class Mob extends Char {
 
 		@Override
 		public String status() {
-			return Utils.format( "This %s is passive", name );
+			return Messages.format( "This %s is passive", name );
 		}
 	}
 }

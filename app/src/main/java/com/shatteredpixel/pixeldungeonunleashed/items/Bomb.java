@@ -42,6 +42,7 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class Bomb extends Item {
 	
@@ -151,7 +152,7 @@ public class Bomb extends Item {
 
 					if (ch == Dungeon.hero && !ch.isAlive())
 						//constant is used here in the rare instance a player is killed by a double bomb.
-						Dungeon.fail(Utils.format(ResultDescriptions.ITEM, "bomb"));
+						Dungeon.fail(Messages.format(ResultDescriptions.ITEM, "bomb"));
 				}
 			}
 		}

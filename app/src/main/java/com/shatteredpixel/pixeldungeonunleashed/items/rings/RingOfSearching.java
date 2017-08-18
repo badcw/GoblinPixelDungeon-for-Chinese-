@@ -22,7 +22,7 @@ import com.shatteredpixel.pixeldungeonunleashed.items.Item;
 public class RingOfSearching  extends Ring {
 
     {
-        name = "Ring of Searching";
+        name = "探查之戒";
         levelCap = 0;
         cursed = false;
         level = 0;
@@ -50,9 +50,9 @@ public class RingOfSearching  extends Ring {
     @Override
     public String desc() {
         return isKnown() ?
-                "When wearing this ring brings out of place things into focus "+
-                 "making searches easier. "+
-                 "A degraded ring makes it tougher to find things." :
+                "穿这个戒指时，会把注意力放在周围环境上 "+
+                        "使搜索更容易。"+
+                        "一个负等级的戒指会使佩戴者更难找到隐藏的东西" :
                 super.desc();
     }
 

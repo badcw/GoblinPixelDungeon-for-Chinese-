@@ -141,7 +141,7 @@ public abstract class Level implements Bundlable {
 	protected static final float TIME_TO_RESPAWN	= 50;
 	protected static final int PET_TICK = 1;
 	
-	private static final String TXT_HIDDEN_PLATE_CLICKS = "A hidden pressure plate clicks!";
+	private static final String TXT_HIDDEN_PLATE_CLICKS = "一个隐藏的压力板发出了响声。";
 	
 	public static boolean resizingNeeded;
 	public static int loadedMapSize;
@@ -1116,114 +1116,114 @@ public abstract class Level implements Bundlable {
 		if (tile != Terrain.CHASM && (Terrain.flags[tile] & Terrain.PIT) != 0) {
 			return tileName( Terrain.CHASM );
 		}
-		
+
 		switch (tile) {
-		case Terrain.CHASM:
-			return "Chasm";
-		case Terrain.EMPTY:
-		case Terrain.EMPTY_SP:
-		case Terrain.EMPTY_DECO:
-		case Terrain.SECRET_TRAP:
-			return "Floor";
-		case Terrain.GRASS:
-			return "Grass";
-		case Terrain.WATER:
-			return "Water";
-		case Terrain.WALL:
-		case Terrain.WALL_DECO:
-		case Terrain.SECRET_DOOR:
-			return "Wall";
-		case Terrain.DOOR:
-			return "Closed door";
-		case Terrain.OPEN_DOOR:
-			return "Open door";
-		case Terrain.ENTRANCE:
-			return "Depth entrance";
-		case Terrain.EXIT:
-			return "Depth exit";
-		case Terrain.EMBERS:
-			return "Embers";
-		case Terrain.LOCKED_DOOR:
-			return "Locked door";
-		case Terrain.PEDESTAL:
-			return "Pedestal";
-		case Terrain.BARRICADE:
-			return "Barricade";
-		case Terrain.HIGH_GRASS:
-			return "High grass";
-		case Terrain.LOCKED_EXIT:
-			return "Locked depth exit";
-		case Terrain.UNLOCKED_EXIT:
-			return "Unlocked depth exit";
-		case Terrain.SIGN:
-			return "Sign";
-		case Terrain.WELL:
-			return "Well";
-		case Terrain.EMPTY_WELL:
-			return "Empty well";
-		case Terrain.STATUE:
-		case Terrain.STATUE_SP:
-			return "Statue";
-		case Terrain.INACTIVE_TRAP:
-			return "Triggered trap";
-		case Terrain.BOOKSHELF:
-			return "Bookshelf";
-		case Terrain.EMPTY_SHELF:
-			return "Empty Bookshelf";
-		case Terrain.ALCHEMY:
-			return "Alchemy pot";
-		case Terrain.ALTAR:
-			return "Altar";
-		case Terrain.ARCHWAY:
-			return "Archway";
-		default:
-			return "???";
+			case Terrain.CHASM:
+				return "空洞";
+			case Terrain.EMPTY:
+			case Terrain.EMPTY_SP:
+			case Terrain.EMPTY_DECO:
+			case Terrain.SECRET_TRAP:
+				return "地板";
+			case Terrain.GRASS:
+				return "草";
+			case Terrain.WATER:
+				return "水";
+			case Terrain.WALL:
+			case Terrain.WALL_DECO:
+			case Terrain.SECRET_DOOR:
+				return "墙";
+			case Terrain.DOOR:
+				return "关闭的门";
+			case Terrain.OPEN_DOOR:
+				return "开着的门";
+			case Terrain.ENTRANCE:
+				return "入口";
+			case Terrain.EXIT:
+				return "出口";
+			case Terrain.EMBERS:
+				return "灰烬";
+			case Terrain.LOCKED_DOOR:
+				return "锁着的门";
+			case Terrain.PEDESTAL:
+				return "台座";
+			case Terrain.BARRICADE:
+				return "路障";
+			case Terrain.HIGH_GRASS:
+				return "高草";
+			case Terrain.LOCKED_EXIT:
+				return "锁着的楼层出口";
+			case Terrain.UNLOCKED_EXIT:
+				return "未锁着的楼层出口";
+			case Terrain.SIGN:
+				return "印记";
+			case Terrain.WELL:
+				return "井";
+			case Terrain.EMPTY_WELL:
+				return "健康之泉";
+			case Terrain.STATUE:
+			case Terrain.STATUE_SP:
+				return "雕像";
+			case Terrain.INACTIVE_TRAP:
+				return "触发的陷阱";
+			case Terrain.BOOKSHELF:
+				return "书架";
+			case Terrain.EMPTY_SHELF:
+				return "空书架";
+			case Terrain.ALCHEMY:
+				return "炼药釜";
+			case Terrain.ALTAR:
+				return "祭坛";
+			case Terrain.ARCHWAY:
+				return "拱门";
+			default:
+				return "???";
 		}
 	}
-	
+
 	public String tileDesc( int tile ) {
-		
+
 		switch (tile) {
-		case Terrain.CHASM:
-			return "You can't see the bottom.";
-		case Terrain.WATER:
-			return "In case of burning step into the water to extinguish the fire.";
-		case Terrain.ENTRANCE:
-			return "Stairs lead up to the upper depth.";
-		case Terrain.EXIT:
-		case Terrain.UNLOCKED_EXIT:
-			return "Stairs lead down to the lower depth.";
-		case Terrain.EMBERS:
-			return "Embers cover the floor.";
-		case Terrain.HIGH_GRASS:
-			return "Dense vegetation blocks the view.";
-		case Terrain.LOCKED_DOOR:
-			return "This door is locked, you need a matching key to unlock it.";
-		case Terrain.LOCKED_EXIT:
-			return "Heavy bars block the stairs leading down.";
-		case Terrain.BARRICADE:
-			return "The wooden barricade is firmly set but has dried over the years. Might it burn?";
-		case Terrain.SIGN:
-			return "You can't read the text from here.";
-		case Terrain.INACTIVE_TRAP:
-			return "The trap has been triggered before and it's not dangerous anymore.";
-		case Terrain.STATUE:
-		case Terrain.STATUE_SP:
-			return "Someone wanted to adorn this place, but failed, obviously.";
-		case Terrain.ALCHEMY:
-			return "Drop some seeds here to cook a potion.";
-		case Terrain.EMPTY_WELL:
-			return "The well has run dry.";
-		case Terrain.ALTAR:
-			return "An ancient stone Altar for Herbert.";
-		default:
-			if (tile >= Terrain.WATER_TILES) {
-				return tileDesc( Terrain.WATER );
-			}
-			if ((Terrain.flags[tile] & Terrain.PIT) != 0) {
-				return tileDesc( Terrain.CHASM );
-			}
-			return "";
+			case Terrain.CHASM:
+				return "你看不到底部。";
+			case Terrain.WATER:
+				return "如果你身上着火了，可以跳进水中灭火。";
+			case Terrain.ENTRANCE:
+				return "这个楼梯通往上一层。";
+			case Terrain.EXIT:
+			case Terrain.UNLOCKED_EXIT:
+				return "这个楼梯通往下一层。";
+			case Terrain.EMBERS:
+				return "灰烬覆盖着地板。";
+			case Terrain.HIGH_GRASS:
+				return "浓密的植被挡住了你的视线。";
+			case Terrain.LOCKED_DOOR:
+				return "这扇门是锁着的，你需要一把钥匙来打开它。";
+			case Terrain.LOCKED_EXIT:
+				return "沉重的酒桶堵住了通往下一层的楼梯。";
+			case Terrain.BARRICADE:
+				return "木栅栏依然坚固，但早已风干多年。烧了怎么样？";
+			case Terrain.SIGN:
+				return "你不能在这里读书。";
+			case Terrain.INACTIVE_TRAP:
+				return "这个陷阱已经被触发了，并且不会被再次触发。";
+			case Terrain.STATUE:
+			case Terrain.STATUE_SP:
+				return "有个人想要装饰这个地方，但显然失败了。";
+			case Terrain.ALCHEMY:
+				return "在这里扔一些种子来炼制药剂。";
+			case Terrain.EMPTY_WELL:
+				return "这个井已经干涸了。";
+			case Terrain.ALTAR:
+				return "赫伯特的一个古老的石坛。";
+			default:
+				if (tile >= Terrain.WATER_TILES) {
+					return tileDesc( Terrain.WATER );
+				}
+				if ((Terrain.flags[tile] & Terrain.PIT) != 0) {
+					return tileDesc( Terrain.CHASM );
+				}
+				return "";
 		}
 	}
 

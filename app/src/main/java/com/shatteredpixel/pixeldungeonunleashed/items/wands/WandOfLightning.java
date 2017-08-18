@@ -43,6 +43,7 @@ import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 
 public class WandOfLightning extends Wand {
 
@@ -74,7 +75,7 @@ public class WandOfLightning extends Wand {
 		}
 
 		if (!curUser.isAlive()) {
-			Dungeon.fail( Utils.format( ResultDescriptions.ITEM, name ) );
+			Dungeon.fail( Messages.format( ResultDescriptions.ITEM, name ) );
 			GLog.n( "You killed yourself with your own Wand of Lightning..." );
 		}
 	}

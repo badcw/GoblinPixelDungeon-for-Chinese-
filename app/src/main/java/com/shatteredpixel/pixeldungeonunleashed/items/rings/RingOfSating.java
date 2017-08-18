@@ -20,7 +20,7 @@ package com.shatteredpixel.pixeldungeonunleashed.items.rings;
 public class RingOfSating extends Ring {
 
     {
-        name = "Ring of Sating";
+        name = "饱足之戒";
     }
 
     @Override
@@ -31,7 +31,7 @@ public class RingOfSating extends Ring {
     @Override
     public String desc() {
         return isKnown() ?
-                "This ring allows you to go longer without food, cursed rings have the opposite effect." :
+                "这个戒指可以让你在没有食物的情况下走得更远，而诅咒的戒指会产生相反的效果。" :
                 super.desc();
     }
 

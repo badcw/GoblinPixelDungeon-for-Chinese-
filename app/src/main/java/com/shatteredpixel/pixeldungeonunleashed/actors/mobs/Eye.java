@@ -42,6 +42,7 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.CharSprite;
 import com.shatteredpixel.pixeldungeonunleashed.sprites.EyeSprite;
 import com.shatteredpixel.pixeldungeonunleashed.utils.GLog;
 import com.shatteredpixel.pixeldungeonunleashed.utils.Utils;
+import com.shatteredpixel.pixeldungeonunleashed.messages.Messages;
 import com.watabou.utils.Random;
 
 public class Eye extends Mob {
@@ -120,7 +121,7 @@ public class Eye extends Mob {
 			}
 			
 			if (hit( this, ch, true )) {
-				ch.damage( Random.NormalIntRange( dmgMin, dmgMax ), this );
+				ch.damage( Random.NormalIntRange( 14, 20 ), this );
 				
 				if (Dungeon.visible[pos]) {
 					ch.sprite.flash();
@@ -128,8 +129,8 @@ public class Eye extends Mob {
 				}
 				
 				if (!ch.isAlive() && ch == Dungeon.hero) {
-					Dungeon.fail( Utils.format( ResultDescriptions.MOB, Utils.indefinite( name ) ) );
-					GLog.n( TXT_DEATHGAZE_KILLED, name );
+					Dungeon.fail( getClass() );
+					GLog.n( Messages.get(this, "deathgaze_kill") );
 				}
 			} else {
 				ch.sprite.showStatus( CharSprite.NEUTRAL,  ch.defenseVerb() );

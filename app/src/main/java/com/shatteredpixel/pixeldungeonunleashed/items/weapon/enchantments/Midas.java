@@ -27,9 +27,9 @@ import com.shatteredpixel.pixeldungeonunleashed.sprites.ItemSprite;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 
-public class Midas  extends Weapon.Enchantment  {
+public  class Midas  extends Weapon.Enchantment  {
 
-    private static final String TXT_MIDAS	= "Midas %s";
+    private static final String TXT_MIDAS	= "财富%s";
 
     private static ItemSprite.Glowing GOLDEN = new ItemSprite.Glowing( 0xFFD700 );
 
@@ -68,7 +68,7 @@ public class Midas  extends Weapon.Enchantment  {
 
     @Override
     public String enchDesc() {
-        return "Midas weapons cause your enemies to bleed gold; a quick cut might give a handful "+
-        "of coins, but to truly grow rich you want your enemies to bleed... a lot.";
+        return "财富武器能使你的敌人掉落金币;一次快速的切击可能会给你满手的"+
+                "硬币, 但想要真的发家致富你需要你的敌人掉落...一大堆.";
     }
 }

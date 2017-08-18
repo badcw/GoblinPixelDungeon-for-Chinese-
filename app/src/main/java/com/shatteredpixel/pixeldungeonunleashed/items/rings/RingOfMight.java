@@ -27,7 +27,7 @@ package com.shatteredpixel.pixeldungeonunleashed.items.rings;
 public class RingOfMight extends Ring {
 
 	{
-		name = "Ring of Might";
+		name = "根骨戒指";
 	}
 
 	@Override
@@ -38,13 +38,14 @@ public class RingOfMight extends Ring {
 	@Override
 	public String desc() {
 		return isKnown() ?
-				"This ring enhances the physical traits of the wearer, " +
-				"granting them greater physical strength and constitution. " +
-				"A degraded ring will weaken the wearer." :
+				"这枚戒指会增强佩戴者的体质 " +
+						"使其拥有更强的力量和体格 " +
+						"负等级的戒指会让佩戴者变得虚弱" :
 				super.desc();
 	}
 
 	public class Might extends RingBuff {
 	}
 }
+
 

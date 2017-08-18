@@ -19,10 +19,13 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>
+ * along with this program.  If not, see <http://www.gnu.org/licenses/
+
+>
  */
 package com.shatteredpixel.pixeldungeonunleashed.windows;
 
+import com.shatteredpixel.pixeldungeonunleashed.GoblinsPixelDungeon;
 import com.watabou.noosa.BitmapTextMultiline;
 import com.shatteredpixel.pixeldungeonunleashed.scenes.PixelScene;
 import com.shatteredpixel.pixeldungeonunleashed.ui.RedButton;
@@ -33,13 +36,17 @@ import com.shatteredpixel.pixeldungeonunleashed.ui.RenderedTextMultiline;
 public class WndOptions extends Window {
 
 	private static final int WIDTH = 120;
-	
+	private static final int WIDTH_P = 120;
+	private static final int WIDTH_L = 144;
+
 	private static final int MARGIN 		= 2;
 	private static final int BUTTON_HEIGHT	= 20;
-	
+
 	public WndOptions( String title, String message, String... options ) {
 		super();
-		
+
+		int width = GoblinsPixelDungeon.landscape() ? WIDTH_L : WIDTH_P;
+
 		RenderedTextMultiline tfTitle = PixelScene.renderMultiline( title, 9 );
 		tfTitle.hardlight( TITLE_COLOR );
 		tfTitle.setPos(MARGIN, MARGIN);
@@ -50,9 +57,9 @@ public class WndOptions extends Window {
 		tfMesage.text(message, width - MARGIN * 2);
 		tfMesage.setPos( MARGIN, tfTitle.top() + tfTitle.height() + MARGIN );
 		add( tfMesage );
-		
+
 		float pos = tfMesage.bottom() + MARGIN;
-		
+
 		for (int i=0; i < options.length; i++) {
 			final int index = i;
 			NewRedButton btn = new NewRedButton( options[i] ) {
@@ -64,12 +71,12 @@ public class WndOptions extends Window {
 			};
 			btn.setRect( MARGIN, pos, WIDTH - MARGIN * 2, BUTTON_HEIGHT );
 			add( btn );
-			
+
 			pos += BUTTON_HEIGHT + MARGIN;
 		}
-		
+
 		resize( WIDTH, (int)pos );
 	}
-	
+
 	protected void onSelect( int index ) {};
 }

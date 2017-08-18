@@ -36,8 +36,8 @@ import com.watabou.utils.Random;
 
 public class Metabolism extends Glyph {
 
-	private static final String TXT_METABOLISM	= "%s of metabolism";
-	private static final String TXT_DESCRIPTION = "This armor can heal the defender at a cost of some personal energy.";
+	private static final String TXT_METABOLISM	= "代谢%s ";
+	private static final String TXT_DESCRIPTION = "这件护甲可以以一些个人能量为代价，来治疗装备者。";
 
 	private static ItemSprite.Glowing RED = new ItemSprite.Glowing( 0xCC0000 );
 	
